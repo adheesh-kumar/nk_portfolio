@@ -1,0 +1,54 @@
+.body-wrap {
+    display: flex;
+    flex-direction: column;
+    margin-inline: var(--bodyMargin);
+    gap: 2.5vw;
+
+}
+
+.contact-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.9vw;
+    align-items: center;
+    justify-content: space-between;
+
+    
+
+    button {
+        border-radius: 16px;
+        border: 1px solid #000;
+        background: transparent;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    }
+}
+
+
+.contact-buttons{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 36vw;
+    padding-inline: 1.85vw;
+
+    height: clamp(10rem, 19.5vw, 19.5vw);
+
+    text-align: left;
+
+    img {
+        width: 14%;
+    }
+}
+
+
+@media (max-width: 500px) {
+    .contact-options {
+        flex-wrap: nowrap;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .contact-buttons {
+        width:75%;
+    }
+}

@@ -1,0 +1,137 @@
+/* Default values and global variables */
+*{
+    /* browser resets */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scrollbar-gutter: stable;
+    scrollbar-width: none;
+
+    /* Global styling variables */
+
+        /*colors*/
+    --primaryBG: #FCF9F6;
+    --secondaryBG: #FFCAA3;
+    --primaryText: #2F2E2E;
+    --secondaryText: #FF2A00;
+
+        /*margins*/
+    --bodyMargin: clamp(2rem,11vw,12rem);
+    --maxScreenSize: 500px;
+
+    /* Default animation settings*/
+    --default-duration: 0.7s;
+
+    transition: color var(--default-duration) ease, background-color var(--default-duration) ease, -webkit-text-fill-color var(--default-duration) ease, -webkit-text-stroke-color var(--default-duration) ease;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    display: inline;
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    background: transparent;
+    border: none;
+}
+
+.forward-slash { /*for forward slash spacing on UX/UI font*/
+    letter-spacing: 0.05em;
+}
+
+
+/* IBM font*/
+@font-face {
+    font-family: "IBM Plex Sans";
+    src: url('../../fonts/IBM_Plex_Sans/IBMPlexSans-Regular.ttf');
+}
+
+
+
+
+
+/* Box and text set up*/
+body {
+    background-color: var(--primaryBG);
+}
+
+header {
+    display: flex;
+    justify-content: flex-end;
+    margin-inline: clamp(2rem, 3.125vw,4rem);
+    margin-top: clamp(1rem, 2.8vw, 3rem);
+}
+
+h1 {
+    color: var(--primaryText);
+    font: normal 700 clamp(2rem, 5.8vw, 7rem) Helvetica;
+}
+
+h2 {
+    color: var(--primaryText);
+    font: normal 400 clamp(0.75rem, 1.5vw, 2rem) "IBM Plex Sans";
+}
+
+h3 {
+    color: var(--primaryText);
+    font: normal 700 clamp(2.5rem, 8vw, 12.5rem) Helvetica;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: var(--secondaryText);
+
+    @media (max-width: 850px) { /*adjustment on outline stroke width for smaller screens*/
+        -webkit-text-stroke-width: 1px;
+    }
+    
+}
+
+p {
+    color: var(--primaryText);
+    font: normal 300 clamp(0.55rem, 1.4vw, 3rem)/clamp(1.2rem, 2.5vw, 5rem) "IBM Plex Sans"
+}
+
+
+
+
+/* open menu button -- used on all pages */
+.menu-button {
+    z-index: 999;
+    width: clamp(3rem,5.8vw,7rem); /* Responsive scaling */
+    height: clamp(3rem,5.8vw,7rem);
+    border-radius: 100%;
+    border: 1px solid var(--primaryText);
+    color: var(--primaryText);
+    background-color: transparent;
+    font: normal 400 clamp(0.7rem, 1.4vw, 2rem) "IBM Plex Sans"; /* Scalable font size */
+}
+
+.menu-button:hover {
+    background-color: var(--secondaryBG);
+}
+
+
+/* Circle transition container */
+.circle-transition {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background-color: #007BFF; /* Match button color */
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    transition: width 1s ease, height 1s ease;
+}
+
+/* Circle expands when active */
+.circle-transition.active {
+    width: 300vw; /* Large enough to cover any screen size */
+    height: 300vw;
+}

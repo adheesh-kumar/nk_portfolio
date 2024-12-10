@@ -1,0 +1,27 @@
+.hero-container {
+    background-image: url(../images/Balls.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:auto;
+    position:relative;
+    display: flex;
+    flex-direction: column;
+    padding-inline: 10.42vw;
+    
+    h1 {
+        color: var(--black);
+        font-family: Helvetica;
+        font-size: 12.5em;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 12rem; /* 96% */
+    }
+}
+
+
+.column-right {
+    padding-top: 238px;
+    display: flex;
+    justify-content: flex-end;
+    
+}

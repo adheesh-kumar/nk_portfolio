@@ -1,0 +1,21 @@
+.menu {
+    padding-left: 200px;
+}
+
+nav {
+    color: var(--menu-bg);
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: var(--red);
+    font: normal 700 100px/120px Helvetica;
+}
+
+
+
+.close-button {
+    margin-left: auto;
+    z-index: 999;
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    background-color: var(--black);
+}

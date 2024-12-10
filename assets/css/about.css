@@ -1,0 +1,102 @@
+.body-wrap {
+    margin-inline: var(--bodyMargin);
+    margin-bottom: 10%;
+}
+
+.about {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: clamp(1.5rem,2.4vw,3rem);
+    
+}
+
+.resume {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: auto;
+    gap: 1.4vw
+}
+
+.title {
+    display: flex;
+    flex-direction: row;
+    gap: 2vw;
+}
+
+.resume p {
+    font: normal clamp(0.36rem, 1.4vw, 3rem)/clamp(0.6rem, 1.8vw, 3rem) "IBM Plex Sans";
+    font-weight: 300;
+}
+
+.job-title {
+    font-weight: 600;
+}
+
+.institution {
+    font-style: italic;
+}
+
+.job-line {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5.8vw;
+}
+
+.right {
+    display: flex;
+    flex-direction: row;
+    align-items: inherit;
+    justify-content: flex-end;
+}
+
+.date {
+    width: clamp(3.7rem, 15vw, 15vw);
+    text-align: right;
+}
+
+.circle {
+    width: 1.4vw;
+    height: 1.4vw;
+    position: relative;
+    background-color: var(--primaryText);
+    border-radius: 50%; /* Makes it a perfect circle */
+}
+
+.rectangle {
+    position: absolute;
+    /* width: 0.233333vw;
+    height: 20vw;
+    top: 0.7vw;
+    left: calc(0.7vw - 0.115vw) ; */
+    background-color: var(--primaryText);
+    z-index: 1000;
+}
+
+/* .resume-highlights {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.column-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: auto;
+}
+
+.column-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: auto;
+} */
+
+
+.pdf-icon {
+    width: clamp(1.5rem,3.8vw,6rem);
+}

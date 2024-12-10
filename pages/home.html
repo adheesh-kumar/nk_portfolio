@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Naveed Khan portfolio</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/home.css">
+</head>
+
+
+
+<body>
+
+    <header>
+        <!--Menu section-->
+        <a href="menu.html"><button class="menu-button">Menu</button></a>
+    </header>
+    <div class="circle-transition" id="circleTransition"></div>
+    <!--Main display section-->
+        <div class="home-landing">
+            <div class="column-left">
+                <h1>Naveed<br>Khan</h1>
+                <h2>Toronto based - Product Designer</h2>
+            </div>
+            <div class="column-right">
+                <h3>U<span class="forward-slash">X</span>/UI</h3>
+            </div>
+        </div>
+
+    <!--Previews section-->
+
+    <script>
+        function navigateToMenu() {
+            const circle = document.getElementById('circleTransition');
+            circle.classList.add('active'); // Trigger animation
+
+            // Wait for animation to complete, then navigate
+            setTimeout(() => {
+                window.location.href = "menu.html";
+            }, 1000); // Match with animation duration
+        }
+    </script>
+</body>
+</html>

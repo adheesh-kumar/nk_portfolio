@@ -1,0 +1,45 @@
+body {
+    background-color: var(--secondaryBG);
+}
+
+.menu {
+    display: flex;
+    margin-inline: var(--bodyMargin);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.menu-button {
+    z-index: 999;
+    width: clamp(3rem,5.8vw,7rem); /* Responsive scaling */
+    height: clamp(3rem,5.8vw,7rem);
+    border-radius: 100%;
+    border: 1px solid var(--primaryText);
+    color: var(--primaryBG);
+    font: normal 400 clamp(0.7rem, 1.4vw, 2rem) "IBM Plex Sans"; /* Scalable font size */
+}
+
+.menu-button:hover {
+    background-color: var(--primaryText);
+}
+
+.close-icon {
+    width:20%
+}
+
+.column-right {
+    display: flex;
+    flex-direction: row;
+    gap: 2vw;
+    margin-top: 2%;
+    margin-bottom:10%;
+    justify-content: right;
+    color: var(--primaryText);
+    font: normal 700 clamp(1rem,2vw,2rem) "IBM Plex Sans";
+}
+
+nav a:hover {
+    -webkit-text-fill-color: var(--primaryText);
+    -webkit-text-stroke-color: var(--primaryText);
+}
