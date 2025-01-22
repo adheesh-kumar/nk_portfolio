@@ -10,22 +10,92 @@
 </head>
 
 <body>
-    <header>
-        <!--Menu section-->
-        <a href="javascript:history.back()"><button class="menu-button"><img src="../assets/images/close-icon.svg" alt="close icon" class="close-icon"></button></a>
-    </header>
-    <div class="menu">
-        <nav>
-            <h3><a href="home.html">Home</a></h3>
-            <h3><a href="#">U<span class="forward-slash">X</span>/UI Projects</a></h3>
-            <h3><a href="about.html">About</a></h3>
-            <h3><a href="#">Gallery</a></h3>
-            <h3><a href="contact.html">Contact</a></h3>
-        </nav>
+    <div id="circle-wrapper">
+        <div id="close-background"></div>
+        <div id="load-circles-here">
+            <div class="circle-pink button-placement" id="menu-circle-close"></div> 
+        </div>
+        <div class="button-placement" id="constant"></div>
+        <div class="menu-button-bg button-placement" id="close-menu-bg"></div>
+        <button class="menu-button button-placement" id="close-menu">
+            <svg id="close-icon" width="20" height="20" viewBox="0 0 20 20" fill="black" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M18.707 1.29304C19.0976 1.68357 19.0976 2.31673 18.707 2.70726L2.70712 18.7072C2.3166 19.0977 1.68343 19.0977 1.29291 18.7072C0.902384 18.3167 0.902383 17.6835 1.29291 17.293L17.2928 1.29304C17.6834 0.90252 18.3165 0.90252 18.707 1.29304Z"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M1.29295 1.29304C1.68348 0.90252 2.31664 0.90252 2.70717 1.29304L18.7071 17.293C19.0976 17.6835 19.0976 18.3167 18.7071 18.7072C18.3166 19.0977 17.6834 19.0977 17.2929 18.7072L1.29295 2.70726C0.90243 2.31673 0.90243 1.68357 1.29295 1.29304Z"/>
+            </svg>
+        </button>
+    </div>
+    <div class="body-wrapper" id="menu-body">
+        <div class="navigation">
+            <a href="home.html">Home</a>
+            <div class="dropdown">
+                <a href="#">U<span class="forward-slash">X</span>/UI Projects</a>
+                <div class="content">
+                    <a href="#">Biomiq</a>
+                    <a href="#">Route+</a>
+                    <a href="#">Sunlife</a>
+                    <a href="#">Quinde</a>
+                </div>
+            </div>
+            <a href="about.html">About</a>
+            <div class="dropdown">
+                <a href="#">Gallery</a>
+                <div class="content">
+                    <a href="#">Photography</a>
+                    <a href="#">Sketches</a>
+                    <a href="#">Video</a>
+                </div>
+            </div>
+            <a href="contact.html">Contact</a>
+        </div>
         <div class="column-right">
             <a href="#">LinkedIn</a>
             <a href="#">Instagram</a>
         </div>
     </div>
+
+    <script>
+
+        function dropdownMenu(d, c) {
+            if (!d || !c) return;
+
+            d.addEventListener('mouseover', () => {
+                const contentHeight = c.scrollHeight; // Get content's full height
+                console.log(contentHeight);
+                c.style.maxHeight = contentHeight + 'px'; // Set the dynamic max-height
+                c.style.opacity = 1; // Make it visible
+            });
+        
+            d.addEventListener('mouseleave', () => {
+                c.style.maxHeight = '0'; // Collapse the content when not hovering
+                c.style.opacity = 0; // Hide the content
+            });
+        }
+
+        const dropdown = document.querySelectorAll('.dropdown');
+        const content = document.querySelectorAll('.content');
+
+        dropdownMenu(dropdown[0].children[0], content[0]);
+        dropdownMenu(content[0], content[0]);
+        dropdownMenu(dropdown[1].children[0], content[1]);
+        dropdownMenu(content[1], content[1]);
+
+        const menuCircle = document.getElementById("menu-circle-close");
+
+        function setDiagonalSize() {
+            const vw = 2*window.innerWidth;
+            const vh = 2*window.innerHeight;
+            const diagonal = Math.sqrt(Math.pow(vw, 2) + Math.pow(vh, 2));
+
+            menuCircle.style.width = `${diagonal}px`;
+            menuCircle.style.height = `${diagonal}px`;
+        }
+
+        // Set size on load and resize
+        setDiagonalSize();
+        window.addEventListener("resize", setDiagonalSize);
+    </script>
+    <script src="../node_modules/gsap/dist/gsap.min.js"></script>
+    <script src="../assets/js/menu.js"></script>
+    <script src="../assets/js/script.js"></script>
 </body>
 </html>

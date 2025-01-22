@@ -6,6 +6,7 @@
     box-sizing: border-box;
     scrollbar-gutter: stable;
     scrollbar-width: none;
+    overscroll-behavior: none;
 
     /* Global styling variables */
 
@@ -19,6 +20,10 @@
     --bodyMargin: clamp(2rem,11vw,12rem);
     --maxScreenSize: 500px;
 
+
+    /*Button size*/
+    --base-size: clamp(2.5rem,5.8vw,7rem);
+
     /* Default animation settings*/
     --default-duration: 0.7s;
 
@@ -31,9 +36,10 @@ img {
 }
 
 a {
-    display: inline;
+    display: inline-block;
     color: inherit;
     text-decoration: none;
+    width: fit-content;
 }
 
 button {
@@ -41,19 +47,19 @@ button {
     border: none;
 }
 
-.forward-slash { /*for forward slash spacing on UX/UI font*/
+span.forward-slash { /*for forward slash spacing on UX/UI font*/
     letter-spacing: 0.05em;
 }
 
+ul {
+    list-style: none;
+}
 
 /* IBM font*/
 @font-face {
     font-family: "IBM Plex Sans";
     src: url('../../fonts/IBM_Plex_Sans/IBMPlexSans-Regular.ttf');
 }
-
-
-
 
 
 /* Box and text set up*/
@@ -97,13 +103,32 @@ p {
 }
 
 
+/*body wrapper for all main content*/
+.body-wrapper {
+    background-color: transparent;
+    opacity: 0;
+    transition: opacity var(--default-duration) ease-in-out;
+    margin-top: calc(clamp(2.5rem, 4.7vw, 6rem) + calc(var(--base-size) / 2) + 1vh);
+}
+
+.body-wrapper.visible {
+    opacity: 1;
+}
+
+
 
 
 /* open menu button -- used on all pages */
+.button-placement {
+    transform: translate(-50%, -50%);
+    left: calc(clamp(17rem, 97vw, 97vw) - calc(var(--base-size)/2));
+    top: clamp(2.5rem, 4.7vw, 6rem);
+    position: absolute;
+}
+
 .menu-button {
-    z-index: 999;
-    width: clamp(3rem,5.8vw,7rem); /* Responsive scaling */
-    height: clamp(3rem,5.8vw,7rem);
+    width: var(--base-size); /* Responsive scaling */
+    height: var(--base-size);
     border-radius: 100%;
     border: 1px solid var(--primaryText);
     color: var(--primaryText);
@@ -111,27 +136,61 @@ p {
     font: normal 400 clamp(0.7rem, 1.4vw, 2rem) "IBM Plex Sans"; /* Scalable font size */
 }
 
-.menu-button:hover {
+.menu-button #close-icon {
+    fill: var(--primaryText);
+}
+
+.menu-button:hover #close-icon {
+    fill: var(--primaryBG);
+}
+
+
+/*Circle transition styling*/
+#circle-wrapper { 
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: calc(clamp(2.5rem, 4.7vw, 6rem) + calc(var(--base-size) / 2) + 100%);
+    top: 0;
+    left: 0;
+}
+
+
+#load-circles-here{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.menu-button-bg {
+    z-index: -1;
+    border-radius: 50%;
+    width: calc(var(--base-size) - 1px); /* Adjust for 1px border */
+    height: calc(var(--base-size) - 1px);
+    opacity: 0;
+}
+
+    /*open menu bg*/
+#open-menu-bg {
     background-color: var(--secondaryBG);
 }
 
+    /*close meny bg*/
+#close-menu-bg {
+    background-color: var(--primaryText);
+}
 
-/* Circle transition container */
-.circle-transition {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background-color: #007BFF; /* Match button color */
+.circle-pink {
+    z-index: -2;
+    background-color: var(--secondaryBG);
     border-radius: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-    transition: width 1s ease, height 1s ease;
+    opacity: 0;
+}
+.circle-white {
+    z-index: -2;
+    background-color: var(--primaryBG);
+    border-radius: 50%;
+    opacity: 0;
 }
 
-/* Circle expands when active */
-.circle-transition.active {
-    width: 300vw; /* Large enough to cover any screen size */
-    height: 300vw;
-}

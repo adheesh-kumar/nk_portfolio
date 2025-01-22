@@ -11,12 +11,16 @@
 
 
 <body>
+    
+    <div id="circle-wrapper">
+        <div id="load-circles-here"></div>
+        <div class="menu-button-bg button-placement" id="open-menu-bg"></div>
+        <button class="menu-button button-placement" id="open-menu">Menu</button>
+    </div>
 
-    <header>
-        <!--Menu section-->
-        <a href="menu.html"><button class="menu-button">Menu</button></a>
-    </header>
-    <div class="circle-transition" id="circleTransition"></div>
+
+    <div class="body-wrapper">
+
     <!--Main display section-->
         <div class="home-landing">
             <div class="column-left">
@@ -30,16 +34,9 @@
 
     <!--Previews section-->
 
-    <script>
-        function navigateToMenu() {
-            const circle = document.getElementById('circleTransition');
-            circle.classList.add('active'); // Trigger animation
-
-            // Wait for animation to complete, then navigate
-            setTimeout(() => {
-                window.location.href = "menu.html";
-            }, 1000); // Match with animation duration
-        }
-    </script>
+    </div>
+    <script src="../node_modules/gsap/dist/gsap.min.js"></script>
+    <script src="../assets/js/menu.js"></script>
+    <script src="../assets/js/script.js"></script>
 </body>
 </html>
