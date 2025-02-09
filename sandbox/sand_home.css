@@ -1,0 +1,40 @@
+body {
+    background-color: pink;
+
+}
+
+/* .body-wrapper {
+    z-index: 999;
+} */
+
+.home-landing {
+    margin-inline: var(--bodyMargin);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    /*placeholder background balls until interactive animations*/
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:contain;
+
+    h1 {
+        font: normal 700 clamp(2.5rem, 11.6vw, 13rem) Helvetica;
+    }
+
+    pointer-events: none;
+}
+
+.column-right {
+    display: flex;
+    margin-top:10%;
+    justify-content: right;
+}
+
+
+#bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 5px solid blueviolet;
+}

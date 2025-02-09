@@ -4,11 +4,13 @@
     flex-direction: column;
     justify-content: space-between;
 
-    /*placeholder background balls until interactive animations*/
-    background-image: url(../images/Balls.png);
+    /*placeholder background balls until interactive animations
+    background-image: url(../images/Balls.png);*/
     background-position: center;
     background-repeat: no-repeat;
     background-size:contain;
+
+    pointer-events: none;
 
     h1 {
         font: normal 700 clamp(2.5rem, 11.6vw, 13rem) Helvetica;
@@ -19,4 +21,10 @@
     display: flex;
     margin-top:10%;
     justify-content: right;
+}
+
+#bg {
+    position: absolute;
+    top: 0;
+    left: 0;
 }

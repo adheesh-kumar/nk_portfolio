@@ -109,6 +109,9 @@ p {
     opacity: 0;
     transition: opacity var(--default-duration) ease-in-out;
     margin-top: calc(clamp(2.5rem, 4.7vw, 6rem) + calc(var(--base-size) / 2) + 1vh);
+    position: absolute;
+    width: 100%;
+    height: 100%;
 }
 
 .body-wrapper.visible {
@@ -147,7 +150,7 @@ p {
 
 /*Circle transition styling*/
 #circle-wrapper { 
-    z-index: -1;
+    /* z-index: -1; */
     position: absolute;
     width: 100%;
     height: calc(clamp(2.5rem, 4.7vw, 6rem) + calc(var(--base-size) / 2) + 100%);
