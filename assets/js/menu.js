@@ -111,8 +111,9 @@ function getFromVars(ringNum, addGap) {
 function openMenuTransition() {
 
     menuInTransition.to(document.body, {overflow:"hidden"});
+    
     //begin fading out the page content
-    menuInTransition.to(document.getElementsByClassName("body-wrapper")[0].children, {
+    menuInTransition.to([document.getElementsByClassName("body-wrapper")[0].children, '#bg'], {
         opacity:0, 
         duration: MENU_ANIMATION_DURATION, 
         delay: MENU_TRANSITION_DELAY
@@ -120,8 +121,34 @@ function openMenuTransition() {
 
     //scale and fade in the 'rings'
     for (let i = 0; i < numRings; i++) {
-        menuInTransition.fromTo("#circle-pink-"+i, getFromVars(i, false),Object.assign({}, TO_VARS),"<");
-        menuInTransition.fromTo("#circle-white-"+i, getFromVars(i, true),Object.assign({}, TO_VARS),"<"); 
+        let numer_base = RING_START + (i - 1) * RING_STEP;
+        if (i - 1 < 0)
+        {
+            numer_base = 1;
+        }
+        const numerF = numer_base + false*SCALE_GAP;
+        const numerT = numer_base + true*SCALE_GAP;
+        const denom = RING_START + i * RING_STEP;
+        menuInTransition.fromTo("#circle-pink-"+i, {
+                duration: MENU_ANIMATION_DURATION,
+                ease: MENU_EASE,
+                scale: numerF/denom,
+            }, {
+                opacity:1, 
+                scale:1, 
+                duration:MENU_ANIMATION_DURATION, 
+                ease:MENU_EASE
+            },"<");
+        menuInTransition.fromTo("#circle-white-"+i, {
+                duration: MENU_ANIMATION_DURATION,
+                ease: MENU_EASE,
+                scale: numerT/denom,
+            }, {
+                opacity:1, 
+                scale:1, 
+                duration:MENU_ANIMATION_DURATION, 
+                ease:MENU_EASE
+            },"<"); 
     }
 
     //makes the call to the menu
@@ -138,6 +165,7 @@ function closeMenuTransition(){
     const white = getComputedStyle(document.documentElement).getPropertyValue("--primaryBG").trim();
     const w = parseFloat(getComputedStyle(document.querySelector("#menu-circle-close")).width);
 
+    menuCloseTransition.to(document.documentElement, {backgroundColor:white});
     menuCloseTransition.to(document.body, {overflow:"hidden"});
     menuCloseTransition.to(document.body, {backgroundColor:white, duration:0}, "<");
     menuCloseTransition.to("#close-icon", {fill:white}, "<");

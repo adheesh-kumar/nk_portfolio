@@ -18,7 +18,9 @@ const MASS = 5;
 const RESTITUTION = 0.1;
 const FRICTION = 0.9;
 const ANGULAR_DAMP = 1;
-const LINEAR_DAMP = 0.5;
+const LINEAR_DAMP = 0.6;
+const ROUGHNESS = 0.7;
+const METALNESS = 0.2;
 
 const GRAVITY = 10;
 
@@ -47,6 +49,8 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 
 // instantiate renderer
 renderer.render(scene, camera);
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
 // instantiate physics 
 const world = new CANNON.World();
@@ -57,10 +61,32 @@ world.gravity.set(0, -1, 0); // setting minimal gravity otherwise you lose frict
 const sphereMeshes = [];
 const sphereBodies = [];
 
+const textureLoader = new THREE.TextureLoader();
+const blue = textureLoader.load(
+    '../assets/textures/blue.png',
+    () => console.log('Blue texture loaded successfully'),
+    undefined,
+    () => console.error('Error loading blue texture')
+);
+const orange = textureLoader.load('../textures/orange.png');
+const pink = textureLoader.load('../textures/pink.png');
+
+// Add a directional light for highlights and shadows
+const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+directionalLight.position.set(10, 10, 10); // Position above and to the side
+//directionalLight.castShadow = true; // Enable shadow casting
+scene.add(directionalLight);
+
+
+const colors = [0xef9786,0xACC1F9,0xACC1F9,0xEFAA86];
+let i = 0;
 for (let x = 0; x < NUM_OF_SPHERES; x++) {
-    //color placeholder
-    const randomColor = new THREE.Color(Math.random(), Math.random(), Math.random());
-    const material = new THREE.MeshStandardMaterial( { color: randomColor} );
+    i = Math.floor(Math.random() * colors.length);
+    const material = new THREE.MeshStandardMaterial( {
+        color: colors[i], 
+        roughness: ROUGHNESS, // Determines surface smoothness (lower = shinier)
+        metalness: METALNESS,
+    } );
     const sphereGeometry = new THREE.SphereGeometry(RADIUS);
     sphereMeshes.push(new THREE.Mesh(sphereGeometry, material));
     sphereMeshes[x].position.x = Math.random();
@@ -167,3 +193,8 @@ function animate() {
 }
 
 animate();
+
+window.addEventListener('resize', onWindowResize);
+function onWindowResize() {
+    window.location.reload();
+}

@@ -1,6 +1,5 @@
 .body-wrap {
-    margin-inline: var(--bodyMargin);
-    margin-bottom: 10%;
+    padding-bottom: 10%;
 }
 
 .about {

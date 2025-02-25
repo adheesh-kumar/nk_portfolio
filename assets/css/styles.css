@@ -47,8 +47,9 @@ button {
     border: none;
 }
 
-span.forward-slash { /*for forward slash spacing on UX/UI font*/
-    letter-spacing: 0.05em;
+.slash { /*for forward slash spacing on UX/UI font*/
+    display: inline;
+    letter-spacing: 5%;
 }
 
 ul {
@@ -97,6 +98,10 @@ h3 {
     
 }
 
+h4 {
+    font: normal 700 clamp(1rem, 1.8vw, 3rem) "IBM Plex Sans";
+}
+
 p {
     color: var(--primaryText);
     font: normal 300 clamp(0.55rem, 1.4vw, 3rem)/clamp(1.2rem, 2.5vw, 5rem) "IBM Plex Sans"
@@ -105,6 +110,8 @@ p {
 
 /*body wrapper for all main content*/
 .body-wrapper {
+
+    padding-inline: var(--bodyMargin);
     background-color: transparent;
     opacity: 0;
     transition: opacity var(--default-duration) ease-in-out;
@@ -189,11 +196,40 @@ p {
     background-color: var(--secondaryBG);
     border-radius: 50%;
     opacity: 0;
+    will-change: transform, opacity;
 }
 .circle-white {
     z-index: -2;
     background-color: var(--primaryBG);
     border-radius: 50%;
     opacity: 0;
+    will-change: transform, opacity;
 }
 
+
+.options-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.9vw;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 3%;
+}
+
+.option{
+    display: flex;
+    width: 36vw;
+    padding-inline: 1.85vw;
+    margin-bottom: 2%;
+    height: clamp(10rem, 19.5vw, 19.5vw);
+
+    background-color: #ffffff;
+    border-radius: 16px;
+    border: 1px solid #000;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    transition: box-shadow var(--default-duration) ease;
+}
+.option:hover{
+    
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.75);
+}

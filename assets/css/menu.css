@@ -1,10 +1,9 @@
-body {
+html {
     background-color: var(--secondaryBG);
 }
 
 #menu-body {
     display: flex;
-    margin-inline: var(--bodyMargin);
     flex-direction: column;
     justify-content: space-between;
 }
@@ -50,8 +49,7 @@ body {
     transition: opacity var(--default-duration) ease-in-out, max-height var(--default-duration) ease-in-out;
 }
 
-a:hover,
-span.a:hover {
+a:hover{
     -webkit-text-fill-color: var(--primaryText);
     -webkit-text-stroke-color: var(--primaryText);
 }

@@ -1,0 +1,4 @@
+.subtext {
+    font: normal 300 clamp(1rem,1.4vw,2rem) "IBM Plex Sans";
+    line-height: 2rem;
+}

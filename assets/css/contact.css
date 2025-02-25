@@ -1,7 +1,6 @@
 .body-wrap {
     display: flex;
     flex-direction: column;
-    margin-inline: var(--bodyMargin);
     gap: 2.5vw;
 
 }
