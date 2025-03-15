@@ -1,0 +1,93 @@
+.rows {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    width: 100%;
+}
+
+.row > img {
+    flex-grow: 1; /* Ensures all images grow equally */
+    flex-shrink: 1; /* Allow images to shrink if necessary */
+    flex-basis: 0; /* Prevents intrinsic image sizes from interfering */
+    object-fit: cover; /* Ensures images maintain aspect ratio within their space */
+    height: auto;
+    object-fit: cover; /* Maintains aspect ratio within allocated space */
+    min-width: 0; /* Prevent overflow caused by intrinsic widths */
+    max-width: 100%;
+}
+ 
+.fullscreen {
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transition: opacity var(--default-duration) ease-in-out;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--primaryBG);
+    pointer-events: none;
+}
+
+.fullscreen.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#fullscreenPhotos {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+#photos {
+    display: flex;
+    justify-content: center;
+    width: 77%;
+    height: 75%;
+}
+
+#photos > img {
+    object-fit: cover;
+}
+
+
+.arrows {
+    transition: opacity var(--default-duration) ease-in-out;
+    opacity: 0.5;
+}
+
+.arrows:hover, .arrows:focus {
+    opacity: 1;
+}
+
+
+.button {
+    transition: opacity var(--default-duration) ease-in-out;
+    width: var(--base-size); /* Responsive scaling */
+    height: var(--base-size);
+    border-radius: 100%;
+    border: 1px solid var(--primaryText);
+    background-color: transparent;
+    opacity: 0.5;
+
+    transform: translate(-50%, -50%);
+    left: calc(clamp(17rem, 97vw, 97vw) - calc(var(--base-size)/2));
+    top: clamp(2.5rem, 4.7vw, 6rem);
+    position: absolute;
+}
+
+
+.button:hover, .button:focus {
+    opacity: 1;
+}

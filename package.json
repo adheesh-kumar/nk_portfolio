@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "cannon-es": "^0.20.0",
+    "flickity": "^3.0.0",
     "gsap": "^3.12.5",
     "three": "^0.172.0"
   },

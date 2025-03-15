@@ -25,12 +25,11 @@
 }
 
 .resume p {
-    font: normal clamp(0.36rem, 1.4vw, 3rem)/clamp(0.6rem, 1.8vw, 3rem) "IBM Plex Sans";
-    font-weight: 300;
+    font: normal clamp(0.36rem, 1.4vw, 3rem)/clamp(0.6rem, 1.8vw, 3rem) "ibmPlexSansLight";
 }
 
 .job-title {
-    font-weight: 600;
+    font-family: "ibmPlexSansBold";
 }
 
 .institution {

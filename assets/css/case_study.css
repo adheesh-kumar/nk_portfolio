@@ -1,4 +1,19 @@
+
 .subtext {
-    font: normal 300 clamp(1rem,1.4vw,2rem) "IBM Plex Sans";
+    font: normal 300 clamp(1rem,1.4vw,2rem) "ibmPlexSansLight";
     line-height: 2rem;
+}
+
+.flickity-button:focus {
+    outline: none;
+    box-shadow: none;
+  }
+  
+
+  .main-carousel {
+    height: 45vh;
+    background-color: black;
+}
+.carousel-cell {
+    height: 100%;
 }

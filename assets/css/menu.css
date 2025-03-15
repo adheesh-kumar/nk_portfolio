@@ -28,6 +28,7 @@ html {
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: var(--secondaryText);
+    
 
     @media (max-width: 850px) { /*adjustment on outline stroke width for smaller screens*/
         -webkit-text-stroke-width: 1px;
@@ -45,13 +46,24 @@ html {
     flex-direction: column;
     margin-left: 15%;
     width:fit-content;
-    padding-inline: 5%;
+    padding-inline: 2%;
     transition: opacity var(--default-duration) ease-in-out, max-height var(--default-duration) ease-in-out;
 }
 
-a:hover{
+a {
+    transition:  -webkit-text-fill-color var(--default-duration) ease, -webkit-text-stroke-color var(--default-duration) ease;
+}
+
+a:hover, a:focus{
     -webkit-text-fill-color: var(--primaryText);
     -webkit-text-stroke-color: var(--primaryText);
+}
+
+a:visited {
+    font: normal 700 clamp(2.5rem, 8vw, 12.5rem) Helvetica;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: var(--secondaryText);
 }
 
 

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videography and 3D Design - Gallery</title> 
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/case_study.css">
+    <link rel="stylesheet" href="../assets/css/gallery.css">
+    <link href="../fonts/IBM_Plex_Sans/IBMPlexSans-Regular.ttf">
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.jpg">
+</head>
+
+<body>
+
+    <div id="circle-wrapper">
+        <div id="load-circles-here"></div>
+        <div class="menu-button-bg button-placement" id="open-menu-bg"></div>
+        <button class="menu-button button-placement" id="open-menu">Menu</button>
+    </div>
+    
+    <div class="body-wrapper">
+        <h1>Videography & 3D Design</h1>
+        <div class="subtext" style="margin-top: 1%;">
+            Bringing my creative vision to life in every frame
+        </div>
+        <div class="rows" style="margin-top: 5%;">
+            <div style="height: 50%; width: 50%;">
+                <img src="../assets/images/video+3Ddesign/Video-in-Website-Videos-Google-Photos.png" alt="">
+                <h4>Radial Glass</h4>
+                <div class="subtext" style="margin-top: 1%;">
+                    Watch as light interacts with the curves and patterns, creating depth and dimension. 
+                </div>
+            </div>
+            <div style="padding-top: 5%; padding-bottom: 5%; height: 50%; width: 50%;">
+                <img src="../assets/images/video+3Ddesign/DSC01509~2.png" alt="">
+                <h4>Diary Entry</h4>
+                <div class="subtext" style="margin-top: 1%;">
+                    Follow the story of my move from Toronto, Ontario to British Columbia. 
+                </div>
+            </div>
+            <div style="height: 50%; width: 50%;">
+                <img src="../assets/images/video+3Ddesign/DSC01509~2.png" alt="">
+                <h4>Hornets (Proof of Concept) </h4>
+                <div class="subtext" style="margin-top: 1%;">
+                    Pay attention to the exposure levels and lighting, shot on a Canon C300 with Cinema lenses.  
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="fullscreen">
+        <div>
+            <button class="button" onclick="closeFs()">
+                <svg id="close-icon" width="20" height="20" viewBox="0 0 20 20" fill="black" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M18.707 1.29304C19.0976 1.68357 19.0976 2.31673 18.707 2.70726L2.70712 18.7072C2.3166 19.0977 1.68343 19.0977 1.29291 18.7072C0.902384 18.3167 0.902383 17.6835 1.29291 17.293L17.2928 1.29304C17.6834 0.90252 18.3165 0.90252 18.707 1.29304Z"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M1.29295 1.29304C1.68348 0.90252 2.31664 0.90252 2.70717 1.29304L18.7071 17.293C19.0976 17.6835 19.0976 18.3167 18.7071 18.7072C18.3166 19.0977 17.6834 19.0977 17.2929 18.7072L1.29295 2.70726C0.90243 2.31673 0.90243 1.68357 1.29295 1.29304Z"/>
+                </svg>
+            </button>
+        </div>
+        <div id="fullscreenPhotos">
+            <img class="arrows" src="../assets/images/prevIcon.svg" alt="" style="margin-left: 4.3vw;" onclick="prev()">
+            <div id="photos">
+
+            </div>
+            <img class="arrows" src="../assets/images/prevIcon.svg" alt="" style="margin-right: 4.3vw; transform: scaleX(-1);" onclick="next()">
+        </div>
+    </div>
+    
+
+
+    <script src="../node_modules/gsap/dist/gsap.min.js"></script>
+    <script src="../assets/js/menu.js"></script>
+    <script src="../assets/js/script.js"></script>
+</body>
+
+<script>
+    // Select all <img> elements inside the .rows container
+    const images = Array.from(document.querySelectorAll('.rows img')).map(image => "..".concat(image.src.substring(image.src.indexOf("/assets"))).replaceAll("%20", "\ "));
+    var curIndex = 0;
+
+    function myFoo(img) {
+        const fs = document.createElement("img");
+        curIndex = images.indexOf(img.getAttribute("src"));
+        console.log(curIndex);
+        fs.setAttribute("src", images[curIndex]);
+        const fsParent = document.getElementsByClassName("fullscreen")[0];
+        const bw = document.getElementsByClassName("body-wrapper")[0];
+        const photos = document.getElementById("photos");
+        photos.replaceChildren(fs);
+        bw.classList.remove("visible");
+        fsParent.classList.add("active");
+    };
+
+    function closeFs() {
+        const fsParent = document.getElementsByClassName("fullscreen")[0];
+        const bw = document.getElementsByClassName("body-wrapper")[0];
+        fsParent.classList.remove("active");
+        bw.classList.add("visible");
+
+    };
+
+    function setPhoto() {
+        const photos = document.getElementById("photos");
+        photos.children[0].setAttribute("src", images[curIndex]);
+    }
+    function next() {
+        curIndex++;
+        if (curIndex >= images.length) {
+            curIndex = 0;
+        }
+
+        setPhoto();
+    }
+
+
+    function prev() {
+        curIndex--;
+        if (curIndex < 0) {
+            curIndex = images.length - 1;
+        }
+
+        setPhoto();
+    }
+</script>
+</html>
+

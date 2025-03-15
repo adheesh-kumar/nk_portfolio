@@ -188,7 +188,7 @@ function closeMenuTransition(){
 
     menuCloseTransition.call(
         () => {
-            window.history.back();
+            history.back();
         }
     );
 }
