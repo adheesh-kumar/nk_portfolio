@@ -61,16 +61,6 @@ world.gravity.set(0, -1, 0); // setting minimal gravity otherwise you lose frict
 const sphereMeshes = [];
 const sphereBodies = [];
 
-const textureLoader = new THREE.TextureLoader();
-const blue = textureLoader.load(
-    '../assets/textures/blue.png',
-    () => console.log('Blue texture loaded successfully'),
-    undefined,
-    () => console.error('Error loading blue texture')
-);
-const orange = textureLoader.load('../textures/orange.png');
-const pink = textureLoader.load('../textures/pink.png');
-
 // Add a directional light for highlights and shadows
 const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
 directionalLight.position.set(10, 10, 10); // Position above and to the side

@@ -1,0 +1,92 @@
+html {
+    background-color: var(--secondaryBG);
+}
+
+#menu-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.column-right {
+    display: flex;
+    flex-direction: row;
+    gap: 2vw;
+    margin-top: 2%;
+    margin-bottom:10%;
+    justify-content: right;
+    color: var(--primaryText);
+    font: normal 700 clamp(1rem,2vw,2rem) "IBM Plex Sans";
+}
+
+.navigation {
+    display: flex;
+    flex-direction: column;
+    
+    color: var(--primaryText);
+    font: normal 700 clamp(2.5rem, 8vw, 12.5rem) Helvetica;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: var(--secondaryText);
+    
+
+    @media (max-width: 850px) { /*adjustment on outline stroke width for smaller screens*/
+        -webkit-text-stroke-width: 1px;
+    }
+
+    width:fit-content;
+}
+
+.content {
+    /*background-color: aquamarine;*/
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    margin-left: 15%;
+    width:fit-content;
+    padding-inline: 2%;
+    transition: opacity var(--default-duration) ease-in-out, max-height var(--default-duration) ease-in-out;
+}
+
+a {
+    transition:  -webkit-text-fill-color var(--default-duration) ease, -webkit-text-stroke-color var(--default-duration) ease;
+}
+
+a:hover, a:focus{
+    -webkit-text-fill-color: var(--primaryText);
+    -webkit-text-stroke-color: var(--primaryText);
+}
+
+a:visited {
+    font: normal 700 clamp(2.5rem, 8vw, 12.5rem) Helvetica;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: var(--secondaryText);
+}
+
+
+/*circle transition styling*/
+#close-background {
+    position: inherit;
+    width: inherit;
+    height: 100%;
+    top: inherit;
+    left: inherit;
+    background-color: var(--primaryText);
+    z-index: inherit;
+}
+
+#menu-circle-close {
+    z-index: 0;
+    opacity: 1;
+}
+
+#constant {
+    border-radius: 50%;
+    width: calc(var(--base-size) - 2px); /* Adjust for 1px border */
+    height: calc(var(--base-size) - 2px);
+    background-color: var(--primaryBG);
+    opacity: 1;
+}
