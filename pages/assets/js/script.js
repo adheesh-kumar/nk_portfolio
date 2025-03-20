@@ -4,6 +4,7 @@ window.addEventListener("pageshow",
         document.body.style.overflow = "auto";
 
         const element = document.getElementsByClassName("body-wrapper")[0];
+        element.classList.remove("visible");
         const body = element.children;
 
         for (i = 0; i < body.length; i++)
@@ -38,18 +39,6 @@ window.addEventListener("pageshow",
             if (pinks.children[i].id != 'menu-circle-close') pinks.children[i].style.opacity = '0';
         }
 
-
+        //addVisible();
         element.classList.add("visible");
     });
-
-/*
-// Fade in for every page on load
-window.addEventListener("load", 
-    function() {
-        const element = document.getElementsByClassName("body-wrapper")[0];
-        
-
-        
-        element.classList.add("visible");
-    });
-*/
