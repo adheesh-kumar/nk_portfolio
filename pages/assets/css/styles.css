@@ -45,6 +45,7 @@ a {
 button {
     background: transparent;
     border: none;
+    cursor: pointer;
 }
 
 .slash { /*for forward slash spacing on UX/UI font*/
@@ -118,6 +119,12 @@ p {
 }
 
 
+.subtext {
+    font: normal 300 clamp(1rem,1.4vw,2rem) "ibmPlexSansLight";
+    line-height: 2rem;
+}
+
+
 /*body wrapper for all main content*/
 .body-wrapper {
 
@@ -154,6 +161,7 @@ p {
     border: 1px solid var(--primaryText);
     color: var(--primaryText);
     background-color: transparent;
+    pointer-events: all;
     font: normal 400 clamp(0.7rem, 1.4vw, 2rem) "IBM Plex Sans"; /* Scalable font size */
 }
 
@@ -185,11 +193,11 @@ p {
 }
 
 .menu-button-bg {
-    z-index: -1;
+    /* z-index: -1; */
     border-radius: 50%;
     width: calc(var(--base-size) - 1px); /* Adjust for 1px border */
     height: calc(var(--base-size) - 1px);
-    opacity: 0;
+    /* opacity: 0; */
 }
 
     /*open menu bg*/

@@ -21,6 +21,7 @@
     object-fit: cover; /* Maintains aspect ratio within allocated space */
     min-width: 0; /* Prevent overflow caused by intrinsic widths */
     max-width: 100%;
+    cursor: pointer;
 }
  
 .fullscreen {
@@ -65,6 +66,7 @@
 .arrows {
     transition: opacity var(--default-duration) ease-in-out;
     opacity: 0.5;
+    cursor: pointer;
 }
 
 .arrows:hover, .arrows:focus {

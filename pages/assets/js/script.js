@@ -1,3 +1,4 @@
+
 // Fade in for every page on load
 window.addEventListener("pageshow", 
     function() {
@@ -24,6 +25,7 @@ window.addEventListener("pageshow",
         if (checkOpen)
         {
             checkOpen.style.opacity = "0";
+            checkOpen.style.zIndex = '-1';
         }
 
 
@@ -38,6 +40,8 @@ window.addEventListener("pageshow",
         {
             if (pinks.children[i].id != 'menu-circle-close') pinks.children[i].style.opacity = '0';
         }
+
+
 
         //addVisible();
         element.classList.add("visible");
