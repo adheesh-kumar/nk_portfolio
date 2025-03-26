@@ -7,7 +7,7 @@ const aspect = window.innerWidth / window.innerHeight;
 const Z_POS = 30;
 const GROUND_DEPTH = -5;
 
-
+console.log(window.innerWidth);
 
 // INTERACTIVE ANIMATION - MODIFIABLE PARAMETERS
 

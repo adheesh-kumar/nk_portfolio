@@ -121,7 +121,7 @@ p {
 
 .subtext {
     font: normal 300 clamp(1rem,1.4vw,2rem) "ibmPlexSansLight";
-    line-height: 2rem;
+    line-height: clamp(1.3rem, 2vw ,2rem);
 }
 
 
@@ -230,15 +230,19 @@ p {
     display: flex;
     flex-wrap: wrap;
     gap: 2.9vw;
-    align-items: center;
     justify-content: space-between;
     padding-top: 3%;
+
+
+    @media (max-width: 715px) { /*adjustment on outline stroke width for smaller screens*/
+        justify-content: center;
+    }
 }
 
 .option{
     display: flex;
     justify-content: center;
-    width: 36vw;
+    width: max(36vw, 30vh);
     padding-inline: 1.85vw;
     margin-bottom: 2%;
     height: clamp(10rem, 19.5vw, 19.5vw);
