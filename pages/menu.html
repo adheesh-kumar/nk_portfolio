@@ -77,10 +77,13 @@
         const dropdown = document.querySelectorAll('.dropdown');
         const content = document.querySelectorAll('.content');
 
-        dropdownMenu(dropdown[0].children[0], content[0]);
-        dropdownMenu(content[0], content[0]);
-        dropdownMenu(dropdown[1].children[0], content[1]);
-        dropdownMenu(content[1], content[1]);
+        const width = visualViewport.width;
+        if(width > 715) {
+            dropdownMenu(dropdown[0].children[0], content[0]);
+            dropdownMenu(content[0], content[0]);
+            dropdownMenu(dropdown[1].children[0], content[1]);
+            dropdownMenu(content[1], content[1]);
+        }
 
         const menuCircle = document.getElementById("menu-circle-close");
 

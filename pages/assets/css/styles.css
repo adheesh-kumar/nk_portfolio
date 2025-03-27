@@ -103,7 +103,7 @@ h3 {
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: var(--secondaryText);
 
-    @media (max-width: 850px) { /*adjustment on outline stroke width for smaller screens*/
+    @media (max-width: 715px) { /*adjustment on outline stroke width for smaller screens*/
         -webkit-text-stroke-width: 1px;
     }
     
@@ -115,7 +115,7 @@ h4 {
 
 p {
     color: var(--primaryText);
-    font: normal 300 clamp(0.55rem, 1.4vw, 3rem)/clamp(1.2rem, 2.5vw, 5rem) "IBM Plex Sans"
+    font: normal 300 clamp(0.55rem, 1.4vw, 3rem) "IBM Plex Sans"
 }
 
 

@@ -1,18 +1,14 @@
 .home-landing {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
 
-    /*placeholder background balls until interactive animations
-    background-image: url(../images/Balls.png);*/
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size:contain;
+    min-height: 80vh;
 
     pointer-events: none;
 
     h1 {
-        font: normal 700 clamp(2.5rem, 11.6vw, 13rem) Helvetica;
+        font: normal 700 clamp(4rem, 11.6vw, 13rem) Helvetica;
     }
 }
 

@@ -22,16 +22,20 @@ html {
 .navigation {
     display: flex;
     flex-direction: column;
+    min-height: 80vh;
     
     color: var(--primaryText);
-    font: normal 700 clamp(2.5rem, 8vw, 12.5rem) Helvetica;
+    font: normal 700 clamp(4rem, 8vw, 12.5rem) Helvetica;
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: var(--secondaryText);
     
 
-    @media (max-width: 850px) { /*adjustment on outline stroke width for smaller screens*/
-        -webkit-text-stroke-width: 1px;
+    @media (max-width: 715px) { /*adjustment on outline stroke width for smaller screens*/
+        color: var(--primaryText);
+        -webkit-text-fill-color: var(--primaryText);
+        -webkit-text-stroke-width: 2px;
+        -webkit-text-stroke-color: var(--primaryText);
     }
 
     width:fit-content;
@@ -54,18 +58,27 @@ a {
     transition:  -webkit-text-fill-color var(--default-duration) ease, -webkit-text-stroke-color var(--default-duration) ease;
 }
 
-a:hover, a:focus{
-    -webkit-text-fill-color: var(--primaryText);
-    -webkit-text-stroke-color: var(--primaryText);
-}
 
 a:visited {
-    font: normal 700 clamp(2.5rem, 8vw, 12.5rem) Helvetica;
+    font: normal 700 clamp(4rem, 8vw, 12.5rem) Helvetica;
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: var(--secondaryText);
+
+
+    @media (max-width: 715px) { /*adjustment on outline stroke width for smaller screens*/
+        color: var(--primaryText);
+        -webkit-text-fill-color: var(--primaryText);
+        -webkit-text-stroke-width: 2px;
+        -webkit-text-stroke-color: var(--primaryText);
+    }
 }
 
+a:hover, a:focus{
+    -webkit-text-fill-color: var(--primaryText);
+    -webkit-text-stroke-color: var(--primaryText);
+
+}
 
 /*circle transition styling*/
 #close-background {
