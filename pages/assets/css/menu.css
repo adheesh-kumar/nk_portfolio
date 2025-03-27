@@ -37,7 +37,7 @@ html {
         -webkit-text-stroke-width: 2px;
         -webkit-text-stroke-color: var(--primaryText);
         gap: 30px;
-        opacity: 75%;
+        opacity: 85%;
     }
 
     width:fit-content;
