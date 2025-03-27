@@ -36,6 +36,8 @@ html {
         -webkit-text-fill-color: var(--primaryText);
         -webkit-text-stroke-width: 2px;
         -webkit-text-stroke-color: var(--primaryText);
+        gap: 10px;
+        opacity: 75%;
     }
 
     width:fit-content;
