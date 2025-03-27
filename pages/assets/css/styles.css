@@ -233,10 +233,6 @@ p {
     justify-content: space-between;
     padding-top: 3%;
 
-
-    @media (max-width: 715px) { /*adjustment on outline stroke width for smaller screens*/
-        justify-content: center;
-    }
 }
 
 .option{
