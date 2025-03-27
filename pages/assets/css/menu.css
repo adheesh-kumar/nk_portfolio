@@ -36,7 +36,7 @@ html {
         -webkit-text-fill-color: var(--primaryText);
         -webkit-text-stroke-width: 2px;
         -webkit-text-stroke-color: var(--primaryText);
-        gap: 10px;
+        gap: 30px;
         opacity: 75%;
     }
 
