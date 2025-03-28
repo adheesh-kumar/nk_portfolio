@@ -26,19 +26,19 @@ html {
     
     color: var(--primaryText);
     font: normal 700 clamp(4rem, 8vw, 12.5rem) Helvetica;
-    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: var(--primaryBG);
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: var(--secondaryText);
     
 
-    @media (max-width: 715px) { /*adjustment on outline stroke width for smaller screens*/
+    /* @media (max-width: 715px) { /*adjustment on outline stroke width for smaller screens
         color: var(--primaryText);
         -webkit-text-fill-color: var(--primaryText);
         -webkit-text-stroke-width: 2px;
         -webkit-text-stroke-color: var(--primaryText);
         gap: 30px;
         opacity: 85%;
-    }
+    } */
 
     width:fit-content;
 }
@@ -68,12 +68,12 @@ a:visited {
     -webkit-text-stroke-color: var(--secondaryText);
 
 
-    @media (max-width: 715px) { /*adjustment on outline stroke width for smaller screens*/
+    /* @media (max-width: 715px) { /*adjustment on outline stroke width for smaller screens
         color: var(--primaryText);
         -webkit-text-fill-color: var(--primaryText);
         -webkit-text-stroke-width: 2px;
         -webkit-text-stroke-color: var(--primaryText);
-    }
+    } */
 }
 
 a:hover, a:focus{

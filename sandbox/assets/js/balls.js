@@ -149,39 +149,18 @@ let mousePosition = new CANNON.Vec3();
 let previousMousePosition = new CANNON.Vec3();
 let mouseSpeed = 0;
 
-let isInteracting = false;
-
-// Touch events (mobile)
-window.addEventListener("touchstart", (event) => {
-    isInteracting = true; // Start interaction
-    const touch = event.touches[0];
-    console.log(`Touch started at: ${touch.clientX}, ${touch.clientY}`);
-    interaction(touch.clientX, touch.clientY);
-});
-
-window.addEventListener("touchend", () => {
-    console.log("Touch ended, interaction disengaged.");
-});
-
-
-
 window.addEventListener("mousemove", (event) => {
-    if (!isInteracting) return;
-    console.log('im here');
-    interaction(event.clientX, event.clientY);
-});
-
-function interaction(x, y) {
-    const normalizedX = (x / window.innerWidth) * 2 - 1;
-    const normalizedY = -(y / window.innerHeight) * 2 + 1;
+    const normalizedX = (event.clientX / window.innerWidth) * 2 - 1;
+    const normalizedY = -(event.clientY / window.innerHeight) * 2 + 1;
 
     // Update mouse position
     
     mousePosition.set(normalizedX * 50, normalizedY * 50, 0); // Scale to fit your scene dimensions
     mouseSpeed = mousePosition.distanceTo(previousMousePosition); // Calculate movement speed
     previousMousePosition.copy(mousePosition);
-};
 
+
+});
 
 
 function animate() {
@@ -205,14 +184,7 @@ function animate() {
 
 animate();
 
-addEventListener("resize", () => {
-    const aspect = window.innerWidth / window.innerHeight;
-
-    camera.left = -aspect * ORTH_CAMERA;
-    camera.right = aspect * ORTH_CAMERA;
-    camera.top = ORTH_CAMERA;
-    camera.bottom = -ORTH_CAMERA;
-    camera.updateProjectionMatrix();
-
-    renderer.setSize(window.innerWidth, window.innerHeight);
-});
+window.addEventListener('resize', onWindowResize);
+function onWindowResize() {
+    window.location.reload();
+}
