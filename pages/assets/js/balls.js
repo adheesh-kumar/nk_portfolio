@@ -122,6 +122,7 @@ world.addEventListener('postStep', function () {
         s.applyLocalForce(gravity);
     })
 
+    if (!isInteracting) return;
     //apply force based n mouse position
     sphereBodies.forEach((s) => {
         const direction = new CANNON.Vec3(); // Direction vector
@@ -142,6 +143,8 @@ world.addEventListener('postStep', function () {
             s.applyImpulse(direction, s.position); // Apply force as an impulse
         }
     });
+
+    isInteracting = false;
 })
 
 
@@ -159,14 +162,10 @@ window.addEventListener("touchstart", (event) => {
     interaction(touch.clientX, touch.clientY);
 });
 
-window.addEventListener("touchend", () => {
-    console.log("Touch ended, interaction disengaged.");
-});
-
 
 
 window.addEventListener("mousemove", (event) => {
-    if (!isInteracting) return;
+    isInteracting = true; 
     console.log('im here');
     interaction(event.clientX, event.clientY);
 });

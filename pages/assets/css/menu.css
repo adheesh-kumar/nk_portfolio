@@ -26,7 +26,7 @@ html {
     
     color: var(--primaryText);
     font: normal 700 clamp(4rem, 8vw, 12.5rem) Helvetica;
-    -webkit-text-fill-color: var(--primaryBG);
+    -webkit-text-fill-color: var(--secondaryBG);
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: var(--secondaryText);
     
@@ -63,7 +63,7 @@ a {
 
 a:visited {
     font: normal 700 clamp(4rem, 8vw, 12.5rem) Helvetica;
-    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: var(--secondaryBG);
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: var(--secondaryText);
 
