@@ -31,7 +31,7 @@ html {
     -webkit-text-stroke-color: var(--secondaryText);
     
 
-    @media (max-width: 715px) { /*adjustment on outline stroke width for smaller screens*/
+    @media (max-width: 715px), (max-height: 715px) { /*adjustment on outline stroke width for smaller screens*/
         color: var(--primaryText);
         -webkit-text-fill-color: var(--primaryText);
         -webkit-text-stroke-width: 2px;
@@ -68,7 +68,7 @@ a:visited {
     -webkit-text-stroke-color: var(--secondaryText);
 
 
-    @media (max-width: 715px) { /*adjustment on outline stroke width for smaller screens */
+    @media (max-width: 715px), (max-height: 715px) { /*adjustment on outline stroke width for smaller screens */
         color: var(--primaryText);
         -webkit-text-fill-color: var(--primaryText);
         -webkit-text-stroke-width: 2px;

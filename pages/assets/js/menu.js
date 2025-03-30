@@ -110,10 +110,15 @@ function getFromVars(ringNum, addGap) {
 //function to perform the menu page transition and navigate to the menu page
 function openMenuTransition() {
 
+    balls = document.getElementById("balls");
+    console.log(balls);
+    balls.classList.remove("visible");
+    console.log(balls);
+
     menuInTransition.to(document.body, {overflow:"hidden"});
     
     //begin fading out the page content
-    menuInTransition.to([document.getElementsByClassName("body-wrapper")[0].children, '#bg'], {
+    menuInTransition.to([document.getElementsByClassName("body-wrapper")[0].children, '#bg', '#balls'], {
         opacity:0, 
         duration: MENU_ANIMATION_DURATION, 
         delay: MENU_TRANSITION_DELAY

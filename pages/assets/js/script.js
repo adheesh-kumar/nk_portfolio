@@ -20,6 +20,8 @@ window.addEventListener("pageshow",
             checkBg.style.opacity = "1";
         }
 
+
+
         const checkOpen = document.getElementById("open-menu-bg");
 
         if (checkOpen)
@@ -39,6 +41,15 @@ window.addEventListener("pageshow",
         for (i = 0; i < numCircles; i++)
         {
             if (pinks.children[i].id != 'menu-circle-close') pinks.children[i].style.opacity = '0';
+        }
+
+
+        const checkBalls = document.getElementById("balls");
+
+        if (checkBalls)
+        {
+            console.log('im hereeee');
+            checkBalls.classList.add("visible");
         }
 
 

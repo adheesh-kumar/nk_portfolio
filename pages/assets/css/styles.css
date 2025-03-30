@@ -139,7 +139,13 @@ p {
     min-height: 100%;
 }
 
-.body-wrapper.visible {
+.balls {
+    position: absolute; 
+    opacity: 0; 
+    transition: opacity var(--default-duration) ease-in-out;
+}
+
+.visible {
     opacity: 1;
 }
 
