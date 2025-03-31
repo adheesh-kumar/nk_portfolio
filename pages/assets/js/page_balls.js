@@ -87,7 +87,7 @@ function drawBalls()
         const sphereGeometry = new THREE.SphereGeometry(RADIUS + (Math.random() * bigSmall[x]));
         const ball = new THREE.Mesh(sphereGeometry, material);
         ball.position.x = xPos[x]; + Math.random() * (right-left)/15;
-        ball.position.y = yPos[x] + Math.random() * (right-left)/15;
+        ball.position.y = yPos[x] + Math.random();
         ball.position.z = 0;
         ball.castShadow = true;
         ball.receiveShadow = true;
