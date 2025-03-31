@@ -140,9 +140,8 @@ p {
 }
 
 .balls {
-    position: absolute; 
-    opacity: 0; 
-    transition: opacity var(--default-duration) ease-in-out;
+    position: absolute;
+    opacity: 0;
 }
 
 .visible {

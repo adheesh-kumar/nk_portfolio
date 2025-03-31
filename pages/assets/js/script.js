@@ -48,8 +48,7 @@ window.addEventListener("pageshow",
 
         if (checkBalls)
         {
-            console.log('im hereeee');
-            checkBalls.classList.add("visible");
+            checkBalls.style.opacity = "1";
         }
 
 
