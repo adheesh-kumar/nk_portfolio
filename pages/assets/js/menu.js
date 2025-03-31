@@ -111,9 +111,11 @@ function getFromVars(ringNum, addGap) {
 function openMenuTransition() {
 
     balls = document.getElementById("balls");
-    console.log(balls);
-    balls.classList.remove("visible");
-    console.log(balls);
+
+    if(balls)
+    {
+        balls.classList.remove("visible");
+    }
 
     menuInTransition.to(document.body, {overflow:"hidden"});
     
