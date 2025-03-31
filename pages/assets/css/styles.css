@@ -141,7 +141,6 @@ p {
 
 .balls {
     position: absolute;
-    opacity: 0;
 }
 
 .visible {
