@@ -75,7 +75,7 @@ function drawBalls()
     }
 
     const xPos = [left, right - pers, left, right, right];
-    const yPos = [top, top - pers, (top + bottom)/2, (top + bottom)/2, bottom];
+    const yPos = [top, top - pers, (top + bottom)/2, (top + bottom)/2, bottom + bigSmall[4] + RADIUS];
     const colors = [0xef9786,0xACC1F9,0xEFAA86];
     for (let x = 0; x < 5; x++) {
         const i = Math.floor(Math.random() * colors.length);
@@ -87,7 +87,7 @@ function drawBalls()
         const sphereGeometry = new THREE.SphereGeometry(RADIUS + (Math.random() * bigSmall[x]));
         const ball = new THREE.Mesh(sphereGeometry, material);
         ball.position.x = xPos[x]; + Math.random() * (right-left)/15;
-        ball.position.y = yPos[x] + Math.random();
+        ball.position.y = yPos[x] + Math.random() * (right-left)/15;
         ball.position.z = 0;
         ball.castShadow = true;
         ball.receiveShadow = true;
