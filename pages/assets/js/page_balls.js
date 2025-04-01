@@ -1,8 +1,12 @@
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.154.0/build/three.module.js'; //'three' //
 
+
+let width = window.visualViewport.width;
+let height = window.visualViewport.height;
+
 // SCENE PARAMETERS
 const ORTH_CAMERA = 10;
-const aspect = window.innerWidth / window.innerHeight;
+const aspect = width / height;
 const Z_POS = 30;
 
 
@@ -22,7 +26,7 @@ scene.add(ambientLight);
 
 let pers = 1;
 
-if (window.innerWidth > window.innerHeight)
+if (width > height)
 {
     pers = 2;
 }
@@ -39,7 +43,7 @@ const renderer = new THREE.WebGLRenderer({
     alpha: true
 });
 renderer.setPixelRatio(window.devicePixelRatio);
-renderer.setSize(window.innerWidth, pers*window.innerHeight);
+renderer.setSize(width, pers*height);
 
 
 
@@ -49,8 +53,8 @@ directionalLight.position.set(10, 10, 10); // Position above and to the side
 //directionalLight.castShadow = true; // Enable shadow casting
 scene.add(directionalLight);
 
-// const xPos = [0, window.innerWidth, 0, window.innerWidth, 0, window.innerWidth, window.innerWidth];
-// const yPos = [0, 0, window.innerHeight/2, window.innerHeight/2, (window.innerHeight - window.innerHeight/3)];
+// const xPos = [0, width, 0, width, 0, width, width];
+// const yPos = [0, 0, height/2, height/2, (height - height/3)];
 
 let left = -aspect * ORTH_CAMERA;
 let right = aspect * ORTH_CAMERA;
@@ -58,8 +62,8 @@ let top = pers*ORTH_CAMERA;
 let bottom = -1*pers*ORTH_CAMERA;
 
 
-// const xPos = [0, 20, 0, window.innerWidth, 0, window.innerWidth, window.innerWidth];
-// const yPos = [0, 0, window.innerHeight/2, window.innerHeight/2, (window.innerHeight - window.innerHeight/3)];
+// const xPos = [0, 20, 0, width, 0, width, width];
+// const yPos = [0, 0, height/2, height/2, (height - height/3)];
 
 const bigSmall = [1, 2, 2, 1, 2];
 
@@ -69,7 +73,7 @@ function drawBalls()
 {
     let RADIUS = 2;
 
-    if(window.innerWidth < 500)
+    if(width < 500)
     {
         RADIUS = 1;
     }
@@ -104,7 +108,7 @@ function drawBalls()
 
 addEventListener("resize", () => {
 
-    if (window.innerWidth > window.innerHeight)
+    if (width > height)
     {
         pers = 2;
     }
@@ -122,7 +126,7 @@ addEventListener("resize", () => {
     scene.add(directionalLight);
 
 
-    const aspect = window.innerWidth / window.innerHeight;
+    const aspect = width / height;
 
     camera.left = -aspect * ORTH_CAMERA;
     camera.right = aspect * ORTH_CAMERA;
@@ -135,7 +139,7 @@ addEventListener("resize", () => {
     top = pers*ORTH_CAMERA;
     bottom = -1*pers*ORTH_CAMERA;
 
-    renderer.setSize(window.innerWidth, pers*window.innerHeight);
+    renderer.setSize(width, pers*height);
 
     drawBalls();
 });
