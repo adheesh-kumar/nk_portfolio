@@ -108,6 +108,17 @@ function drawBalls()
 
 addEventListener("resize", () => {
 
+    const newWidth = window.visualViewport.width;
+    const newHeight = window.visualViewport.height;
+
+    // Only resize if the width changes significantly OR if the height change is very large
+    if (!Math.abs(newWidth - width) > 50 && !Math.abs(newHeight - height) > 100) {
+        return;
+    }
+
+    width = window.visualViewport.width;
+    height = window.visualViewport.height;
+
     if (width > height)
     {
         pers = 2;

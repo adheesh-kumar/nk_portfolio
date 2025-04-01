@@ -1,13 +1,17 @@
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.154.0/build/three.module.js'; //'three' //
 import * as CANNON from 'https://cdn.jsdelivr.net/npm/cannon-es@0.20.0/dist/cannon-es.js';
 
+
+let width = window.visualViewport.width;
+let height = window.visualViewport.height;
+
 // SCENE PARAMETERS
 const ORTH_CAMERA = 10;
-const aspect = window.innerWidth / window.innerHeight;
+const aspect = width / height;
 const Z_POS = 30;
 const GROUND_DEPTH = -5;
 
-console.log(window.innerWidth);
+console.log(width);
 
 // INTERACTIVE ANIMATION - MODIFIABLE PARAMETERS
 
@@ -45,7 +49,7 @@ const renderer = new THREE.WebGLRenderer({
     alpha: true
 });
 renderer.setPixelRatio(window.devicePixelRatio);
-renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setSize(width, height);
 
 // instantiate renderer
 renderer.render(scene, camera);
@@ -171,8 +175,8 @@ window.addEventListener("mousemove", (event) => {
 });
 
 function interaction(x, y) {
-    const normalizedX = (x / window.innerWidth) * 2 - 1;
-    const normalizedY = -(y / window.innerHeight) * 2 + 1;
+    const normalizedX = (x / width) * 2 - 1;
+    const normalizedY = -(y / height) * 2 + 1;
 
     // Update mouse position
     
@@ -205,7 +209,18 @@ function animate() {
 animate();
 
 addEventListener("resize", () => {
-    const aspect = window.innerWidth / window.innerHeight;
+    const newWidth = window.visualViewport.width;
+    const newHeight = window.visualViewport.height;
+
+    // Only resize if the width changes significantly OR if the height change is very large
+    if (!Math.abs(newWidth - width) > 50 && !Math.abs(newHeight - height) > 100) {
+        return;
+    }
+
+    width = window.visualViewport.width;
+    height = window.visualViewport.height;
+
+    const aspect = width / height;
 
     camera.left = -aspect * ORTH_CAMERA;
     camera.right = aspect * ORTH_CAMERA;
@@ -213,5 +228,5 @@ addEventListener("resize", () => {
     camera.bottom = -ORTH_CAMERA;
     camera.updateProjectionMatrix();
 
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(width, height);
 });
