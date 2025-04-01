@@ -104,6 +104,8 @@ function drawBalls()
 }
 
 
+let isScrolling = false;
+let scrollTimeout; 
 
 window.addEventListener("scroll", () => {
     isScrolling = true;
@@ -117,6 +119,9 @@ addEventListener("resize", () => {
     {
         return;
     }
+
+    width = window.visualViewport.width;
+    height = window.visualViewport.height;
 
     if (width > height)
     {

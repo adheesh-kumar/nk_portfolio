@@ -209,6 +209,7 @@ function animate() {
 animate();
 
 let isScrolling = false;
+let scrollTimeout; 
 
 window.addEventListener("scroll", () => {
     isScrolling = true;
@@ -218,6 +219,8 @@ window.addEventListener("scroll", () => {
 
 
 addEventListener("resize", () => {
+
+    console.log(isScrolling);
     if(isScrolling)
     {
         return;
