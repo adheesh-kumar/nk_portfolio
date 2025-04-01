@@ -208,12 +208,18 @@ function animate() {
 
 animate();
 
-addEventListener("resize", () => {
-    const newWidth = window.visualViewport.width;
-    const newHeight = window.visualViewport.height;
+let isScrolling = false;
 
-    // Only resize if the width changes significantly OR if the height change is very large
-    if (!Math.abs(newWidth - width) > 50 && !Math.abs(newHeight - height) > 100) {
+window.addEventListener("scroll", () => {
+    isScrolling = true;
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => isScrolling = false, 300); // Enable resize after scrolling stops
+});
+
+
+addEventListener("resize", () => {
+    if(isScrolling)
+    {
         return;
     }
 

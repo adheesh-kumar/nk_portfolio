@@ -105,19 +105,18 @@ function drawBalls()
 
 
 
+window.addEventListener("scroll", () => {
+    isScrolling = true;
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => isScrolling = false, 300); // Enable resize after scrolling stops
+});
 
 addEventListener("resize", () => {
 
-    const newWidth = window.visualViewport.width;
-    const newHeight = window.visualViewport.height;
-
-    // Only resize if the width changes significantly OR if the height change is very large
-    if (!Math.abs(newWidth - width) > 50 && !Math.abs(newHeight - height) > 100) {
+    if(isScrolling)
+    {
         return;
     }
-
-    width = window.visualViewport.width;
-    height = window.visualViewport.height;
 
     if (width > height)
     {
