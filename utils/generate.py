@@ -2,7 +2,7 @@ import os
 
 ### relative filepaths to images
 photography_path = 'photography'
-digital_art_path = 'digiart'
+digital_art_path = 'digital_art'
 
 path = photography_path
 
@@ -29,6 +29,10 @@ def generateImgTag(filename, path):
     return img
 
 filenames = getFileNames(getPath())
+
+filenames.sort()
+
+
 index = 0
 
 while (index < len(filenames)):
