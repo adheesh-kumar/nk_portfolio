@@ -110,7 +110,7 @@ let scrollTimeout;
 window.addEventListener("scroll", () => {
     isScrolling = true;
     clearTimeout(scrollTimeout);
-    scrollTimeout = setTimeout(() => isScrolling = false, 600); // Enable resize after scrolling stops
+    scrollTimeout = setTimeout(() => isScrolling = false, 300); // Enable resize after scrolling stops
 });
 
 addEventListener("resize", () => {
