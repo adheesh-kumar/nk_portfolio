@@ -126,7 +126,7 @@ addEventListener("resize", () => {
     height = window.visualViewport.height;
 
     // Ignore resize if the dimensions have changed only slightly (likely due to UI adjustments)
-    if (Math.abs(width - previousWidth) < 50 && Math.abs(height - previousHeight) < 200) {
+    if (Math.abs(width - previousWidth) < 50 || Math.abs(height - previousHeight) < 200) {
         return;
     }
 
