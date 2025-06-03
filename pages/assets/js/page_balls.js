@@ -167,8 +167,8 @@ addEventListener("resize", () => {
     clearTimeout(resizeTimeout);
     resizeTimeout = setTimeout(() => {
         // Retrieve updated dimensions
-        const width = window.innerWidth;
-        const height = window.innerHeight;
+        width = window.visualViewport.width;
+        height = window.visualViewport.height;
 
         // Update perspective ratio
         pers = width > height ? 2 : 1;
