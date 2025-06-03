@@ -4,7 +4,7 @@ import os
 photography_path = 'photography'
 digital_art_path = 'digital_art'
 
-path = photography_path
+path = digital_art_path
 
 
 ### imgs per row, repeated until all pictures are placed
@@ -34,13 +34,15 @@ filenames.sort()
 
 
 index = 0
+repeatIndex = 0
 
 while (index < len(filenames)):
     offset = 0
     print('<div class="row">')
-    for i in range(repeat[index%len(repeat)]):
+    for i in range(repeat[repeatIndex]):
         if (index + i) < len(filenames):
             print(generateImgTag(filenames[index + i], path))
-        offset += 1
+            offset = i + 1
     print('</div>')
     index+=offset
+    repeatIndex = (repeatIndex + 1) % len(repeat)
