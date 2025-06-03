@@ -1,8 +1,8 @@
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.154.0/build/three.module.js'; //'three' //
 
 
-let width = window.innerWidth;
-let height = window.innerHeight;
+let width = window.visualViewport.width;
+let height = window.visualViewport.height;
 
 // SCENE PARAMETERS
 const ORTH_CAMERA = 10;
@@ -113,51 +113,53 @@ window.addEventListener("scroll", () => {
     scrollTimeout = setTimeout(() => isScrolling = false, 300); // Enable resize after scrolling stops
 });
 
-addEventListener("resize", () => {
 
+function resizeBalls() {
     if(isScrolling)
-    {
-        return;
-    }
-
-    width = window.innerWidth;
-    height = window.innerHeight;
-
-    if (width > height)
-    {
-        pers = 2;
-    }
-    else
-    {
-        pers = 1;
-    }
-
-    while(scene.children.length > 0){ 
-        scene.remove(scene.children[0]); 
-    }
-    renderer.clear();
-
-    scene.add(ambientLight);
-    scene.add(directionalLight);
-
-
-    const aspect = width / height;
-
-    camera.left = -aspect * ORTH_CAMERA;
-    camera.right = aspect * ORTH_CAMERA;
-    camera.top = pers*ORTH_CAMERA;
-    camera.bottom = -1*pers*ORTH_CAMERA;
-    camera.updateProjectionMatrix();
-
-    left = -aspect * ORTH_CAMERA;
-    right = aspect * ORTH_CAMERA;
-    top = pers*ORTH_CAMERA;
-    bottom = -1*pers*ORTH_CAMERA;
-
-    renderer.setSize(width, pers*height);
-
-    drawBalls();
-});
+        {
+            return;
+        }
+    
+        width = window.visualViewport.width;
+        height = window.visualViewport.height;
+    
+        if (width > height)
+        {
+            pers = 2;
+        }
+        else
+        {
+            pers = 1;
+        }
+    
+        while(scene.children.length > 0){ 
+            scene.remove(scene.children[0]); 
+        }
+        renderer.clear();
+    
+        scene.add(ambientLight);
+        scene.add(directionalLight);
+    
+    
+        const aspect = width / height;
+    
+        camera.left = -aspect * ORTH_CAMERA;
+        camera.right = aspect * ORTH_CAMERA;
+        camera.top = pers*ORTH_CAMERA;
+        camera.bottom = -1*pers*ORTH_CAMERA;
+        camera.updateProjectionMatrix();
+    
+        left = -aspect * ORTH_CAMERA;
+        right = aspect * ORTH_CAMERA;
+        top = pers*ORTH_CAMERA;
+        bottom = -1*pers*ORTH_CAMERA;
+    
+        renderer.setSize(width, pers*height);
+    
+        drawBalls();
+}
+addEventListener("resize", resizeBalls());
+addEventListener("orientationchange", resizeBalls())
 
 
 drawBalls();
