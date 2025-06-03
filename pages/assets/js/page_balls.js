@@ -104,62 +104,122 @@ function drawBalls()
 }
 
 
-let isScrolling = false;
-let scrollTimeout; 
+// let isScrolling = false;
+// let scrollTimeout; 
 
-window.addEventListener("scroll", () => {
-    isScrolling = true;
-    clearTimeout(scrollTimeout);
-    scrollTimeout = setTimeout(() => isScrolling = false, 300); // Enable resize after scrolling stops
-});
+// window.addEventListener("scroll", () => {
+//     isScrolling = true;
+//     clearTimeout(scrollTimeout);
+//     scrollTimeout = setTimeout(() => isScrolling = false, 300); // Enable resize after scrolling stops
+// });
+
+// addEventListener("resize", () => {
+
+//     if(isScrolling)
+//     {
+//         return;
+//     }
+
+//     width = window.visualViewport.width;
+//     height = window.visualViewport.height;
+
+//     if (width > height)
+//     {
+//         pers = 2;
+//     }
+//     else
+//     {
+//         pers = 1;
+//     }
+
+//     while(scene.children.length > 0){ 
+//         scene.remove(scene.children[0]); 
+//     }
+//     renderer.clear();
+
+//     scene.add(ambientLight);
+//     scene.add(directionalLight);
 
 
-function resizeBalls() {
-    if(isScrolling)
-        {
-            return;
+//     const aspect = width / height;
+
+//     camera.left = -aspect * ORTH_CAMERA;
+//     camera.right = aspect * ORTH_CAMERA;
+//     camera.top = pers*ORTH_CAMERA;
+//     camera.bottom = -1*pers*ORTH_CAMERA;
+//     camera.updateProjectionMatrix();
+
+//     left = -aspect * ORTH_CAMERA;
+//     right = aspect * ORTH_CAMERA;
+//     top = pers*ORTH_CAMERA;
+//     bottom = -1*pers*ORTH_CAMERA;
+
+//     renderer.setSize(width, pers*height);
+
+//     drawBalls();
+// });
+
+
+let resizeTimeout;
+
+addEventListener("resize", () => {
+    // Debounce the resize function
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+        // Retrieve updated dimensions
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+
+        // Update perspective ratio
+        pers = width > height ? 2 : 1;
+
+        // Clear the scene, but ensure proper disposal
+        while (scene.children.length > 0) { 
+            const object = scene.children[0];
+            if (object.geometry) object.geometry.dispose();
+            if (object.material) {
+                if (Array.isArray(object.material)) {
+                    object.material.forEach(mat => mat.dispose());
+                } else {
+                    object.material.dispose();
+                }
+            }
+            scene.remove(object);
         }
-    
-        width = window.visualViewport.width;
-        height = window.visualViewport.height;
-    
-        if (width > height)
-        {
-            pers = 2;
-        }
-        else
-        {
-            pers = 1;
-        }
-    
-        while(scene.children.length > 0){ 
-            scene.remove(scene.children[0]); 
-        }
+
+        // Clear the renderer
         renderer.clear();
-    
+
+        // Add back the lights
         scene.add(ambientLight);
         scene.add(directionalLight);
-    
-    
+
+        // Update camera dimensions
         const aspect = width / height;
-    
         camera.left = -aspect * ORTH_CAMERA;
         camera.right = aspect * ORTH_CAMERA;
-        camera.top = pers*ORTH_CAMERA;
-        camera.bottom = -1*pers*ORTH_CAMERA;
+        camera.top = pers * ORTH_CAMERA;
+        camera.bottom = -pers * ORTH_CAMERA;
         camera.updateProjectionMatrix();
-    
         left = -aspect * ORTH_CAMERA;
         right = aspect * ORTH_CAMERA;
         top = pers*ORTH_CAMERA;
         bottom = -1*pers*ORTH_CAMERA;
-    
-        renderer.setSize(width, pers*height);
-    
+        
+
+        // Update renderer size
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setSize(width, pers * height);
+
+        // Redraw balls
         drawBalls();
-}
-addEventListener("resize", resizeBalls());
-addEventListener("orientationchange", resizeBalls())
+
+        // Debugging output
+        console.log(`Resize: Width=${width}, Height=${height}, Aspect=${aspect}, Pers=${pers}`);
+    }, 100); // Delay to handle rapid changes
+});
+
+
 
 
 drawBalls();
