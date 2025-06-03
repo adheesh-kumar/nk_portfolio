@@ -1,8 +1,8 @@
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.154.0/build/three.module.js'; //'three' //
 
 
-let width = window.visualViewport.width;
-let height = window.visualViewport.height;
+let width = window.innerWidth;
+let height = window.innerHeight;
 
 // SCENE PARAMETERS
 const ORTH_CAMERA = 10;
@@ -120,8 +120,8 @@ addEventListener("resize", () => {
         return;
     }
 
-    width = window.visualViewport.width;
-    height = window.visualViewport.height;
+    width = window.innerWidth;
+    height = window.innerHeight;
 
     if (width > height)
     {
