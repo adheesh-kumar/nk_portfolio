@@ -118,6 +118,8 @@
         const pointOne = document.getElementById('pointOne').getBoundingClientRect();
         const pointTwo = document.getElementById('pointTwo').getBoundingClientRect();
 
+        if (!pointOne) {return;}
+
         // Calculate the rectangle's dimensions and position
         const width = Math.abs(pointTwo.right - pointOne.left); // Width
         const height = Math.abs(pointTwo.top - pointOne.top);  // Height

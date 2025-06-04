@@ -98,3 +98,22 @@
 .pdf-icon {
     width: clamp(1.5rem,3.8vw,6rem);
 }
+
+
+@media (max-width: 1050px) {
+    .circle {
+        width: 0;
+        height: 0;
+    }
+
+    .job-line {
+        flex-direction: column;
+        gap: 0.5vw;
+        align-items: flex-start;
+    }
+
+    .date {
+        text-align: left;
+        width: fit-content;
+    }
+}
