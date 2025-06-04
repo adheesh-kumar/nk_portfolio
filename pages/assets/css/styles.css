@@ -6,7 +6,7 @@
     box-sizing: border-box;
     scrollbar-gutter: stable;
     scrollbar-width: none;
-    overscroll-behavior: none;
+    overscroll-behavior: auto;
 
     /* Global styling variables */
 
