@@ -24,9 +24,9 @@
     gap: 2vw;
 }
 
-.resume p {
-    font: normal 300 clamp(0.8rem,1vw,2rem) "ibmPlexSansLight";
-}
+/* .resume p {
+    font: normal clamp(0.36rem, 1.4vw, 3rem)/clamp(0.6rem, 1.8vw, 3rem) "ibmPlexSansLight";
+} */
 
 .job-title {
     font-family: "ibmPlexSansBold";
