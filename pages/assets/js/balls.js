@@ -210,11 +210,13 @@ animate();
 
 let isScrolling = false;
 let scrollTimeout; 
+let previousWidth = width;
+let previousHeight = height;
 
 window.addEventListener("scroll", () => {
     isScrolling = true;
     clearTimeout(scrollTimeout);
-    scrollTimeout = setTimeout(() => isScrolling = false, 300); // Enable resize after scrolling stops
+    scrollTimeout = setTimeout(() => isScrolling = false, 1000); // Enable resize after scrolling stops
 });
 
 
@@ -229,6 +231,12 @@ addEventListener("resize", () => {
     width = window.visualViewport.width;
     height = window.visualViewport.height;
 
+
+    // Ignore resize if the dimensions have changed only slightly (likely due to UI adjustments)
+    if (Math.abs(width - previousWidth) < 50 || Math.abs(height - previousHeight) < 200) {
+        return;
+    }
+
     const aspect = width / height;
 
     camera.left = -aspect * ORTH_CAMERA;
@@ -238,4 +246,11 @@ addEventListener("resize", () => {
     camera.updateProjectionMatrix();
 
     renderer.setSize(width, height);
+});
+
+
+
+
+addEventListener("orientationchange", () => {
+    window.location.reload();
 });
