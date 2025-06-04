@@ -168,3 +168,8 @@ addEventListener("resize", () => {
 
 
 drawBalls();
+
+
+addEventListener("orientationchange", () => {
+    window.location.reload();
+});
