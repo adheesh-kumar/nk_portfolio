@@ -268,7 +268,7 @@ p {
 }
 
 
-@media (max-width: 730px) {
+@media (max-width: 865px) {
 
     .options-wrapper {
         flex-direction: column;
