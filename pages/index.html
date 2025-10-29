@@ -1,98 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Naveed Khan portfolio</title>
-    <link rel="stylesheet" href="./assets/css/styles.css">
-    <link rel="stylesheet" href="./assets/css/home.css">
-    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.jpg">
-    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - Naveed Khan Portfolio</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="./assets/css/styles.css">
+  <link rel="stylesheet" href="./assets/css/home.css">
+  <link rel="icon" type="image/x-icon" href="./assets/images/favicon.jpg">
 </head>
 
-
-
 <body>
-    <canvas id="bg"></canvas>
-    <div id="circle-wrapper">
-        <div id="load-circles-here"></div>
-        <div class="menu-button-bg button-placement" id="open-menu-bg"></div>
-        <button class="menu-button button-placement" id="open-menu">Menu</button>
+  <!-- Background Canvas -->
+  <canvas id="bg"></canvas>
+
+  <!-- Menu -->
+  <div id="circle-wrapper">
+    <div id="load-circles-here"></div>
+    <div class="menu-button-bg button-placement" id="open-menu-bg"></div>
+    <button class="menu-button button-placement" id="open-menu">Menu</button>
+  </div>
+
+  <!-- Body Wrapper -->
+  <div class="body-wrapper">
+
+    <!-- HERO SECTION -->
+    <div class="home-landing">
+      <div class="column-left">
+        <h1>Naveed<br>Khan</h1>
+        <h4>Product Designer shaping meaningful, research-backed experiences for real people.</h4>
+      </div>
+      <div class="column-right">
+        <h3 class="slash">UX/UI</h3>
+      </div>
     </div>
 
+    <!-- UX/UI PROJECTS SECTION -->
+    <div class="uxui-projects-section" style="margin-top: 10vh;">
+      <div>
+        <h1>UX/UI Projects</h1>
+        <h4>Projects I have worked on throughout my career</h4>
+      </div>
 
-    <div class="body-wrapper">
+      <div class="options-wrapper">
 
-    <!--Main display section-->
-        <div class="home-landing">
-            <div class="column-left">
-                <h1>Naveed<br>Khan</h1>
-                <h4>Product Designer shaping meaningful, research-backed experiences for real people.</h4>
+        <!-- Sun Life Project -->
+        <div class="option-div">
+          <a href="sunlife.html">
+            <div class="option" style="background-image: url(./assets/images/Sun-Life-Financial-Logo.jpg); background-size: contain;">
             </div>
-            <div class="column-right">
-                <h3 class="slash">UX/UI</h3>
-            </div>
+          </a>
+          <h4>Sun Life</h4>
+          <p>International refresh project using wide-scale Design System</p>
+          <p>Design System | UI Design | Publishing</p>
         </div>
 
-    <!--Previews section-->
-        <div id="previews">
-            <h1>Preview</h1>
-            <video src="./assets/biomiq/header.mp4" loop muted autoplay style="margin-left: calc(-1*(var(--bodyMargin))); width: 100vw; margin-top: 2%; margin-bottom: 2%;"></video>
-            <h4>Biomiq</h4>
-            <div style="margin-top: 2%; display: flex; flex-wrap: nowrap; gap: 2rem;">
-                <div class="subtext">
-                    Biomiq represents the rebranding of Sterasure, a project spearheaded by me. This initiative resulted in the successful launch of the new site.
-                    <br><br>
-                    Reaching users in November and reflecting the strategic evolution of their new brand Identity
-                    <br><br>
-                    <a href="./biomiq.html">
-                        <span style="font-family: 'IBM Plex Sans'; display: flex;  gap: 1rem;">
-                            <div>
-                                View full case study
-                            </div>
-                            <div>
-                                <img src="./assets/images/openArrow.svg" alt="">
-                            </div>
-                        </span>
-                    </a>
-                </div>
-                <div>
-                    <div class="subtext" style="width:max-content; display: flex; flex-direction: column; justify-content: space-between; gap: 1rem;">
-                        <div>
-                            <span style="font-family: 'IBM Plex Sans';">
-                                Role
-                            </span>
-                            <br>
-                            Lead UX Designer
-                        </div>
-
-                        <div>
-                            <span style="font-family: 'IBM Plex Sans';">
-                                Site Live
-                            </span>
-                            <br>
-                            November 2023
-                        </div>
-
-                        <div>
-                            <span style="font-family: 'IBM Plex Sans';">
-                                Skills
-                            </span>
-                            <br>
-                            Design System <br>
-                            Visual Design <br>
-                            Interaction Design <br>
-                            Product Strategy
-                        </div>
-                    </div>
-                </div>
+        <!-- Biomiq Project -->
+        <div class="option-div">
+          <a href="biomiq.html">
+            <div class="option" style="background-image: url(./assets/images/biomiq-laptop.png); background-size: contain;">
             </div>
+          </a>
+          <h4>Biomiq</h4>
+          <p>Complete restructure and rebrand</p>
+          <p>UX Design | UI Design | UX Research</p>
         </div>
 
+        <!-- Route+ Project -->
+        <div class="option-div">
+          <a href="route+.html">
+            <div class="option" style="background-image: url(./assets/images/route_plus_phones.png); background-size: contain;">
+            </div>
+          </a>
+          <h4>Route+</h4>
+          <p>Crowd management and route setting made for Rogers</p>
+          <p>UX Research | UI Design</p>
+        </div>
+      </div>
     </div>
-    <script src="./assets/js/gsap.min.js"></script>
-    <script src="./assets/js/menu.js"></script>
-    <script src="./assets/js/script.js"></script>
-    <script type="module" src="./assets/js/balls.js"></script>
+  </div>
+
+  <!-- Scripts -->
+  <script src="./assets/js/gsap.min.js"></script>
+  <script src="./assets/js/menu.js"></script>
+  <script src="./assets/js/script.js"></script>
+  <script type="module" src="./assets/js/balls.js"></script>
+  <script type="module" src="./assets/js/page_balls.js"></script>
 </body>
 </html>
