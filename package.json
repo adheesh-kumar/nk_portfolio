@@ -1,4 +1,9 @@
 {
+  "name": "portfolio",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "live-server pages --port=3000 --open=/index.html"
+  },
   "dependencies": {
     "cannon-es": "^0.20.0",
     "flickity": "^3.0.0",
@@ -6,6 +11,7 @@
     "three": "^0.172.0"
   },
   "devDependencies": {
-    "@types/three": "^0.172.0"
+    "@types/three": "^0.172.0",
+    "live-server": "^1.2.2"
   }
 }
