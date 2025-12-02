@@ -1,0 +1,20 @@
+.hero-container {
+    background-image: url(../images/Balls.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain; /* Ensure the background scales properly */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 5vw; /* Use responsive padding */
+}
+
+.column-left {
+    margin-bottom: 3vh; /* Spacing between columns */
+}
+
+.column-right {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 20vh;
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Art - Gallery</title> 
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="./assets/css/case_study.css">
+    <link rel="stylesheet" href="./assets/css/gallery.css">
+    <link href="/fonts/IBM_Plex_Sans/IBMPlexSans-Regular.ttf">
+    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.jpg">
+</head>
+
+<body>
+    <canvas id="balls" class="balls"></canvas>
+
+    <div id="circle-wrapper">
+        <div id="load-circles-here"></div>
+        <div class="menu-button-bg button-placement" id="open-menu-bg"></div>
+        <button class="menu-button button-placement" id="open-menu">
+            <svg id="hamburger-icon" width="20" height="20" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <rect y="4" width="20" height="2" rx="1"/>
+                <rect y="9" width="20" height="2" rx="1"/>
+                <rect y="14" width="20" height="2" rx="1"/>
+            </svg>
+        </button>
+    </div>
+    
+    <div class="body-wrapper">
+        <h1>Digital Art</h1>
+        <div class="subtext" style="margin-top: 1%;">
+            Here’s a journey through my digital art, from the start to where I am today.
+        </div>
+        <div class="rows" style="margin-top: 5%;">
+            <!--PASTE PHOTO OUTPUT HERE-->
+            <div class="row">
+                <img src="./assets/images/digital_art/A.png" alt="" onclick="myFoo(this)">
+                <img src="./assets/images/digital_art/B.jpg" alt="" onclick="myFoo(this)">
+        </div>
+        <div class="row">
+                <img src="./assets/images/digital_art/C.png" alt="" onclick="myFoo(this)">
+        </div>
+        <div class="row">
+                <img src="./assets/images/digital_art/D.png" alt="" onclick="myFoo(this)">
+                <img src="./assets/images/digital_art/E.png" alt="" onclick="myFoo(this)">
+                <img src="./assets/images/digital_art/F.png" alt="" onclick="myFoo(this)">
+        </div>
+        <div class="row">
+                <img src="./assets/images/digital_art/G.png" alt="" onclick="myFoo(this)">
+                <img src="./assets/images/digital_art/H.png" alt="" onclick="myFoo(this)">
+        </div>
+            <!--END PHOTO OUPUT HERE-->
+        </div>
+    </div>
+
+
+    <div class="fullscreen">
+        <div>
+            <button class="button" onclick="closeFs()">
+                <svg id="close-icon" width="20" height="20" viewBox="0 0 20 20" fill="black" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M18.707 1.29304C19.0976 1.68357 19.0976 2.31673 18.707 2.70726L2.70712 18.7072C2.3166 19.0977 1.68343 19.0977 1.29291 18.7072C0.902384 18.3167 0.902383 17.6835 1.29291 17.293L17.2928 1.29304C17.6834 0.90252 18.3165 0.90252 18.707 1.29304Z"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M1.29295 1.29304C1.68348 0.90252 2.31664 0.90252 2.70717 1.29304L18.7071 17.293C19.0976 17.6835 19.0976 18.3167 18.7071 18.7072C18.3166 19.0977 17.6834 19.0977 17.2929 18.7072L1.29295 2.70726C0.90243 2.31673 0.90243 1.68357 1.29295 1.29304Z"/>
+                </svg>
+            </button>
+        </div>
+        <div id="fullscreenPhotos">
+            <img class="arrows" src="./assets/images/prevIcon.svg" alt="" style="margin-left: 4.3vw;" onclick="prev()">
+            <div id="photos">
+
+            </div>
+            <img class="arrows" src="./assets/images/prevIcon.svg" alt="" style="margin-right: 4.3vw; transform: scaleX(-1);" onclick="next()">
+        </div>
+    </div>
+    
+
+
+    <script src="./assets/js/gsap.min.js"></script>
+    <script src="./assets/js/menu.js"></script>
+    <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/fullscreen.js"></script>
+    <script type="module" src="./assets/js/page_balls.js"></script>
+</body>
+
+</html>
+
