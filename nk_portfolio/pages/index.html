@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - Naveed Khan Portfolio</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="./assets/css/styles.css">
+  <link rel="stylesheet" href="./assets/css/home.css">
+  <link rel="icon" type="image/x-icon" href="./assets/images/favicon.jpg">
+</head>
+
+<body>
+  <!-- Background Canvas -->
+  <canvas id="bg"></canvas>
+
+  <!-- Menu -->
+  <div id="circle-wrapper">
+    <div id="load-circles-here"></div>
+    <a href="mailto:Naveedk5996@gmail.com" class="email-button email-button-placement" aria-label="Email">
+        <svg id="email-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+            <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </a>
+    <div class="menu-button-bg button-placement" id="open-menu-bg"></div>
+    <button class="menu-button button-placement" id="open-menu">
+        <svg id="hamburger-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+            <line x1="3" y1="12" x2="21" y2="12" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+            <line x1="3" y1="18" x2="21" y2="18" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+        </svg>
+    </button>
+  </div>
+
+  <!-- Body Wrapper -->
+  <div class="body-wrapper">
+
+    <!-- HERO SECTION -->
+    <div class="home-landing">
+      <div class="column-left">
+        <h1>Naveed<br>Khan</h1>
+        <h4>Product Designer creating data informed experiences</h4>
+      </div>
+      <div class="column-right">
+        <h3 class="slash">UX/UI</h3>
+      </div>
+    </div>
+
+    <!-- UX/UI PROJECTS SECTION -->
+    <div class="uxui-projects-section" style="margin-top: 10vh;">
+      <div>
+        <h1>Case Studies</h1>
+        <h4>Projects I have worked on throughout my career</h4>
+      </div>
+
+      <div class="options-wrapper">
+
+        <!-- Sun Life Project -->
+        <div class="option-div">
+          <a href="sunlife.html">
+            <div class="option" style="background-image: url(./assets/images/Sunlife-Preview2.png); background-size: contain;">
+            </div>
+          </a>
+          <h4>Sun Life</h4>
+          <p>International refresh project using wide-scale Design System</p>
+          <p class="underwriting">Design System | UI Design | Publishing</p>
+        </div>
+
+        <!-- Biomiq Project -->
+        <div class="option-div">
+          <a href="biomiq.html">
+            <div class="option" style="background-image: url(./assets/images/biomiq-preview2.png); background-size: contain;">
+            </div>
+          </a>
+          <h4>Biomiq</h4>
+          <p>Complete restructure and rebrand</p>
+          <p class="underwriting">UX Design | UI Design | UX Research</p>
+        </div>
+
+        <!-- Route+ Project -->
+        <div class="option-div">
+          <a href="route+.html">
+            <div class="option" style="background-image: url(./assets/images/route_plus_phones.png); background-size: contain;">
+            </div>
+          </a>
+          <h4>Route+</h4>
+          <p>Crowd management and route setting made for Rogers</p>
+          <p class="underwriting">UX Research | UI Design</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="portfolio-footer">
+      <div class="footer-content">
+        <p>&copy; 2025 Naveed Khan. All rights reserved.</p>
+      </div>
+      <div class="footer-navigation">
+        <p>Navigation</p>
+        <a href="index.html" class="underwriting">Home</a>
+        <a href="about.html" class="underwriting">About</a>
+        <a href="uxui_projects.html" class="underwriting">UX/UI Projects</a>
+        <a href="gallery.html" class="underwriting">Gallery</a>
+        <a href="contact.html" class="underwriting">Contact</a>
+      </div>
+      <div class="footer-links">
+        <a href="mailto:Naveedk5996@gmail.com" target="_blank" aria-label="Email">
+          <img src="./assets/images/email-icon.svg" alt="Email">
+        </a>
+        <a href="https://www.linkedin.com/in/naveed-khan-5a249817b/" target="_blank" aria-label="LinkedIn">
+          <img src="./assets/images/linkedin-icon.svg" alt="LinkedIn">
+        </a>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Scripts -->
+  <script src="./assets/js/gsap.min.js"></script>
+  <script src="./assets/js/menu.js"></script>
+  <script src="./assets/js/script.js"></script>
+  <script type="module" src="./assets/js/balls.js"></script>
+  <script type="module" src="./assets/js/page_balls.js"></script>
+</body>
+</html>

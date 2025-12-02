@@ -1,0 +1,122 @@
+/* Base styles (mobile-first) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    /* Global styling variables */
+    --white: #FCF9F6;
+    --black: #2F2E2E;
+    --red: #FF2A00;
+    --menu-bg: #FFCAA3;
+    scrollbar-gutter: stable;
+}
+
+@font-face {
+    font-family: "IBM Plex Sans";
+    src: url('../../fonts/IBM_Plex_Sans/IBMPlexSans-Regular.ttf');
+}
+
+a {
+    color: inherit;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--white);
+    font-size: 16px; /* Base font size for scalability */
+}
+
+header {
+    padding: 2vh 3vw 1vh;
+    display: flex;
+    justify-content: flex-end;
+    background-color: inherit;
+}
+
+.menu-button {
+    margin-left: auto;
+    z-index: 999;
+    width: 10vw; /* Responsive scaling */
+    height: 10vw;
+    border-radius: 100%;
+    border: 1px solid var(--black);
+    color: var(--black);
+    background-color: var(--white);
+    font: normal 400 1rem/normal "IBM Plex Sans"; /* Scalable font size */
+}
+
+.menu-button:hover {
+    background-color: var(--menu-bg);
+}
+h1 {
+    font-size: clamp(2rem, 8vw, 6.25rem); /* Scales between mobile and large screens */
+    font-family: Helvetica;
+    font-weight: 700;
+    line-height: 1.2; /* Maintain proportional spacing */
+    color: var(--black);
+}
+
+h2 {
+    font-size: clamp(1rem, 4vw, 1.5rem); /* Responsive font scaling */
+    font-family: "IBM Plex Sans";
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.0125em;
+    color: var(--black);
+}
+
+h3 {
+    font-size: clamp(3rem, 12vw, 12.5rem); /* Scales for UX/UI header */
+    font-family: Helvetica;
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--white);
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: var(--red);
+}
+
+/* Responsive layout for larger screens */
+@media (min-width: 768px) {
+    header {
+        padding: 2vh 5vw;
+    }
+
+    .hero-container {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5vw;
+    }
+
+    .column-left {
+        flex: 1;
+    }
+
+    .column-right {
+        flex: 1;
+        padding-top: 0;
+        justify-content: flex-end;
+    }
+
+    .menu-button {
+        width: 7vw; /* Smaller button on larger screens */
+        height: 7vw;
+    }
+}
+
+/* Further adjustments for desktop screens */
+@media (min-width: 1024px) {
+    .hero-container {
+        padding: 8vw; /* Adjust padding for wider screens */
+    }
+
+    h1 {
+        font-size: clamp(3rem, 5vw, 8rem);
+    }
+
+    h3 {
+        font-size: clamp(4rem, 10vw, 15rem); /* Bigger UX/UI header */
+    }
+}
