@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - My Website</title>
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="./assets/css/contact.css">
+    <link href="/fonts/IBM_Plex_Sans/">
+    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.jpg">
+</head>
+<body>
+    <canvas id="balls" class="balls"></canvas>
+    
+    <div id="circle-wrapper">
+        <div id="load-circles-here"></div>
+        <div class="menu-button-bg button-placement" id="open-menu-bg"></div>
+        <button class="menu-button button-placement" id="open-menu">
+            <svg id="hamburger-icon" width="20" height="20" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <rect y="4" width="20" height="2" rx="1"/>
+                <rect y="9" width="20" height="2" rx="1"/>
+                <rect y="14" width="20" height="2" rx="1"/>
+            </svg>
+        </button>
+    </div>
+
+
+    <div class="body-wrapper">
+        <h1>Contact</h1>
+        <h4>Contact me through any of the channels below</h4>
+
+
+        <div class="options-wrapper">
+            <div class="option-div">
+                <a href="mailto:Naveedk5996@gmail.com" target="_blank">
+                    <div class="option" style="flex-direction: column;">
+                        <div style="width: 5.8vw; height: 5.8vw; display: flex; justify-content: center; align-items: center;">
+                            <img style="object-fit: cover;" src="./assets/images/email-icon.svg" alt="email logo">
+                        </div>
+                        <div style="height: 50%;">
+                            <p style="font-family: 'ibmPlexSansBold';">Email me</p>
+                            <p>Send me a quick email about your inquiry</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="option-div">
+                <a href="https://www.linkedin.com/in/naveed-khan-5a249817b/" target="_blank">
+                <div class="option" style="flex-direction: column;">
+                    <div style="width: 5.8vw; height: 5.8vw; display: flex; justify-content: center; align-items: center;">
+                        <img style="object-fit: cover;" src="./assets/images/linkedin-icon.svg" alt="LinkedIn logo">
+                    </div>
+                    <div style="height: 50%;">
+                        <p style="font-family: 'ibmPlexSansBold';">LinkedIn</p>
+                        <p>Send me a quick message on LinkedIn about your inquiry</p>
+                    </div>
+                </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <script src="./assets/js/gsap.min.js"></script>
+    <script src="./assets/js/menu.js"></script>
+    <script src="./assets/js/script.js"></script>
+    <script type="module" src="./assets/js/page_balls.js"></script>
+</body>
+</html>
