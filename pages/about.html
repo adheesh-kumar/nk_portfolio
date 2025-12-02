@@ -15,23 +15,42 @@
     
     <div id="circle-wrapper">
         <div id="load-circles-here"></div>
+        <a href="mailto:Naveedk5996@gmail.com" class="email-button email-button-placement" aria-label="Email">
+            <svg id="email-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+                <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </a>
         <div class="menu-button-bg button-placement" id="open-menu-bg"></div>
-        <button class="menu-button button-placement" id="open-menu">Menu</button>
+        <button class="menu-button button-placement" id="open-menu">
+            <svg id="hamburger-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+                <line x1="3" y1="12" x2="21" y2="12" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+                <line x1="3" y1="18" x2="21" y2="18" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+            </svg>
+        </button>
     </div>
+    
+    <!-- Back Button -->
+    <div class="back-arrow-bg"></div>
+    <button class="back-arrow-button" onclick="history.back()" aria-label="Go back">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
     
     <div class="body-wrapper">
         <div class="body-wrap">
             <div class="about">
-                <div>
-                    <h1>About</h1>
-                </div>
-                <div>
+                <h1>About</h1>
+                <div class="about-section-card">
                     <p>
                         I'm committed to continual improvement, always seeking new challenges, learning opportunities, and technological advancements. This mindset has driven my success in user design and interface work.<br/><br/>
                         In my UX/UI career, I've focused on creating simple, effective, and user-centered products. With a background as a University of Waterloo graduate, I now work as a full-time UX/UI Designer at Sunlife.
                     </p>
                 </div>
             </div>
+            
             <div class="resume">
                 <div class="title">
                     <a href="./assets/files/naveed_khan.pdf" download>
@@ -43,65 +62,88 @@
                             <img src="./assets/images/pdf-icon.svg" alt="resume download" class="pdf-icon">
                         </a>
                     </button>
-                    
                 </div>
+                
+                <div class="resume-section-card">
                 <div class="job-line">
-                    <p>
-                        <span class="job-title">Digital Web Publisher</span>
-                        <br>
-                        <span class="institution">Sunlife Financial</span> - Contract Full Time - Remote (Canada)
-                    </p>
+                    <div class="job-content">
+                        <div class="company-logo company-logo-large">
+                            <img src="./assets/images/Sun-Life-logo.png" alt="Sun Life Financial">
+                        </div>
+                        <p>
+                            <span class="job-title">Digital Web Publisher</span>
+                            <br>
+                            <span class="institution">Sunlife Financial</span> - Contract Full Time - Remote (Canada)
+                        </p>
+                    </div>
                     <div class="right">
-                        <div id="pointOne" class="circle"><div class="rectangle"></div></div>
                         <p class="date">June 2024 - Present</p>
                     </div>
                 </div>
 
                 <div class="job-line">
-                    <p>
-                        <span class="job-title">Lead UX Designer and Researcher</span>
-                        <br>
-                        <span class="institution">Biomiq</span> - Contract Full Time - Remote (Canada)
-                    </p>
+                    <div class="job-content">
+                        <div class="company-logo">
+                            <img src="./assets/images/biomiq-logo.png" alt="Biomiq">
+                        </div>
+                        <p>
+                            <span class="job-title">Lead UX Designer and Researcher</span>
+                            <br>
+                            <span class="institution">Biomiq</span> - Contract Full Time - Remote (Canada)
+                        </p>
+                    </div>
                     <div class="right">
-                        <div class="circle"></div>
                         <p class="date">May 2023 - Nov 2023</p>
                     </div>
                 </div>
 
                 <div class="job-line">
-                    <p>
-                        <span class="job-title">UX Designer and Researcher</span>
-                        <br>
-                        <span class="institution">Rogers Telecommunications</span> - Contract Full Time - Remote (Canada)
-                    </p>
+                    <div class="job-content">
+                        <div class="company-logo">
+                            <img src="./assets/images/rogers-logo.png" alt="Rogers">
+                        </div>
+                        <p>
+                            <span class="job-title">UX Designer and Researcher</span>
+                            <br>
+                            <span class="institution">Rogers Telecommunications</span> - Contract Full Time - Remote (Canada)
+                        </p>
+                    </div>
                     <div class="right">
-                        <div class="circle"></div>
                         <p class="date">Jan 2023 - May 2023</p>
                     </div>
                 </div>
 
                 <div class="job-line">
-                    <p>
-                        <span class="job-title">Freelance Product Designer</span>
-                        <br>
-                        <span class="institution">Self Employed</span> - Contract Full Time - Remote (Canada)
-                    </p>
+                    <div class="job-content">
+                        <div class="company-logo">
+                            <img src="./assets/images/favicon.jpg" alt="Self Employed">
+                        </div>
+                        <p>
+                            <span class="job-title">Freelance Product Designer</span>
+                            <br>
+                            <span class="institution">Self Employed</span> - Contract Full Time - Remote (Canada)
+                        </p>
+                    </div>
                     <div class="right">
-                        <div id="pointTwo" class="circle"></div>
                         <p class="date">Sept 2017- Present</p>
                     </div>
                 </div>
 
-                <div class="job-line" style="padding-top: 2.8vw;">
-                    <p>
-                        <span class="job-title">Education</span>
-                        <br>
-                        <span class="institution">University of Waterloo Stratford School of Interaction and Design</span> - Bachelor’s of Global Business and Digital Arts - UX/UI Major
-                    </p>
+                <div class="job-line job-line-education">
+                    <div class="job-content">
+                        <div class="company-logo company-logo-large">
+                            <img src="./assets/images/uw-logo.png" alt="University of Waterloo">
+                        </div>
+                        <p>
+                            <span class="job-title">Education</span>
+                            <br>
+                            <span class="institution">University of Waterloo Stratford School of Interaction and Design</span> - Bachelor's of Global Business and Digital Arts - UX/UI Major
+                        </p>
+                    </div>
                     <div class="right">
                         <p class="date">Sept 2019- May 2023</p>
                     </div>
+                </div>
                 </div>
             </div>
         </div>
@@ -110,6 +152,14 @@
         <footer class="portfolio-footer">
             <div class="footer-content">
                 <p>&copy; 2025 Naveed Khan. All rights reserved.</p>
+            </div>
+            <div class="footer-navigation">
+                <p>Navigation</p>
+                <a href="index.html" class="underwriting">Home</a>
+                <a href="about.html" class="underwriting">About</a>
+                <a href="uxui_projects.html" class="underwriting">UX/UI Projects</a>
+                <a href="gallery.html" class="underwriting">Gallery</a>
+                <a href="contact.html" class="underwriting">Contact</a>
             </div>
             <div class="footer-links">
                 <a href="mailto:Naveedk5996@gmail.com" target="_blank" aria-label="Email">
@@ -126,42 +176,4 @@
     <script src="./assets/js/script.js"></script>
     <script type="module" src="./assets/js/page_balls.js"></script>
 </body>
-<script>
-    // JavaScript to draw the rectangle between the points
-    function drawRectangle() {
-        // Get the two points
-        const pointOne = document.getElementById('pointOne').getBoundingClientRect();
-        const pointTwo = document.getElementById('pointTwo').getBoundingClientRect();
-
-        if (!pointOne) {return;}
-
-        // Calculate the rectangle's dimensions and position
-        const width = Math.abs(pointTwo.right - pointOne.left); // Width
-        const height = Math.abs(pointTwo.top - pointOne.top);  // Height
-        
-        //position at center of pointOne
-        const x = width/2
-        const y = width/2
-
-        // Create the rectangle element
-        const rectangle = document.createElement('div');
-        rectangle.classList.add('rectangle');
-
-        const finalWidth = width/6;
-
-        rectangle.style.left = `${x-(finalWidth/2)}px`; //move to the left by half the final width
-        rectangle.style.top = `${y}px`;
-        rectangle.style.width = `${finalWidth}px`;
-        rectangle.style.height = `${height}px`;
-
-        // replace rectangle on pointOne
-        const draw = document.getElementById('pointOne');
-        draw.removeChild(draw.firstChild)
-        draw.appendChild(rectangle);
-    }
-
-    //redraw everytime window is loaded or size changes
-    window.onresize = drawRectangle;
-    window.onload  = drawRectangle;
-</script>
 </html>
