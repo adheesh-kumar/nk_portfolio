@@ -125,12 +125,18 @@ p {
     line-height: clamp(1.3rem, 2vw ,2rem);
 }
 
+.underwriting {
+    color: #808080;
+    font: normal 300 clamp(0.85rem, 1.2vw, 1.5rem) "ibmPlexSansLight";
+    line-height: clamp(1.1rem, 1.7vw, 1.8rem);
+}
+
 
 /*body wrapper for all main content*/
 .body-wrapper {
 
     padding-inline: var(--bodyMargin);
-    padding-bottom: 10%;
+    padding-bottom: 0;
     background-color: transparent;
     opacity: 0;
     transition: opacity var(--default-duration) ease-in-out;
@@ -159,15 +165,30 @@ p {
     position: absolute;
 }
 
+.email-button-placement {
+    transform: translate(-50%, -50%);
+    left: calc(clamp(17rem, 97vw, 97vw) - calc(var(--base-size) * 1.5 + 1rem));
+    top: clamp(2.5rem, 4.7vw, 6rem);
+    position: absolute;
+}
+
 .menu-button {
     width: var(--base-size); /* Responsive scaling */
     height: var(--base-size);
     border-radius: 100%;
-    border: 1px solid var(--primaryText);
+    border: 1px solid transparent;
     color: var(--primaryText);
     background-color: transparent;
     pointer-events: all;
-    font: normal 400 clamp(0.7rem, 1.4vw, 2rem) "IBM Plex Sans"; /* Scalable font size */
+    font: normal 400 clamp(1rem, 1.8vw, 3rem) "IBM Plex Sans"; /* Same font size as h4 */
+    transition: border var(--default-duration) ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-button:hover {
+    border: 1px solid var(--primaryText);
 }
 
 .menu-button #close-icon {
@@ -176,6 +197,53 @@ p {
 
 .menu-button:hover #close-icon {
     fill: var(--primaryBG);
+}
+
+.menu-button #hamburger-icon {
+    width: 60%;
+    height: 60%;
+    stroke: currentColor;
+    stroke-width: 1;
+    fill: none;
+    transition: stroke var(--default-duration) ease;
+}
+
+.menu-button:hover #hamburger-icon {
+    stroke: var(--primaryBG);
+}
+
+.email-button {
+    width: var(--base-size);
+    height: var(--base-size);
+    border-radius: 100%;
+    border: 1px solid transparent;
+    color: var(--primaryText);
+    background-color: transparent;
+    pointer-events: all;
+    font: normal 400 clamp(1rem, 1.8vw, 3rem) "IBM Plex Sans";
+    transition: border var(--default-duration) ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.email-button:hover {
+    border: 1px solid var(--primaryText);
+}
+
+.email-button #email-icon {
+    width: 60%;
+    height: 60%;
+    stroke: currentColor;
+    stroke-width: 1;
+    fill: none;
+    transition: stroke var(--default-duration) ease, fill var(--default-duration) ease;
+}
+
+.email-button:hover #email-icon {
+    stroke: var(--primaryBG);
+    fill: #ACC1F9;
 }
 
 
@@ -268,8 +336,84 @@ p {
 }
 
 
-@media (max-width: 865px) {
+/* Footer Styles */
+.portfolio-footer {
+    margin-top: 4%;
+    padding-top: 4%;
+    padding-bottom: 2rem;
+    border-top: 1px solid rgba(47, 46, 46, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
 
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.footer-content p {
+    font: normal 300 clamp(0.85rem, 1.2vw, 1.5rem) "ibmPlexSansLight";
+    color: var(--primaryText);
+    opacity: 0.8;
+    margin: 0;
+}
+
+.footer-navigation {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.footer-navigation p {
+    color: var(--primaryText);
+    font: normal 300 clamp(1rem,1.4vw,2rem) "ibmPlexSansLight";
+    line-height: clamp(1.3rem, 2vw ,2rem);
+    margin: 0 0 0.5rem 0;
+}
+
+.footer-navigation a {
+    text-decoration: none;
+    transition: opacity var(--default-duration) ease;
+    display: block;
+}
+
+.footer-navigation a:hover {
+    opacity: 0.8;
+}
+
+.footer-links {
+    display: flex;
+    gap: clamp(1.5rem, 3vw, 3rem);
+    align-items: center;
+}
+
+.footer-links a {
+    font: normal 300 clamp(0.85rem, 1.2vw, 1.5rem) "ibmPlexSansLight";
+    color: var(--primaryText);
+    opacity: 0.8;
+    transition: opacity var(--default-duration) ease;
+}
+
+.footer-links a:hover {
+    opacity: 1;
+}
+
+.footer-links img {
+    width: clamp(20px, 2vw, 24px);
+    height: clamp(20px, 2vw, 24px);
+    opacity: 0.8;
+    transition: opacity var(--default-duration) ease;
+}
+
+.footer-links a:hover img {
+    opacity: 1;
+}
+
+@media (max-width: 865px) {
     .options-wrapper {
         flex-direction: column;
         gap: 2.9vw;
@@ -291,4 +435,66 @@ p {
     .option{
         width: 100%;
     }
+
+    .portfolio-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+
+    .footer-navigation {
+        width: 100%;
+    }
+}
+
+/* Back Arrow Button */
+.back-arrow-button {
+    width: var(--base-size);
+    height: var(--base-size);
+    border-radius: 100%;
+    border: 1px solid transparent;
+    color: var(--primaryText);
+    background-color: transparent;
+    pointer-events: all;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: calc(clamp(2rem, 3.125vw, 4rem) + calc(var(--base-size) / 2));
+    top: clamp(2.5rem, 4.7vw, 6rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--default-duration) ease;
+    z-index: 100;
+}
+
+.back-arrow-button:hover {
+    background-color: var(--primaryText);
+    border: 1px solid var(--primaryText);
+    color: var(--primaryBG);
+}
+
+.back-arrow-button:hover svg path {
+    stroke: var(--primaryBG);
+}
+
+.back-arrow-button svg {
+    width: 60%;
+    height: 60%;
+    stroke: currentColor;
+    stroke-width: 1;
+    fill: none;
+    transition: stroke var(--default-duration) ease;
+}
+
+.back-arrow-bg {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: calc(clamp(2rem, 3.125vw, 4rem) + calc(var(--base-size) / 2));
+    top: clamp(2.5rem, 4.7vw, 6rem);
+    border-radius: 50%;
+    width: calc(var(--base-size) - 1px);
+    height: calc(var(--base-size) - 1px);
+    background-color: transparent;
+    z-index: 99;
 }

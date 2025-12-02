@@ -1,119 +1,339 @@
 .body-wrap {
-    padding-bottom: 10%;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(4rem, 5vw, 6rem);
+    padding-bottom: 0;
 }
 
+/* About Section - Subtle Outline Style */
 .about {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    margin-bottom: clamp(1.5rem,2.4vw,3rem);
-    
+    gap: clamp(1.5rem, 2.4vw, 3rem);
 }
 
+.about-section-card {
+    background: #F8F8F8;
+    border: 2px solid var(--secondaryText);
+    padding: clamp(2rem, 3vw, 3rem);
+    border-radius: 8px;
+    margin-top: 0;
+}
+
+.about h1 {
+    margin-bottom: 0;
+    padding-bottom: 1%;
+    border-bottom: 3px solid var(--secondaryText);
+    display: inline-block;
+    width: fit-content;
+}
+
+.about p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* Resume Section */
 .resume {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: auto;
-    gap: 1.4vw
+    gap: clamp(1.5rem, 2vw, 2.5rem);
+    margin-top: clamp(1rem, 1.25vw, 1.5rem);
+}
+
+.resume-section-card {
+    background: transparent;
+    border-radius: 0;
+    padding: 0;
+    box-shadow: none;
 }
 
 .title {
     display: flex;
     flex-direction: row;
-    gap: 2vw;
+    gap: clamp(1.5rem, 2vw, 3rem);
+    align-items: center;
+    margin-bottom: clamp(2.5rem, 3vw, 3.5rem);
+    padding-bottom: 1%;
+    border-bottom: 3px solid var(--secondaryText);
+    width: fit-content;
 }
 
-/* .resume p {
-    font: normal clamp(0.36rem, 1.4vw, 3rem)/clamp(0.6rem, 1.8vw, 3rem) "ibmPlexSansLight";
-} */
-
-.job-title {
-    font-family: "ibmPlexSansBold";
+.title h1 {
+    margin-bottom: 0;
+    border-bottom: none;
+    padding-bottom: 0;
 }
 
-.institution {
-    font-style: italic;
+.title a h1 {
+    transition: color var(--default-duration) ease;
 }
 
+.title a:hover h1 {
+    color: var(--secondaryBG);
+}
+
+.title button {
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: transform var(--default-duration) ease;
+}
+
+.title button:hover {
+    transform: scale(1.15);
+}
+
+.title button:active {
+    transform: scale(1.05);
+}
+
+/* Job Line Cards */
 .job-line {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    gap: 5.8vw;
+    gap: clamp(2rem, 5.8vw, 8rem);
+    padding: clamp(1.5rem, 2vw, 2rem);
+    background: white;
+    border-left: 4px solid var(--secondaryText);
+    border-radius: 8px;
+    margin-bottom: clamp(1.2rem, 1.8vw, 2rem);
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.job-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: clamp(1.5rem, 2vw, 2.5rem);
+    flex: 1;
+}
+
+.company-logo {
+    width: clamp(48px, 5vw, 64px);
+    height: clamp(48px, 5vw, 64px);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    overflow: hidden;
+    background: white;
+    transition: all 0.3s ease;
+}
+
+.company-logo-large {
+    width: clamp(64px, 7vw, 88px);
+    height: clamp(64px, 7vw, 88px);
+}
+
+.company-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: clamp(0.5rem, 0.8vw, 1rem);
+    transition: transform 0.3s ease;
+    background: transparent;
+    display: block;
+}
+
+.company-logo-placeholder {
+    background: linear-gradient(135deg, var(--secondaryText) 0%, var(--secondaryBG) 100%);
+    color: white;
+    font: normal 700 clamp(1rem, 1.2vw, 1.5rem) "IBM Plex Sans";
+    letter-spacing: 0.5px;
+}
+
+.job-line:hover .company-logo {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.job-line:hover .company-logo img {
+    transform: scale(1.05);
+}
+
+.job-line::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--secondaryText);
+    transition: width 0.3s ease;
+}
+
+.job-line:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    background: #F8F8F8;
+}
+
+.job-line:hover::before {
+    width: 6px;
+}
+
+.job-line:first-of-type {
+    margin-top: 0;
+}
+
+.job-line:last-of-type {
+    margin-bottom: 0;
+}
+
+.job-line-education {
+    margin-top: clamp(2.5rem, 3.5vw, 4rem);
+    padding-top: clamp(2rem, 3vw, 3rem);
+    border-top: 2px solid rgba(47, 46, 46, 0.15);
+    border-left: 4px solid var(--primaryText);
+    background: linear-gradient(135deg, #F8F8F8 0%, #ffffff 100%);
+}
+
+.job-line-education::before {
+    background: var(--primaryText);
+}
+
+.job-title {
+    font-family: "ibmPlexSansBold";
+    font-size: clamp(1rem, 1.4vw, 2rem);
+    line-height: clamp(1.3rem, 2vw, 2.5rem);
+    margin-bottom: 0.3em;
+    color: var(--primaryText);
+    transition: color 0.3s ease;
+}
+
+.job-line:hover .job-title {
+    color: var(--secondaryText);
+}
+
+.institution {
+    font-style: italic;
+    font-size: clamp(0.9rem, 1.2vw, 1.8rem);
+    line-height: clamp(1.2rem, 1.8vw, 2.2rem);
+    color: #555;
+}
+
+.job-line p {
+    margin: 0;
+    line-height: clamp(1.3rem, 2vw, 2.5rem);
 }
 
 .right {
     display: flex;
     flex-direction: row;
-    align-items: inherit;
+    align-items: center;
     justify-content: flex-end;
+    gap: clamp(1rem, 1.5vw, 2rem);
+}
+
+.circle {
+    display: none;
 }
 
 .date {
     width: clamp(3.7rem, 15vw, 15vw);
     text-align: right;
+    font-size: clamp(0.9rem, 1.2vw, 1.8rem);
+    line-height: clamp(1.2rem, 1.8vw, 2.2rem);
+    margin: 0;
+    white-space: nowrap;
+    color: #555;
+    transition: color 0.3s ease;
 }
 
-.circle {
-    width: 1.4vw;
-    height: 1.4vw;
-    position: relative;
-    background-color: var(--primaryText);
-    border-radius: 50%; /* Makes it a perfect circle */
+.job-line:hover .date {
+    color: var(--primaryText);
 }
 
 .rectangle {
-    position: absolute;
-    /* width: 0.233333vw;
-    height: 20vw;
-    top: 0.7vw;
-    left: calc(0.7vw - 0.115vw) ; */
-    background-color: var(--primaryText);
-    z-index: 1000;
+    display: none;
 }
-
-/* .resume-highlights {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.column-left {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: auto;
-}
-
-.column-right {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    height: auto;
-} */
-
 
 .pdf-icon {
     width: clamp(1.5rem,3.8vw,6rem);
+    transition: transform 0.3s ease;
 }
 
+.title button:hover .pdf-icon {
+    transform: rotate(5deg) scale(1.1);
+}
 
+/* Responsive Design */
 @media (max-width: 1050px) {
-    .circle {
-        width: 0;
-        height: 0;
+    .body-wrap {
+        gap: clamp(3rem, 4vw, 5rem);
     }
 
     .job-line {
         flex-direction: column;
-        gap: 0.5vw;
+        gap: clamp(1rem, 1.5vw, 2rem);
         align-items: flex-start;
+        padding: clamp(1.5rem, 2vw, 2rem);
+        transform: none;
+    }
+
+    .job-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: clamp(1rem, 1.5vw, 1.5rem);
+    }
+
+    .company-logo {
+        width: clamp(40px, 4vw, 56px);
+        height: clamp(40px, 4vw, 56px);
+    }
+
+    .company-logo-large {
+        width: clamp(56px, 6vw, 72px);
+        height: clamp(56px, 6vw, 72px);
+    }
+
+    .job-line:hover {
+        transform: none;
+        background: white;
+    }
+
+    .job-line:hover::before {
+        width: 4px;
     }
 
     .date {
         text-align: left;
         width: fit-content;
+        white-space: normal;
+    }
+
+    .right {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: clamp(0.5rem, 1vw, 1rem);
+    }
+
+    .resume {
+        margin-top: 0;
+    }
+
+    .about-section-card:hover {
+        transform: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-section-card,
+    .resume-section-card {
+        padding: clamp(1.5rem, 2.5vw, 2rem);
+    }
+
+    .job-line {
+        padding: clamp(1rem, 1.5vw, 1.5rem);
     }
 }
