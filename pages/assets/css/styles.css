@@ -204,6 +204,7 @@ p {
 
 .menu-button:hover {
     border: 1px solid var(--primaryText);
+    background-color: transparent;
 }
 
 .menu-button #close-icon {
@@ -220,10 +221,12 @@ p {
     stroke: currentColor;
     stroke-width: 1;
     fill: none;
+    transition: stroke var(--default-duration) ease, fill var(--default-duration) ease;
 }
 
 .menu-button:hover #hamburger-icon {
-    stroke: var(--primaryBG);
+    stroke: var(--primaryText);
+    fill: var(--secondaryBG);
 }
 
 .email-button {
@@ -329,7 +332,8 @@ p {
 
     /*open menu bg*/
 #open-menu-bg {
-    background-color: var(--secondaryBG);
+    background-color: transparent;
+    display: none;
 }
 
     /*close meny bg*/
