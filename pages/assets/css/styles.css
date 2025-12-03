@@ -135,7 +135,7 @@ p {
 /*body wrapper for all main content*/
 .body-wrapper {
     padding-inline: var(--bodyMargin);
-    padding-bottom: 0;
+    padding-bottom: clamp(3rem, 6vw, 8rem);
     background-color: transparent;
     opacity: 0;
     transition: opacity var(--default-duration) ease-in-out;
