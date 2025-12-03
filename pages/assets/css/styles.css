@@ -191,7 +191,7 @@ p {
     width: var(--base-size); /* Responsive scaling */
     height: var(--base-size);
     border-radius: 100%;
-    border: 1px solid var(--primaryText);
+    border: none;
     color: var(--primaryText);
     background-color: transparent;
     pointer-events: all;
@@ -199,6 +199,11 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: border var(--default-duration) ease;
+}
+
+.menu-button:hover {
+    border: 1px solid var(--primaryText);
 }
 
 .menu-button #close-icon {
@@ -264,7 +269,7 @@ p {
     background-color: transparent;
     pointer-events: all;
     font: normal 400 clamp(1rem, 1.8vw, 3rem) "IBM Plex Sans";
-    transition: border var(--default-duration) ease;
+    transition: border var(--default-duration) ease, background-color var(--default-duration) ease;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -273,19 +278,26 @@ p {
 
 .back-button:hover {
     border: 1px solid var(--primaryText);
+    background-color: var(--primaryText);
 }
 
 .back-button #back-icon {
     width: 60%;
     height: 60%;
     stroke: currentColor;
-    stroke-width: 1.5;
+    stroke-width: 1;
     fill: none;
     transition: stroke var(--default-duration) ease;
 }
 
-.back-button:hover #back-icon {
-    stroke: var(--primaryBG);
+.back-button #back-icon path {
+    stroke: currentColor;
+    transition: stroke var(--default-duration) ease;
+}
+
+.back-button:hover #back-icon,
+.back-button:hover #back-icon path {
+    stroke: white;
 }
 
 
@@ -405,7 +417,7 @@ p {
 
 /* Footer Styles */
 .portfolio-footer {
-    margin-top: auto;
+    margin-top: clamp(3rem, 6vw, 8rem);
     padding-top: 4%;
     padding-bottom: 2rem;
     border-top: 1px solid rgba(47, 46, 46, 0.2);

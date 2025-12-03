@@ -12,10 +12,22 @@
     }
 }
 
+.column-left {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
 .column-right {
     display: flex;
     margin-top:10%;
     justify-content: right;
+}
+
+.uxui-projects-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 #bg {

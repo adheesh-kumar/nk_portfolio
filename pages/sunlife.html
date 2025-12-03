@@ -20,7 +20,7 @@
         .infographic-title {
             font: normal 700 clamp(1rem, 1.8vw, 3rem) "IBM Plex Sans";
             color: #0E3846;
-            margin-bottom: 2%;
+            margin-bottom: 0;
             padding-bottom: 1%;
             border-bottom: 3px solid #ECAB23;
             display: inline-block;
@@ -158,23 +158,31 @@
         /* Pages Published Grid */
         .pages-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(5, 1fr);
             gap: 1rem;
             margin-top: 3%;
         }
         .page-tag {
             background: linear-gradient(135deg, #ECAB23 0%, #f5c04d 100%);
-            color: #0E3846;
+            color: #0E3846 !important;
             padding: 1rem;
             border-radius: 8px;
             text-align: center;
             font: normal 600 clamp(1rem, 1.4vw, 1.1rem) "IBM Plex Sans";
             box-shadow: 0 2px 8px rgba(236, 171, 35, 0.2);
             transition: all 0.3s ease;
+            text-decoration: none !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 60px;
+            width: 100%;
         }
         .page-tag:hover {
             transform: scale(1.05);
             box-shadow: 0 4px 12px rgba(236, 171, 35, 0.3);
+            text-decoration: none !important;
+            color: #0E3846 !important;
         }
         /* Impact Section */
         .impact-grid {
@@ -219,6 +227,18 @@
             font: normal 300 clamp(1rem, 1.4vw, 2rem) "ibmPlexSansLight";
             line-height: clamp(1.3rem, 2vw, 2rem);
         }
+        /* Conclusion Section */
+        .conclusion-box {
+            border: 2px solid #ECAB23;
+            padding: 2rem;
+            margin-top: 3%;
+            background: transparent;
+        }
+        .conclusion-text {
+            color: #2F2E2E;
+            font: normal 300 clamp(1rem, 1.4vw, 2rem) "ibmPlexSansLight";
+            line-height: clamp(1.3rem, 2vw, 2rem);
+        }
         @media (max-width: 768px) {
             .timeline-container,
             .challenge-grid,
@@ -226,6 +246,11 @@
             .pages-grid,
             .impact-grid {
                 grid-template-columns: 1fr;
+            }
+        }
+        @media (min-width: 769px) and (max-width: 1200px) {
+            .pages-grid {
+                grid-template-columns: repeat(3, 1fr);
             }
         }
     </style>
@@ -237,7 +262,7 @@
         <div id="load-circles-here"></div>
         <a href="index.html" class="back-button back-button-left" aria-label="Back to Home">
             <svg id="back-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M19 12H5M12 19l-7-7 7-7" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
         </a>
         <a href="mailto:Naveedk5996@gmail.com" class="email-button email-button-placement" aria-label="Email">
@@ -259,12 +284,9 @@
     <div class="body-wrapper">
         <h1>Sun Life</h1>
         <div class="subtext" style="margin-top: 1%;">
-            <span style="font-family: 'IBM Plex Sans';">Due to NDA restrictions with Sun Life, I’m unable to display pages. Please reach out if you’d like
-            to see mockups or examples of the work I contributed to. </span> 
-           <br><br>
-            Sun Life undertook a large-scale overhaul of its websites across global markets (Canada, U.S., Asia and other).
-            With thousands of pages spanning product information, customer services, educational content and regulatory 
-          disclosures. The initiative aimed to unify the digital experience under a scalable design system
+            <span style="font-family: 'IBM Plex Sans';">In with the new out with the old. Global refresh of Sun Life Design Language.</span>
+            <br><br>
+            Sun Life undertook a large-scale overhaul of its websites across global markets (Canada, U.S., Asia and other).The initiative aimed to unify the digital experience under a scalable design system
 
  <img src="./assets/images/Sunlife.png" alt="" style="margin-left: calc(-1*(var(--bodyMargin))); max-width: none; width: 100vw; margin-top: 2%;">
 
@@ -359,13 +381,13 @@
                 <h4 class="infographic-title">Pages Published</h4>
                 <div class="pages-grid">
                     <a href="https://www.sunlife.ca/" target="_blank" rel="noopener noreferrer" class="page-tag">Regional Websites</a>
-                    <a href="https://www.sunlife.ca/en/products/" target="_blank" rel="noopener noreferrer" class="page-tag">Product Pages</a>
-                    <a href="https://www.sunlife.ca/en/client-services/" target="_blank" rel="noopener noreferrer" class="page-tag">Client Services</a>
-                    <a href="https://www.sunlife.ca/en/news/" target="_blank" rel="noopener noreferrer" class="page-tag">Blog & News</a>
-                    <a href="https://www.sunlife.ca/en/policies/" target="_blank" rel="noopener noreferrer" class="page-tag">Policy Details</a>
-                    <a href="https://www.sunlife.ca/en/learn/" target="_blank" rel="noopener noreferrer" class="page-tag">Educational Resources</a>
-                    <a href="https://www.sunlife.ca/en/login/" target="_blank" rel="noopener noreferrer" class="page-tag">Customer Portals</a>
-                    <a href="https://www.sunlife.ca/en/legal/" target="_blank" rel="noopener noreferrer" class="page-tag">Legal & Privacy</a>
+                    <a href="https://www.sunlife.ca/en/investments/" target="_blank" rel="noopener noreferrer" class="page-tag">Product Pages</a>
+                    <a href="https://www.sunlife.ca/en/find-an-advisor/" target="_blank" rel="noopener noreferrer" class="page-tag">Client Services</a>
+                    <a href="https://www.sunlife.ca/en/tools-and-resources/" target="_blank" rel="noopener noreferrer" class="page-tag">Blog & News</a>
+                    <a href="https://www.sunlife.ca/en/support/check-your-coverage/" target="_blank" rel="noopener noreferrer" class="page-tag">Policy Details</a>
+                    <a href="https://www.sunlife.ca/en/tools-and-resources/" target="_blank" rel="noopener noreferrer" class="page-tag">Educational Resources</a>
+                    <a href="https://sunnet.sunlife.com/bcheck.html?redir=/signin/mysunlife/home.wca" target="_blank" rel="noopener noreferrer" class="page-tag">Customer Portals</a>
+                    <a href="https://www.sunlife.com/sl/pslf-canada/en/legal/" target="_blank" rel="noopener noreferrer" class="page-tag">Legal & Privacy</a>
                 </div>
                 <p class="subtext" style="margin-top: 2%;">All publishing includes the subpages linked to the main page</p>
             </div>
@@ -394,21 +416,12 @@
             </div>
         </div>
 
-        <h4 style="margin-top: 2%;">Conclusion</h4>
+        <h4 class="infographic-title" style="margin-top: 2%;">Conclusion</h4>
         
-        <div class="subtext" style="margin-top: 1%;">
-            <span style="font-family: 'IBM Plex Sans';">
-This project highlighted the importance of bridging UX design, content management, 
-        and stakeholder alignment at scale. By acting as the link between UX strategy and live 
-        digital execution, the publishing process ensured a consistent, accessible, and 
-        user-friendly experience across Sun Life’s global presence.                <br>
-                <br>
-                By following detailed UX guidelines provided by the UX team, the publishing process upheld the integrity of design, color schemes, spacing, and asset usage for each regional site. The publishing workflow, which included managing multiple subpages for each section, played a pivotal role in maintaining the seamless user experience that Sun Life is known for.
-                <br>
-                <br>
-                The comprehensive structure of the websites, with diverse page types such as product information, educational resources, and customer portals, demonstrates the scale and complexity of Sun Life's digital presence. The ongoing management and optimization of these digital assets is key to meeting both the needs of their customers and the business’s goals of engagement, accessibility, and brand consistency.
-
-            </span>
+        <div class="conclusion-box">
+            <p class="conclusion-text">
+                This project highlighted the importance of bridging UX design, content management, and stakeholder alignment at scale. By acting as the link between UX strategy and live digital execution, the publishing process ensured a consistent, accessible, and user-friendly experience across Sun Life's global presence. Following detailed UX guidelines upheld design integrity while managing hundreds of pages across diverse regions, demonstrating the scale and complexity required to maintain brand consistency and meet customer needs.
+            </p>
         </div>
 
     <!-- Footer -->

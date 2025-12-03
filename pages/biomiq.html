@@ -7,8 +7,271 @@
     <link rel="stylesheet" href="./assets/css/styles.css">
     <link rel="stylesheet" href="./assets/css/flickity.css" media="screen">
     <link rel="stylesheet" href="./assets/css/case_study.css">
-    <link href="/fonts/IBM_Plex_Sans/IBMPlexSans-Regular.ttf">
+    <link href="./fonts/IBM_Plex_Sans/IBMPlexSans-Regular.ttf">
     <link rel="icon" type="image/x-icon" href="./assets/images/favicon.jpg">
+    <style>
+        /* Infographic Styles - Biomiq Colors */
+        .infographic-container {
+            margin: 4% 0;
+        }
+        .infographic-container:last-of-type {
+            margin-bottom: 0;
+        }
+        .infographic-section {
+            margin-bottom: 5%;
+        }
+        .infographic-title {
+            font: normal 700 clamp(1rem, 1.8vw, 3rem) "IBM Plex Sans";
+            color: var(--primaryText);
+            margin-bottom: 0;
+            padding-bottom: 1%;
+            border-bottom: 3px solid #FF6B6B;
+            display: inline-block;
+            width: fit-content;
+        }
+        /* Role Cards */
+        .role-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3%;
+        }
+        .role-card {
+            background: #F8F8F8;
+            border-left: 4px solid #00695C;
+            padding: 1.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        .role-card:hover {
+            background: #F0F0F0;
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .role-heading {
+            font: normal 700 clamp(1rem, 1.4vw, 1.5rem) "IBM Plex Sans";
+            color: #00695C;
+            margin-bottom: 0.75rem;
+        }
+        .role-description {
+            color: #2F2E2E;
+            font: normal 300 clamp(1rem, 1.4vw, 2rem) "ibmPlexSansLight";
+            line-height: clamp(1.3rem, 2vw, 2rem);
+        }
+        /* Research Grid */
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3%;
+        }
+        .research-card {
+            background: white;
+            border-top: 4px solid #FF6B6B;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+        .research-card:hover {
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+            transform: translateY(-3px);
+        }
+        .research-card.alt {
+            border-top-color: #00695C;
+        }
+        .research-heading {
+            font: normal 700 clamp(1rem, 1.4vw, 1.5rem) "IBM Plex Sans";
+            color: #00695C;
+            margin-bottom: 0.75rem;
+        }
+        .research-description {
+            color: #555;
+            font: normal 300 clamp(1rem, 1.4vw, 2rem) "ibmPlexSansLight";
+            line-height: clamp(1.3rem, 2vw, 2rem);
+        }
+        /* Design Philosophy Grid */
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3%;
+        }
+        .philosophy-card {
+            background: #F8F8F8;
+            border-left: 4px solid #00695C;
+            padding: 1.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        .philosophy-card:hover {
+            background: #F0F0F0;
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .philosophy-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: clamp(32px, 3vw, 40px);
+            height: clamp(32px, 3vw, 40px);
+            background: #FF6B6B;
+            color: white;
+            border-radius: 50%;
+            font: normal 700 clamp(1rem, 1.4vw, 1.3rem) "IBM Plex Sans";
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+        .philosophy-text {
+            color: #2F2E2E;
+            font: normal 300 clamp(1rem, 1.4vw, 2rem) "ibmPlexSansLight";
+            line-height: clamp(1.3rem, 2vw, 2rem);
+        }
+        /* Solution Items */
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3%;
+        }
+        .solution-card {
+            background: #F8F8F8;
+            border-left: 4px solid #00695C;
+            padding: 1.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        .solution-card:hover {
+            background: #F0F0F0;
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .solution-text {
+            color: #2F2E2E;
+            font: normal 300 clamp(1rem, 1.4vw, 2rem) "ibmPlexSansLight";
+            line-height: clamp(1.3rem, 2vw, 2rem);
+        }
+        /* Problem Card */
+        .problem-card {
+            background: white;
+            border: 3px solid #FF6B6B;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-top: 3%;
+        }
+        .problem-card .subtext {
+            color: #2F2E2E;
+            font: normal 300 clamp(1rem, 1.4vw, 2rem) "ibmPlexSansLight";
+            line-height: clamp(1.3rem, 2vw, 2rem);
+        }
+        /* Rebrand Card */
+        .rebrand-card {
+            background: white;
+            border-left: 3px solid #ddd;
+            border-radius: 0 8px 8px 0;
+            padding: 2rem;
+            margin-top: 3%;
+        }
+        .rebrand-card .subtext {
+            color: #2F2E2E;
+            font: normal 300 clamp(1rem, 1.4vw, 2rem) "ibmPlexSansLight";
+            line-height: clamp(1.3rem, 2vw, 2rem);
+        }
+        /* Reflection Card */
+        .reflection-card {
+            background: white;
+            border-left: 3px solid #ddd;
+            border-radius: 0 8px 8px 0;
+            padding: 2rem;
+            margin-top: 3%;
+        }
+        .reflection-card .subtext {
+            color: #2F2E2E;
+            font: normal 300 clamp(1rem, 1.4vw, 2rem) "ibmPlexSansLight";
+            line-height: clamp(1.3rem, 2vw, 2rem);
+        }
+        /* Design Test Section */
+        .design-test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3%;
+        }
+        .design-test-card {
+            background: linear-gradient(135deg, #00695C 0%, #00897B 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #FF6B6B;
+        }
+        .design-test-card li {
+            list-style: none;
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.75rem;
+            font: normal 300 clamp(1rem, 1.4vw, 2rem) "ibmPlexSansLight";
+            line-height: clamp(1.3rem, 2vw, 2rem);
+        }
+        .design-test-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #FF6B6B;
+            font-weight: bold;
+            font-size: clamp(1rem, 1.4vw, 1.2rem);
+        }
+        /* Results Table */
+        .results-table {
+            width: 100%;
+            margin-top: 3%;
+            border-collapse: collapse;
+            border: 1px solid #ddd;
+            background: white;
+        }
+        .results-table thead tr {
+            background: white;
+        }
+        .results-table th {
+            text-align: left;
+            padding: clamp(0.75rem, 1.2vw, 1.2rem);
+            border-bottom: 1px solid #ddd;
+            color: var(--primaryText);
+            font: normal 700 clamp(1rem, 1.4vw, 1.5rem) "IBM Plex Sans";
+        }
+        .results-table td {
+            padding: clamp(0.75rem, 1.2vw, 1.2rem);
+            border-bottom: 1px solid #ddd;
+            color: var(--primaryText);
+            font: normal 300 clamp(1rem, 1.4vw, 2rem) "ibmPlexSansLight";
+        }
+        .results-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+        /* Results Container */
+        .results-container {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-top: 3%;
+        }
+        .results-container .subtext {
+            margin-bottom: 1.5rem;
+        }
+        .results-container .subtext strong {
+            font: normal 700 clamp(1rem, 1.4vw, 1.5rem) "IBM Plex Sans";
+            color: var(--primaryText);
+        }
+        @media (max-width: 768px) {
+            .role-grid,
+            .research-grid,
+            .philosophy-grid,
+            .solution-grid,
+            .design-test-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -17,7 +280,7 @@
         <div id="load-circles-here"></div>
         <a href="index.html" class="back-button back-button-left" aria-label="Back to Home">
             <svg id="back-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M19 12H5M12 19l-7-7 7-7" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
         </a>
         <a href="mailto:Naveedk5996@gmail.com" class="email-button email-button-placement" aria-label="Email">
@@ -40,197 +303,242 @@
         <h1>Biomiq</h1>
         <div class="subtext" style="margin-top: 1%;">
             The Biomiq project is a comprehensive redesign and rebrand of Sterasure. The in-depth quantitative and qualitative research guided the UX principles and design of the project.
+            <br><br>
+            <span style="font-family: 'IBM Plex Sans';">
+                <a href="https://biomiq.health/" target="_blank">
+                    Try it yourself: https://biomiq.health/
+                </a>
+            </span>
         </div>
         <video src="./assets/biomiq/header.mp4" loop muted autoplay style="margin-left: calc(-1*(var(--bodyMargin))); width: 100vw; margin-top: 2%;"></video>
         
-        <div class="subtext" style="margin-top: 1%;">
-            <span style="font-family: 'IBM Plex Sans';">
-                <a href="https://biomiq.health/" target="_blank">
-                    Try it yourself: https://biomiq.health/
-                </a>
-            </span>
-        </div>
-        
-        <h4 style="margin-top: 2%;">From sterile to human: A rebrand with purpose</h4>
-        <div class="subtext" style="margin-top: 1%;">
-           <span style="font-family: 'IBM Plex Sans';">Two websites</span>, they faced a common but critical challenge. The main site targeted consumers (Sterasure.com), while BIHOCL.com served B2B customers. The overlap caused confusion, diluted the brand, and slowed conversions.
-        </div>
-        <div class="subtext" style="margin-top: 1%;">
-        <span style="font-family: 'IBM Plex Sans';">Our mission was clear. Unify, simplify, and humanize the brand experience.</span> We aimed to create a digital experience that feels intuitive and approachable drawing inspiration from biomimicry to design systems that are efficient, adaptive, and naturally easy to use.
-        </div>
+        <div class="infographic-container">
+            <div class="infographic-section">
+                <h4 class="infographic-title">From sterile to human: A rebrand with purpose</h4>
+                <div class="rebrand-card">
+                    <div class="subtext">
+                        Two websites, they faced a common but critical challenge. The main site targeted consumers (Sterasure.com), while BIHOCL.com served B2B customers. The overlap caused confusion, diluted the brand, and slowed conversions.
+                        <br><br>
+                        Our mission was clear. Unify, simplify, and humanize the brand experience. We aimed to create a digital experience that feels intuitive and approachable drawing inspiration from biomimicry to design systems that are efficient, adaptive, and naturally easy to use.
+                    </div>
+                </div>
+            </div>
+            <div class="infographic-section">
+                <h4 class="infographic-title">Role</h4>
+                <div class="role-grid">
+                    <div class="role-card">
+                        <h5 class="role-heading">Lead Product Designer</h5>
+                        <p class="role-description">Led scrums, collaborated with cross-functional teams, facilitated workshops, mentored, and served as a lead for rebrand</p>
+                    </div>
+                    <div class="role-card">
+                        <h5 class="role-heading">Full-Stack Product Design</h5>
+                        <p class="role-description">Designed visuals, user experiences, prototypes, and motion; crafted all design elements unless sourced from the Design System. As well as conducted all research involved</p>
+                    </div>
+                    <div class="role-card">
+                        <h5 class="role-heading">Cross-functional Collaboration</h5>
+                        <p class="role-description">Partnered with teams (Front end Developers, Back end developers, Business and Stakeholders)</p>
+                    </div>
+                </div>
+            </div>
 
-        <h4 style="margin-top: 2%;">Role</h4>
-        <div class="subtext" style="margin-top: 1%;">
-            <ul style="list-style-type: disc; padding-left: 4% !important;">
-                <li>
-                    <span style="font-family: 'IBM Plex Sans';">Lead Product Designer:</span> Led scrums, collaborated with cross-functional teams, facilitated workshops, mentored, and served as a lead for rebrand
-                </li>
+        <img src="./assets/images/clay.png" alt="" style="margin-left: calc(-1*(var(--bodyMargin))); max-width: none; width: 100vw; margin-top: 2%; margin-bottom: 5%;">
 
-                <li>
-                    <span style="font-family: 'IBM Plex Sans';">Full-Stack Product Design:</span> Designed visuals, user experiences, prototypes, and motion; crafted all design elements unless sourced from the Design System. As well as conducted all research involved
-                </li>
+            <div class="infographic-section">
+                <h4 class="infographic-title">The problem: 2 websites, one purpose</h4>
+                <div class="problem-card">
+                    <div class="subtext">
+                        Our discovery phase revealed a fundamental mismatch:
+                        <br>
+                        The website's content strategy focused on businesses, but its architecture and flows catered to consumers. The company also had a second website dedicated to only businesses, with some products appearing on both sites 
+                        <br><br>
+                        We needed to merge two separate worlds (B2B and B2C) into one cohesive experience.
+                    </div>
+                </div>
+            </div>
 
-                <li>
-                    <span style="font-family: 'IBM Plex Sans';">Cross-functional collaboration:</span> Partnered with teams (Front end Developers, Back end developers, Business and Stakeholders)
-                </li>
-            </ul>
-        </div>
+            <div class="infographic-section">
+                <h4 class="infographic-title">Research as a foundation for design</h4>
+                <div class="subtext" style="margin-top: 0.5%;">
+                    All major design decisions were built on research insights
+                </div>
+                <div class="research-grid">
+                    <div class="research-card">
+                        <h5 class="research-heading">User Testing</h5>
+                        <p class="research-description">20 participants (ages 18–40) shared frustrations with navigation and unclear product categorization.</p>
+                    </div>
+                    <div class="research-card alt">
+                        <h5 class="research-heading">Competitor Analysis</h5>
+                        <p class="research-description">Brands like Apple and Microsoft inspired clear segmentation and navigation models.</p>
+                    </div>
+                    <div class="research-card">
+                        <h5 class="research-heading">A/B Testing</h5>
+                        <p class="research-description">Which navigation option did participants want to use the most?</p>
+                    </div>
+                    <div class="research-card alt">
+                        <h5 class="research-heading">Accessibility Audits</h5>
+                        <p class="research-description">Highlighted the need for larger fonts, contrast adjustments, and keyboard navigation improvements.</p>
+                    </div>
+                </div>
+                <div class="subtext" style="margin-top: 2%;">
+                    These insights shaped a new information architecture that cut friction, clarified hierarchy, and created distinct pathways for each audience without clutter.
+                </div>
+            </div>
 
-        <img src="./assets/biomiq/1.png" alt="" style="margin-left: calc(-1*(var(--bodyMargin))); max-width: none; width: 100vw; margin-top: 2%;">
-    
+            <div class="infographic-section">
+                <h4 class="infographic-title">Design philosophy</h4>
+                <div class="philosophy-grid">
+                    <div class="philosophy-card">
+                        <div style="display: flex; align-items: flex-start;">
+                            <span class="philosophy-number">1</span>
+                            <div>
+                                <h5 class="role-heading">Humanized</h5>
+                                <p class="philosophy-text">Warmer tones, approachable visuals, empathetic messaging</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="philosophy-card">
+                        <div style="display: flex; align-items: flex-start;">
+                            <span class="philosophy-number">2</span>
+                            <div>
+                                <h5 class="role-heading">Clear & Simple</h5>
+                                <p class="philosophy-text">Simplified navigation, consistent layouts, minimal cognitive load</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="philosophy-card">
+                        <div style="display: flex; align-items: flex-start;">
+                            <span class="philosophy-number">3</span>
+                            <div>
+                                <h5 class="role-heading">Inclusive</h5>
+                                <p class="philosophy-text">WCAG-compliant accessibility and responsive performance across all devices</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="philosophy-card">
+                        <div style="display: flex; align-items: flex-start;">
+                            <span class="philosophy-number">4</span>
+                            <div>
+                                <h5 class="role-heading">Timely</h5>
+                                <p class="philosophy-text">Test and iterate on cross-functional and vertical-supported UI and components using Figma and Atomic design principles</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-        <h4 style="margin-top: 2%;">The problem: 2 websites, one purpose </h4>
-        <div class="subtext" style="margin-top: 1%;">
-            Our discovery phase revealed a fundamental mismatch:
-            <br>
-            The website’s content strategy focused on businesses, but its architecture and flows catered to consumers. The company also had a second website dedicated to only businesses, with some products appearing on both sites 
-            <br><br>
-             We needed to merge two separate worlds (B2B and B2C) into one cohesive experience.
-        </div>
-
-        <h4 style="margin-top: 2%;">Research as a foundation for design</h4>
-        <div class="subtext" style="margin-top: 1%;">
-            All major design decisons were built on research insights
-            <br>
-            <br>
-    
-            <ul style="list-style-type: disc; padding-left: 4% !important;">
-                <li>
-                    <span style="font-family: 'IBM Plex Sans';">User Testing:</span> 20 participants (ages 18–40) shared frustrations with navigation and unclear product categorization.
-                </li>
-
-                <li>
-                    <span style="font-family: 'IBM Plex Sans';">Competitor Analysis:</span> Brands like Apple and Microsoft inspired clear segmentation and navigation models.
-                </li>
-
-                <li>
-                    <span style="font-family: 'IBM Plex Sans';">A/B Testing:</span> Which navigation option did partipants want to use the most?
-                </li>
-
-                <li>
-                    <span style="font-family: 'IBM Plex Sans';">Accessibility Audits:</span> Highlighted the need for larger fonts, contrast adjustments, and keyboard navigation improvements.
-                </li>
+            <div class="infographic-section">
+                <h4 class="infographic-title">The solution: let's merge both websites</h4>
+                <div class="subtext" style="margin-top: 1%;">
+                    <span style="font-family: 'IBM Plex Sans';">
+                        <a href="https://biomiq.health/" target="_blank">
+                            Try it yourself: https://biomiq.health/
+                        </a>
+                    </span>
+                </div>
+                <br>
                 
-            </ul>
-            <br>
-            These insights shaped a new information architecture that cut friction, clarified hierarchy, and created distinct pathways for each audience without clutter.
-        </div>
+                <div style="position: relative; width: 100vw; left: calc(-1 * var(--bodyMargin)); overflow: hidden;">
+                    <div class="main-carousel">
+                        <img src="./assets/biomiq/c0.png" alt="biomiq carosel" class="carousel-cell">
+                        <img src="./assets/biomiq/c1.png" alt="biomiq carosel" class="carousel-cell">
+                        <img src="./assets/biomiq/c2.png" alt="biomiq carosel" class="carousel-cell">
+                        <img src="./assets/biomiq/c3.png" alt="biomiq carosel" class="carousel-cell">
+                        <img src="./assets/biomiq/c4.png" alt="biomiq carosel" class="carousel-cell">
+                        <img src="./assets/biomiq/c5.png" alt="biomiq carosel" class="carousel-cell">
+                        <img src="./assets/biomiq/c6.png" alt="biomiq carosel" class="carousel-cell">
+                    </div>
+                </div>
+                
+                <div class="solution-grid">
+                    <div class="solution-card">
+                        <h5 class="role-heading">1. Interactive menu:</h5>
+                        <p class="solution-text">A/B Testing used to determine design</p>
+                    </div>
+                    <div class="solution-card">
+                        <h5 class="role-heading">2. Homepage redesign:</h5>
+                        <p class="solution-text">Informational hierarchy experiment to uncover how to structure the page</p>
+                    </div>
+                    <div class="solution-card">
+                        <h5 class="role-heading">3. Wound care redesign:</h5>
+                        <p class="solution-text">A/B Testing used to determine design</p>
+                    </div>
+                </div>
+            </div>
 
- <h4 style="margin-top: 2%;">Design philosophy </h4>
-        <div class="subtext" style="margin-top: 1%;">
-                <span style="font-family: 'IBM Plex Sans';">1. Humanized: </span>
-                - Warmer tones, approachable visuals, empathetic messaging
-                <br>
-                <span style="font-family: 'IBM Plex Sans';">2. Clear & Simple: </span>
-                – Simplified navigation, consistent layouts, minimal cognitive load
-                <br>
-                <span style="font-family: 'IBM Plex Sans';">3. Inclusive: </span>
-                – WCAG-compliant accessibility and responsive performance across all devices                
-                <br>
-                <span style="font-family: 'IBM Plex Sans';">4. Timely: </span>
-                - Test and iterate on cross-functional and vertical-supported UI and components using Figma and Atomic design principles.                
-                <br><br>
-        </div>
-        <br>
-           <h4>The solution: let's merge both websites</h4>
-         <div class="subtext" style="margin-top: 1%;">
-            <span style="font-family: 'IBM Plex Sans';">
-                <a href="https://biomiq.health/" target="_blank">
-                    Try it yourself: https://biomiq.health/
-                </a>
-            </span>
-        </div>
-        <br>
-        
-         <div style="position: relative; width: 100vw; left: calc(-1 * var(--bodyMargin)); overflow: hidden;">
-            <div class="main-carousel">
-                <img src="./assets/biomiq/c0.png" alt="biomiq carosel" class="carousel-cell">
-                <img src="./assets/biomiq/c1.png" alt="biomiq carosel" class="carousel-cell">
-                <img src="./assets/biomiq/c2.png" alt="biomiq carosel" class="carousel-cell">
-                <img src="./assets/biomiq/c3.png" alt="biomiq carosel" class="carousel-cell">
-                <img src="./assets/biomiq/c4.png" alt="biomiq carosel" class="carousel-cell">
-                <img src="./assets/biomiq/c5.png" alt="biomiq carosel" class="carousel-cell">
-                <img src="./assets/biomiq/c6.png" alt="biomiq carosel" class="carousel-cell">
+            <div class="infographic-section">
+                <h4 class="infographic-title">Design, test, design, test, design, test, until it's perfect</h4>
+                <div class="design-test-grid">
+                    <div class="design-test-card">
+                        <ul>
+                            <li>Multiple rounds of usability testing and QA across browsers and devices</li>
+                            <li>Prototypes validated with real users before handoff</li>
+                            <li>Comprehensive documentation outlined component behavior, accessibility specs, and visual states</li>
+                            <li>Post-launch, analytics and heatmaps guided continuous optimization</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="infographic-section" style="margin-bottom: 2.5%;">
+                <h4 class="infographic-title">The Results</h4>
+                <div class="results-container">
+                    <div class="subtext">
+                        <strong>Impact at a Glance</strong>
+                    </div>
+                    <table class="results-table">
+                        <thead>
+                            <tr>
+                                <th>Metric</th>
+                                <th>Post-Redesign Growth</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Website Traffic</td>
+                                <td>+25–35% overall (+30% organic)</td>
+                            </tr>
+                            <tr>
+                                <td>Session Duration</td>
+                                <td>+15–30% increase</td>
+                            </tr>
+                            <tr>
+                                <td>Page Views per Session</td>
+                                <td>+20–30% increase</td>
+                            </tr>
+                            <tr>
+                                <td>Conversion Rates</td>
+                                <td>+15–25% B2C / +20% B2B</td>
+                            </tr>
+                            <tr>
+                                <td>Customer Satisfaction</td>
+                                <td>+25% CSAT / +15% NPS</td>
+                            </tr>
+                            <tr>
+                                <td>Mobile Performance</td>
+                                <td>+25% more traffic / +20% conversions</td>
+                            </tr>
+                            <tr>
+                                <td>Retention & Revenue</td>
+                                <td>+15% repeat visits / +20% revenue growth</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="subtext" style="margin-top: 2%;">
+                    These numbers confirmed that great design doesn't just look good—it performs.
+                </div>
             </div>
         </div>
-        
-        <div class="subtext" style="margin-top: 1%;">
-            <span style="font-family: 'IBM Plex Sans';">1. Interactive menu: </span>
-            A/B Testing used to determine design
-            <br>
-            <span style="font-family: 'IBM Plex Sans';">2. Homepage redesign: </span>
-            Informational hierarchy experiment to uncover how to structure the page 
-            <br>
-            <span style="font-family: 'IBM Plex Sans';">3. Wound care redesign: </span>
-            A/B Testing used to determine design 
-            <br>
-            <br>
-        </div>
-        
- <h4 style="margin-top: 2%;">Design, test, design, test, design, test, until it’s perfect.</h4>
-<div class="subtext" style="margin-top: 1%;">
-    <ul style="list-style-type: disc; padding-left: 4% !important;">
-        <li>Multiple rounds of usability testing and QA across browsers and devices</li>
-        <li>Prototypes validated with real users before handoff</li>
-        <li>Comprehensive documentation outlined component behavior, accessibility specs, and visual states</li>
-        <li>Post-launch, analytics and heatmaps guided continuous optimization</li>
-    </ul>
-</div>
-        
-        <br><br>
-        
-<h4>The Results</h4>
-<div class="subtext" style="margin-top: 1%;">
-    <strong>Impact at a Glance</strong>
-    <table style="width: 100%; margin-top: 1%; border-collapse: collapse;">
-        <thead>
-            <tr style="background-color: #f2f2f2;">
-                <th style="text-align: left; padding: 8px; border: 1px solid #ddd;">Metric</th>
-                <th style="text-align: left; padding: 8px; border: 1px solid #ddd;">Post-Redesign Growth</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td style="padding: 8px; border: 1px solid #ddd;">Website Traffic</td>
-                <td style="padding: 8px; border: 1px solid #ddd;">+25–35% overall (+30% organic)</td>
-            </tr>
-            <tr>
-                <td style="padding: 8px; border: 1px solid #ddd;">Session Duration</td>
-                <td style="padding: 8px; border: 1px solid #ddd;">+15–30% increase</td>
-            </tr>
-            <tr>
-                <td style="padding: 8px; border: 1px solid #ddd;">Page Views per Session</td>
-                <td style="padding: 8px; border: 1px solid #ddd;">+20–30% increase</td>
-            </tr>
-            <tr>
-                <td style="padding: 8px; border: 1px solid #ddd;">Conversion Rates</td>
-                <td style="padding: 8px; border: 1px solid #ddd;">+15–25% B2C / +20% B2B</td>
-            </tr>
-            <tr>
-                <td style="padding: 8px; border: 1px solid #ddd;">Customer Satisfaction</td>
-                <td style="padding: 8px; border: 1px solid #ddd;">+25% CSAT / +15% NPS</td>
-            </tr>
-            <tr>
-                <td style="padding: 8px; border: 1px solid #ddd;">Mobile Performance</td>
-                <td style="padding: 8px; border: 1px solid #ddd;">+25% more traffic / +20% conversions</td>
-            </tr>
-            <tr>
-                <td style="padding: 8px; border: 1px solid #ddd;">Retention & Revenue</td>
-                <td style="padding: 8px; border: 1px solid #ddd;">+15% repeat visits / +20% revenue growth</td>
-            </tr>
-        </tbody>
-    </table>
 
-    <p style="margin-top: 1%;">These numbers confirmed that great design doesn’t just look good—it performs.</p>
-    <br>
-</div>
-        
-        <h4 style="margin-top: 2%;">My reflection</h4>
-<div class="subtext" style="margin-top: 1%;">
-    Overall, I'm proud of how this project came together, it was validated quickly and delivered a beautiful, effective result
-    <br><br>
-    It repositioned the company as a forward-thinking leader in healthcare, speaking to both professionals and patients with equal clarity, while increasing almost every metric on the board.
-</div>
+        <h4 class="infographic-title" style="display: inline-block;">My reflection</h4>
+        <div class="reflection-card">
+            <div class="subtext">
+                Overall, I'm proud of how this project came together, it was validated quickly and delivered a beautiful, effective result.
+                <br><br>
+                It repositioned the company as a forward-thinking leader in healthcare, speaking to both professionals and patients with equal clarity, while increasing almost every metric on the board.
+            </div>
+        </div>
 
     <!-- Footer -->
     <footer class="portfolio-footer">

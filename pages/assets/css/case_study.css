@@ -14,3 +14,65 @@
     object-fit: cover;
     object-position: center center;
 }
+
+/* Biomiq page specific styles */
+.subtext a {
+    color: var(--primaryText);
+    text-decoration: underline;
+    transition: color var(--default-duration) ease;
+}
+
+.subtext a:hover {
+    color: var(--secondaryText);
+}
+
+.subtext strong {
+    font: normal 700 clamp(1rem, 1.4vw, 1.5rem) "IBM Plex Sans";
+    color: var(--primaryText);
+}
+
+/* Table styling for Results section */
+.subtext table {
+    width: 100%;
+    margin-top: 1%;
+    border-collapse: collapse;
+    font: normal 300 clamp(1rem, 1.4vw, 2rem) "ibmPlexSansLight";
+}
+
+.subtext table thead tr {
+    background-color: #f2f2f2;
+}
+
+.subtext table th {
+    text-align: left;
+    padding: clamp(0.5rem, 1vw, 1rem);
+    border: 1px solid #ddd;
+    font: normal 700 clamp(1rem, 1.4vw, 1.5rem) "IBM Plex Sans";
+    color: var(--primaryText);
+}
+
+.subtext table td {
+    padding: clamp(0.5rem, 1vw, 1rem);
+    border: 1px solid #ddd;
+    color: var(--primaryText);
+}
+
+.subtext table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.subtext table tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Section heading styling */
+h4 {
+    margin-bottom: 0;
+}
+
+/* Video styling */
+video {
+    display: block;
+    width: 100%;
+    height: auto;
+}
