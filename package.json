@@ -2,7 +2,7 @@
   "name": "portfolio",
   "version": "1.0.0",
   "scripts": {
-    "dev": "live-server nk_portfolio/pages --port=3000 --open=/index.html"
+    "dev": "live-server pages --port=3000 --open=/index.html"
   },
   "dependencies": {
     "cannon-es": "^0.20.0",
