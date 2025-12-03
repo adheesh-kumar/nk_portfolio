@@ -3,6 +3,7 @@
     flex-direction: column;
     gap: clamp(0.5rem, 0.625vw, 0.75rem);
     padding-bottom: 10%;
+    flex: 1;
 }
 
 /* About Section - Subtle Outline Style */
