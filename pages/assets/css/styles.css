@@ -179,6 +179,13 @@ p {
     position: absolute;
 }
 
+.back-button-left {
+    transform: translate(-50%, -50%);
+    left: calc(var(--base-size) / 2 + 1rem);
+    top: clamp(2.5rem, 4.7vw, 6rem);
+    position: absolute;
+}
+
 .menu-button {
     width: var(--base-size); /* Responsive scaling */
     height: var(--base-size);
