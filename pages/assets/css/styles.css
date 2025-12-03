@@ -135,7 +135,7 @@ p {
 /*body wrapper for all main content*/
 .body-wrapper {
     padding-inline: var(--bodyMargin);
-    padding-bottom: clamp(3rem, 6vw, 8rem);
+    padding-bottom: 0;
     background-color: transparent;
     opacity: 0;
     transition: opacity var(--default-duration) ease-in-out;
@@ -423,7 +423,7 @@ p {
 .portfolio-footer {
     margin-top: clamp(3rem, 6vw, 8rem);
     padding-top: 4%;
-    padding-bottom: 2rem;
+    padding-bottom: 0;
     border-top: 1px solid rgba(47, 46, 46, 0.2);
     display: flex;
     justify-content: space-between;
