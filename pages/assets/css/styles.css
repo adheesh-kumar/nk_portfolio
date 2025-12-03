@@ -199,12 +199,12 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: border var(--default-duration) ease;
+    transition: border var(--default-duration) ease, background-color var(--default-duration) ease;
 }
 
 .menu-button:hover {
     border: 1px solid var(--primaryText);
-    background-color: transparent;
+    background-color: var(--secondaryBG);
 }
 
 .menu-button #close-icon {
@@ -421,7 +421,7 @@ p {
 
 /* Footer Styles */
 .portfolio-footer {
-    margin-top: clamp(3rem, 6vw, 8rem);
+    margin-top: clamp(1.5rem, 3vw, 4rem) !important;
     padding-top: 4%;
     padding-bottom: 0;
     border-top: 1px solid rgba(47, 46, 46, 0.2);
