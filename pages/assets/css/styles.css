@@ -212,13 +212,12 @@ p {
 .menu-button #hamburger-icon {
     width: 60%;
     height: 60%;
-    fill: var(--primaryText);
     stroke: currentColor;
     stroke-width: 1;
+    fill: none;
 }
 
 .menu-button:hover #hamburger-icon {
-    fill: var(--primaryBG);
     stroke: var(--primaryBG);
 }
 
