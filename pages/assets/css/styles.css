@@ -30,6 +30,70 @@
     transition: color var(--default-duration) ease, background-color var(--default-duration) ease;
 }
 
+/* Splash screen (slow-load indicator) */
+.splash-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(252, 249, 246, 0.95); /* matches --primaryBG */
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 200ms ease, visibility 0s linear 200ms;
+}
+
+.splash-screen.is-active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition: opacity 200ms ease;
+}
+
+.splash-screen.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.splash-screen__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 1.25rem;
+}
+
+.splash-screen__spinner {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: 3px solid rgba(47, 46, 46, 0.18); /* --primaryText with alpha */
+    border-top-color: var(--secondaryText);
+    animation: splash-spin 800ms linear infinite;
+}
+
+.splash-screen__label {
+    color: var(--primaryText);
+    font: normal 600 1rem "IBM Plex Sans";
+    letter-spacing: 0.02em;
+}
+
+@keyframes splash-spin {
+    to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .splash-screen {
+        transition: none;
+    }
+    .splash-screen__spinner {
+        animation: none;
+    }
+}
+
 img {
     max-width: 100%;
     height: auto;

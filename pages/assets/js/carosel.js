@@ -14,3 +14,38 @@ var flkty = new Flickity( elem, {
     x3: 14 
   }
 });
+
+// Lazy load carousel images
+function loadCarouselImage(img) {
+  if (img.dataset.src && !img.src) {
+    img.src = img.dataset.src;
+    img.removeAttribute('data-src');
+  }
+}
+
+// Load images for current and adjacent cells
+function loadAdjacentImages(selectedIndex) {
+  const cells = elem.querySelectorAll('.carousel-cell');
+  const totalCells = cells.length;
+  
+  // Load current image
+  loadCarouselImage(cells[selectedIndex]);
+  
+  // Load next image (preload)
+  const nextIndex = (selectedIndex + 1) % totalCells;
+  loadCarouselImage(cells[nextIndex]);
+  
+  // Load previous image (preload)
+  const prevIndex = (selectedIndex - 1 + totalCells) % totalCells;
+  loadCarouselImage(cells[prevIndex]);
+}
+
+// Load images when carousel changes
+flkty.on('change', function(index) {
+  loadAdjacentImages(index);
+});
+
+// Load first image and adjacent ones on initialization
+if (flkty.selectedIndex !== undefined) {
+  loadAdjacentImages(flkty.selectedIndex);
+}
