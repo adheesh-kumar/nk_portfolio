@@ -3,12 +3,496 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Route+ - UX/UI Projects</title> 
+    <title>Route+ - UX/UI Projects</title>
     <link rel="stylesheet" href="./assets/css/styles.css">
     <link rel="stylesheet" href="./assets/css/flickity.css" media="screen">
     <link rel="stylesheet" href="./assets/css/case_study.css">
     <link href="./fonts/IBM_Plex_Sans/IBMPlexSans-Regular.ttf">
     <link rel="icon" type="image/x-icon" href="./assets/images/favicon.jpg">
+    <style>
+        /* Route+ theme — aligned with Sun Life / Biomiq case study patterns */
+        .infographic-container {
+            margin: 4% 0;
+        }
+        .infographic-container:last-of-type {
+            margin-bottom: 0;
+        }
+        .infographic-section {
+            margin-bottom: 5%;
+        }
+        .infographic-title {
+            font: normal 700 clamp(1rem, 1.8vw, 3rem) "IBM Plex Sans";
+            color: var(--primaryText);
+            margin-bottom: 0;
+            padding-bottom: 1%;
+            border-bottom: 3px solid #F4A261;
+            display: inline-block;
+            width: fit-content;
+        }
+        .role-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3%;
+        }
+        .role-card {
+            background: #F8F8F8;
+            border-left: 4px solid #1E3A5F;
+            padding: 1.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        .role-card:hover {
+            background: #F0F0F0;
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .role-heading {
+            font: normal 700 clamp(1rem, 1.4vw, 1.5rem) "IBM Plex Sans";
+            color: #1E3A5F;
+            margin-bottom: 0.75rem;
+        }
+        .role-description {
+            color: #2F2E2E;
+            font: normal 300 clamp(1rem, 1.4vw, 2rem) "ibmPlexSansLight";
+            line-height: clamp(1.3rem, 2vw, 2rem);
+        }
+        .timeline-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3%;
+        }
+        .timeline-card {
+            background: #fff;
+            color: #2F2E2E;
+            padding: 1.5rem 1.5rem 1.5rem 1.35rem;
+            border-radius: 12px;
+            border: 1px solid rgba(30, 58, 95, 0.12);
+            border-left: 4px solid #1E3A5F;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .timeline-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(30, 58, 95, 0.1);
+        }
+        .phase-label {
+            display: inline-block;
+            background: #F4A261;
+            color: #1E3A5F;
+            font: normal 700 clamp(0.7rem, 1vw, 0.875rem) "IBM Plex Sans";
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 0.45rem 0.85rem;
+            border-radius: 6px;
+            margin-bottom: 0.85rem;
+            line-height: 1.2;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
+        }
+        .phase-body {
+            font: normal 300 clamp(1rem, 1.4vw, 2rem) "ibmPlexSansLight";
+            line-height: clamp(1.35rem, 2.1vw, 2.1rem);
+            color: #2F2E2E;
+        }
+        .problem-card {
+            background: white;
+            border: 3px solid #F4A261;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-top: 3%;
+        }
+        .problem-card .subtext {
+            color: #2F2E2E;
+            font: normal 300 clamp(1rem, 1.4vw, 2rem) "ibmPlexSansLight";
+            line-height: clamp(1.3rem, 2vw, 2rem);
+        }
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3%;
+        }
+        .impact-card {
+            background: #F8F8F8;
+            color: #2F2E2E;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-top: 4px solid #F4A261;
+            border-left: 1px solid rgba(30, 58, 95, 0.08);
+            border-right: 1px solid rgba(30, 58, 95, 0.08);
+            border-bottom: 1px solid rgba(30, 58, 95, 0.08);
+        }
+        .impact-card .impact-stat {
+            font: normal 700 clamp(1.1rem, 1.6vw, 1.5rem) "IBM Plex Sans";
+            color: #1E3A5F;
+            margin-bottom: 0.65rem;
+            line-height: 1.3;
+        }
+        .impact-card .impact-copy {
+            font: normal 300 clamp(1rem, 1.4vw, 2rem) "ibmPlexSansLight";
+            line-height: clamp(1.35rem, 2.1vw, 2.1rem);
+            color: #444;
+        }
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3%;
+        }
+        .research-card {
+            background: white;
+            border-top: 4px solid #F4A261;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+        .research-card:hover {
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+            transform: translateY(-3px);
+        }
+        .research-card.alt {
+            border-top-color: #1E3A5F;
+        }
+        .research-heading {
+            font: normal 700 clamp(1rem, 1.4vw, 1.5rem) "IBM Plex Sans";
+            color: #1E3A5F;
+            margin-bottom: 0.75rem;
+        }
+        .research-description {
+            color: #555;
+            font: normal 300 clamp(1rem, 1.4vw, 2rem) "ibmPlexSansLight";
+            line-height: clamp(1.3rem, 2vw, 2rem);
+        }
+        .research-description ul {
+            margin: 0.75rem 0 0;
+            padding-left: 1.25rem;
+        }
+        .research-description li {
+            margin-bottom: 0.5rem;
+        }
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3%;
+        }
+        .philosophy-card {
+            background: #F8F8F8;
+            border-left: 4px solid #1E3A5F;
+            padding: 1.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        .philosophy-card:hover {
+            background: #F0F0F0;
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .philosophy-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: clamp(32px, 3vw, 40px);
+            height: clamp(32px, 3vw, 40px);
+            background: #F4A261;
+            color: #1E3A5F;
+            border-radius: 50%;
+            font: normal 700 clamp(1rem, 1.4vw, 1.3rem) "IBM Plex Sans";
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+        .philosophy-text {
+            color: #2F2E2E;
+            font: normal 300 clamp(1rem, 1.4vw, 2rem) "ibmPlexSansLight";
+            line-height: clamp(1.3rem, 2vw, 2rem);
+        }
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3%;
+        }
+        .solution-card {
+            background: #F8F8F8;
+            border-left: 4px solid #1E3A5F;
+            padding: 1.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        .solution-card:hover {
+            background: #F0F0F0;
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .solution-text {
+            color: #2F2E2E;
+            font: normal 300 clamp(1rem, 1.4vw, 2rem) "ibmPlexSansLight";
+            line-height: clamp(1.3rem, 2vw, 2rem);
+        }
+        .conclusion-box {
+            border: 2px solid #F4A261;
+            padding: 2rem;
+            margin-top: 3%;
+            background: transparent;
+            border-radius: 8px;
+        }
+        .conclusion-text {
+            color: #2F2E2E;
+            font: normal 300 clamp(1rem, 1.4vw, 2rem) "ibmPlexSansLight";
+            line-height: clamp(1.3rem, 2vw, 2rem);
+        }
+        .figma-link {
+            font-family: 'IBM Plex Sans', sans-serif;
+        }
+        /* Carousel strip: lighter than global black for readability around slides */
+        .body-wrapper .main-carousel {
+            background-color: #eceef1;
+        }
+        /* Infographic: hero deliverables strip */
+        .route-deliverables {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: clamp(0.75rem, 2vw, 1.25rem);
+            margin-top: clamp(1.5rem, 3vw, 2.5rem);
+            padding: clamp(1rem, 2vw, 1.5rem);
+            background: linear-gradient(135deg, rgba(30, 58, 95, 0.06) 0%, rgba(244, 162, 97, 0.12) 100%);
+            border-radius: 12px;
+            border: 1px solid rgba(30, 58, 95, 0.1);
+        }
+        .route-deliverable {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 0.65rem;
+        }
+        .route-deliverable-label {
+            font: normal 600 clamp(0.75rem, 1.1vw, 0.95rem) "IBM Plex Sans";
+            color: #1E3A5F;
+            line-height: 1.25;
+            max-width: 9rem;
+        }
+        .route-ig-icon {
+            width: clamp(44px, 5.5vw, 56px);
+            height: clamp(44px, 5.5vw, 56px);
+            border-radius: 50%;
+            background: linear-gradient(145deg, #1E3A5F 0%, #2a5080 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 4px 14px rgba(30, 58, 95, 0.25);
+            color: #F4A261;
+        }
+        .route-ig-icon svg {
+            width: 52%;
+            height: 52%;
+            stroke: currentColor;
+            fill: none;
+        }
+        .route-ig-icon svg.filled-icon {
+            fill: currentColor;
+            stroke: none;
+        }
+        /* Role / solution: card with icon row */
+        .role-card-inner,
+        .solution-card-inner {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+        .role-card-inner .route-ig-icon,
+        .solution-card-inner .route-ig-icon {
+            width: clamp(40px, 4.5vw, 48px);
+            height: clamp(40px, 4.5vw, 48px);
+        }
+        /* Problem flow infographic */
+        .problem-flow {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: stretch;
+            justify-content: center;
+            gap: 0.5rem 0.25rem;
+            margin-top: 1.5rem;
+        }
+        .problem-flow-node {
+            flex: 1 1 140px;
+            min-width: min(100%, 140px);
+            max-width: 200px;
+            background: #fff;
+            border: 2px dashed rgba(30, 58, 95, 0.2);
+            border-radius: 10px;
+            padding: 1rem 0.75rem;
+            text-align: center;
+        }
+        .problem-flow-node.highlight {
+            border-style: solid;
+            border-color: #F4A261;
+            background: linear-gradient(180deg, #fff8f0 0%, #fff 100%);
+        }
+        .problem-flow-node .flow-emoji {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+        .problem-flow-node .flow-title {
+            font: normal 700 clamp(0.8rem, 1.1vw, 1rem) "IBM Plex Sans";
+            color: #1E3A5F;
+            margin-bottom: 0.35rem;
+        }
+        .problem-flow-node .flow-caption {
+            font: normal 300 clamp(0.75rem, 1vw, 0.9rem) "ibmPlexSansLight";
+            color: #555;
+            line-height: 1.35;
+        }
+        .problem-flow-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #F4A261;
+            font-size: 1.5rem;
+            font-weight: 700;
+            flex: 0 0 auto;
+            padding: 0 0.15rem;
+        }
+        /* Timeline connector + step badges */
+        .timeline-wrapper {
+            position: relative;
+            margin-top: 3%;
+        }
+        .timeline-track-line {
+            display: none;
+        }
+        @media (min-width: 1000px) {
+            .timeline-track-line {
+                display: block;
+                position: absolute;
+                top: 28px;
+                left: 8%;
+                right: 8%;
+                height: 4px;
+                background: linear-gradient(90deg, #F4A261 0%, #1E3A5F 25%, #F4A261 50%, #1E3A5F 75%, #F4A261 100%);
+                border-radius: 4px;
+                opacity: 0.45;
+                z-index: 0;
+            }
+            .timeline-wrapper .timeline-container {
+                position: relative;
+                z-index: 1;
+            }
+        }
+        .timeline-card {
+            position: relative;
+            padding-right: 2.85rem;
+        }
+        .timeline-step-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #F4A261;
+            color: #1E3A5F;
+            font: normal 700 0.8rem "IBM Plex Sans";
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(244, 162, 97, 0.5);
+        }
+        /* Impact cards: icon header */
+        .impact-card-head {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 0.65rem;
+        }
+        .impact-card-head .route-ig-icon {
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
+        }
+        .impact-card-head .impact-stat {
+            margin-bottom: 0;
+            flex: 1;
+            min-width: 0;
+        }
+        /* Research: icon + title */
+        .research-card-head {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.85rem;
+            margin-bottom: 0.65rem;
+        }
+        .research-card-head .route-ig-icon {
+            width: 38px;
+            height: 38px;
+            margin-top: 0.1rem;
+        }
+        .research-card-head .research-heading {
+            margin-bottom: 0;
+            flex: 1;
+            min-width: 0;
+            align-self: center;
+        }
+        /* Section mini-label */
+        .route-section-kicker {
+            font: normal 600 clamp(0.7rem, 1vw, 0.8rem) "IBM Plex Sans";
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: #F4A261;
+            margin-bottom: 0.35rem;
+        }
+        /* Quick stats strip */
+        .route-stats-bar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 1.25rem;
+            margin: clamp(1.5rem, 3vw, 2.5rem) 0;
+            padding: clamp(1.25rem, 2.5vw, 1.75rem);
+            background: linear-gradient(120deg, #1E3A5F 0%, #243d5c 50%, #1a3250 100%);
+            border-radius: 12px;
+            border-left: 5px solid #F4A261;
+            box-shadow: 0 8px 28px rgba(30, 58, 95, 0.2);
+        }
+        .route-stat-item {
+            text-align: center;
+            min-width: 100px;
+        }
+        .route-stat-item strong {
+            display: block;
+            font: normal 700 clamp(1.5rem, 3vw, 2.25rem) "IBM Plex Sans";
+            color: #F4A261;
+            line-height: 1.1;
+            margin-bottom: 0.25rem;
+        }
+        .route-stat-item span {
+            font: normal 300 clamp(0.75rem, 1.1vw, 0.95rem) "ibmPlexSansLight";
+            color: rgba(255, 255, 255, 0.88);
+            line-height: 1.3;
+        }
+        @media (max-width: 768px) {
+            .role-grid,
+            .timeline-container,
+            .impact-grid,
+            .research-grid,
+            .philosophy-grid,
+            .solution-grid {
+                grid-template-columns: 1fr;
+            }
+            .route-deliverables {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .problem-flow-arrow {
+                transform: rotate(90deg);
+                padding: 0.25rem 0;
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -35,226 +519,341 @@
             </svg>
         </button>
     </div>
-    
+
     <div class="body-wrapper">
         <h1>Route+</h1>
         <div class="subtext" style="margin-top: 1%;">
-            ROUTE+ is an app that enhances the Canada's Wonderland experience by providing real-time wait times, personalized routes, and notifications, reducing frustration and helping visitors make the most of their time at the park.
-        </div>
-        <video src="./assets/route+/route_mobile.mp4" loop muted autoplay style="margin-left: calc(-1*(var(--bodyMargin))); width: 100vw; margin-top: 2%;"></video>
-        <div class="subtext" style="margin-top: 1%;">
-            <span style="font-family: 'IBM Plex Sans';">
-                <a href="https://www.figma.com/proto/VaAUUEXQ40LStOYZEkVJNR/Wireframe%2C-MVP%2C-%26-Final-Prototype?page-id=289%3A235&type=design&node-id=821-4023&viewport=21%2C523%2C0.1&t=b6coe9P4O3LtimEw-1&scaling=scale-down&starting-point-node-id=821%3A12756&show-proto-sidebar=1" target="_blank">
-                    Try it yourself: Figma
+            <span class="figma-link">Less waiting. More riding.</span>
+            <br><br>
+            Route+ is a concept app that improves visits to Canada's Wonderland with live wait times, personalized routes, and timely notifications—so guests spend less time in line and more time enjoying the park.
+            <br><br>
+            <span class="figma-link">
+                <a href="https://www.figma.com/proto/VaAUUEXQ40LStOYZEkVJNR/Wireframe%2C-MVP%2C-%26-Final-Prototype?page-id=289%3A235&type=design&node-id=821-4023&viewport=21%2C523%2C0.1&t=b6coe9P4O3LtimEw-1&scaling=scale-down&starting-point-node-id=821%3A12756&show-proto-sidebar=1" target="_blank" rel="noopener noreferrer">
+                    Try it yourself: Figma prototype
                 </a>
             </span>
         </div>
-        
-        
-        <h4 style="margin-top: 2%;">Role</h4>
-        <div class="subtext" style="margin-top: 1%;">
-            <span style="font-family: 'IBM Plex Sans';">Responsibilities: </span> 
-            <br>
-            1. App design, prototyping, and research
-            <br> 
-            2. Conducting user tests using tools such as Figma, Miro, Google Docs, and Google Forms
-        </div>
 
-
-
-
-        <h4 style="margin-top: 2%;">Process</h4>
-        <div class="subtext" style="margin-top: 1%;">
-                <span style="font-family: 'IBM Plex Sans';">1. Identifying Core Issues</span>
-                <br>
-                The core issue was the long wait times at Canada's Wonderland, causing frustration for visitors and inefficient park operations.
-        </div>
-        <div class="subtext" style="margin-top: 3%;">
-                <span style="font-family: 'IBM Plex Sans';">2. Research & Insights</span>
-                <br>
-                We conducted interviews and surveys to understand visitor pain points, focusing on the frustration of long wait times, discomfort in hot weather, and the desire for a more efficient park experience.
-        </div>
-        <div class="subtext" style="margin-top: 3%;">
-                <span style="font-family: 'IBM Plex Sans';">3. Strategy & Collaboration</span>
-                <br>
-                The strategy focused on reducing wait times and optimizing the visitor experience through technology. Collaboration with key stakeholders, including park operations and tech partners, helped shape the app's features.
-        </div>
-        <div class="subtext" style="margin-top: 3%;">
-                <span style="font-family: 'IBM Plex Sans';">4. Design & Redesign Execution</span>
-                <br>
-                Designed the ROUTE+ app with features like real-time wait times, personalized routes, and wristband tracking. Continuous redesigns were made based on user feedback to improve usability and clarity.
-        </div>
-        <div class="subtext" style="margin-top: 3%;">
-                <span style="font-family: 'IBM Plex Sans';">5. User Testing & Final Adjustments</span>
-                <br>
-                Conducted 20 user tests with a diverse group (ages 18-40). Adjustments were made based on feedback to enhance map clarity, text size, and notification features.
-        </div>
-        <div class="subtext" style="margin-top: 3%;">
-                <span style="font-family: 'IBM Plex Sans';">6. Handoff & Final Prototypes</span>
-                <br>
-                Created detailed wireframes and prototypes in Figma, ready for development with clear documentation for the staged rollout to developers.
-        </div>
-        <div class="subtext" style="margin-top: 3%;">
-                <span style="font-family: 'IBM Plex Sans';">7. Outcomes & Post Launch Testing</span>
-                <br>
-                The app's implementation improved visitor satisfaction, optimized park operations, and is expected to lead to increased visitor retention, more positive reviews, and greater park attendance.
-        </div>
-
-
-        <img src="./assets/route+/1.png" alt="" loading="lazy" style="margin-left: calc(-1*(var(--bodyMargin))); max-width: none; width: 100vw; margin-top: 2%;">
-    
-
-
-        <h4 style="margin-top: 2%;">Impact</h4>
-        <div class="subtext" style="margin-top: 1%;">
-            <span style="font-family: 'IBM Plex Sans';">Impact:</span>
-            <br>
-            <ul style="list-style-type: disc; padding-left: 4% !important;">
-                <li>
-                    <span style="font-family: 'IBM Plex Sans';">Reduced visitor frustration:</span> 30% decrease in average wait times, resulting in a 40% reduction in complaints related to long waits.
-                </li>
-
-                <li>
-                    <span style="font-family: 'IBM Plex Sans';">Enhanced park operations:</span> 25% improvement in crowd flow efficiency, optimizing staff and resource management, leading to a 15% increase in overall ride throughput.
-                </li>
-
-                <li>
-                    <span style="font-family: 'IBM Plex Sans';">Increased visitor satisfaction:</span> 20% boost in visitor satisfaction ratings, contributing to a 35% increase in positive reviews and a 15% rise in repeat visitor booking
-                </li>
-
-
-            </ul>
-            <br>
-        </div>
-
-        <h4 style="margin-top: 2%;">Problem Statement</h4>
-        <div class="subtext" style="margin-top: 1%; font-family: 'IBM Plex Sans';">
-            Visitors at Canada's Wonderland often experience long wait times of over 2 hours, causing frustration and a less enjoyable experience.
-        </div>
-
-        <h4 style="margin-top: 2%;">Research</h4>
-
-        <div class="subtext" style="margin-top: 1%;">
-            <span style="font-family: 'IBM Plex Sans';">Usability Testing Summary:</span>  
-            <br>
-            The goal of the usability tests was to assess the app’s functionality, ease of navigation, and user experience. A series of tests were conducted using the think-aloud protocol, where participants verbalized their thoughts as they navigated through the app.
-            <br>
-            <br>
-            <span style="font-family: 'IBM Plex Sans';">Key Findings:</span>  
-            <br>
-            <br>
-
-            <span style="font-family: 'IBM Plex Sans';">1. Route Setting & Personalization:</span> 
-            <ul style="list-style-type: disc; padding-left: 4% !important;">
-                <li>
-                    Users generally appreciated the route-setting feature but wanted more clarity in the process (e.g., additional instructions on how to scan wristbands).
-                </li>
-                <li>
-                    The ability to set personalized routes was well-received, though some users felt the interface was overwhelming with too much information displayed at once.
-                </li>
-                <li>
-                    Suggestions included allowing for different routes per group member and simplifying the process of setting preferences.
-                </li>
-            </ul>
-
-            <span style="font-family: 'IBM Plex Sans';">2. Wait Times & Ride Information:</span> 
-            <ul style="list-style-type: disc; padding-left: 4% !important;">
-                <li>
-                    Participants were able to find wait times, but some expressed confusion about the search bar functionality and filter options.
-                </li>
-                <li>
-                    There was a consistent desire for more detailed information about rides (e.g., brief descriptions and categorization) and clearer visibility of wait times.
-                </li>
-                <li>
-                    Suggestions included adding ride types (e.g., thrill, swing) and categorizing rides by location (e.g., medieval area, kids' area).
-                </li>
-            </ul>
-
-            <span style="font-family: 'IBM Plex Sans';">3. Map & Navigation:</span> 
-            <ul style="list-style-type: disc; padding-left: 4% !important;">
-                <li>
-                    Users appreciated the map feature but wanted it to be more interactive, with clearer labeling and visual cues like icons for rides and facilities (e.g., washrooms, food).
-                </li>
-                <li>
-                    A heatmap feature was suggested for showing popular areas, including food and ride wait times.
-                </li>
-                <li>
-                    The map was expected to show real-time updates (e.g., wait times, current locations) and provide navigation options with step-by-step directions.
-                </li>
-            </ul>
-
-            <span style="font-family: 'IBM Plex Sans';">4. Interface & Design:</span> 
-            <ul style="list-style-type: disc; padding-left: 4% !important;">
-                <li>
-                    Participants found certain text sizes too small and suggested improving button labels and text contrast for better visibility.
-                </li>
-                <li>
-                    Feedback on the color scheme was mixed, with some users suggesting a more dynamic palette or clearer distinctions between different elements (e.g., wait times).
-                </li>
-                <li>
-                    There were requests for additional customization options, such as personalizing the user interface based on preferences (e.g., thrill-seekers vs. family-friendly).
-                </li>
-            </ul>
-
-            <span style="font-family: 'IBM Plex Sans';">5. User Flow & Functionality:</span> 
-            <ul style="list-style-type: disc; padding-left: 4% !important;">
-                <li>
-                    Participants were often unsure of how to navigate through certain features, such as adding rides to their routes or understanding notification content.
-                </li>
-                <li>
-                    The need for better onboarding and clearer explanations of app functionality was emphasized.
-                </li>
-                <li>
-                    Some users struggled with filters and search functions, suggesting the need for a more intuitive and responsive interface.
-                </li>
-            </ul>
-
-            <br>
-            <br>
-
-            <span style="font-family: 'IBM Plex Sans';">Overall, the usability tests highlighted key areas for improvement, particularly in terms of simplifying user interactions, enhancing navigation, and providing more detailed and accessible information. The feedback collected has been invaluable for refining the app’s design and ensuring a smoother, more enjoyable user experience.</span> 
-        </div>
-
-
-        <br>
-        <div style="position: relative; width: 100vw; left: calc(-1 * var(--bodyMargin)); overflow: hidden;">
-            <div class="main-carousel">
-                <img src="./assets/route+/c1.png" alt="biomiq carosel" class="carousel-cell" loading="eager">
-                <img data-src="./assets/route+/c2.png" alt="biomiq carosel" class="carousel-cell" loading="lazy">
-                <img data-src="./assets/route+/c3.png" alt="biomiq carosel" class="carousel-cell" loading="lazy">
+        <div class="route-deliverables" role="list" aria-label="What Route+ offers">
+            <div class="route-deliverable" role="listitem">
+                <div class="route-ig-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke-width="1.5"/><path d="M12 7v4.5l2.5 1.5" stroke-width="1.5" stroke-linecap="round"/></svg>
+                </div>
+                <span class="route-deliverable-label">Live wait times</span>
+            </div>
+            <div class="route-deliverable" role="listitem">
+                <div class="route-ig-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18c3-6 5-12 8-9s4 6 8 3" stroke-width="1.5" stroke-linecap="round"/><circle cx="4" cy="18" r="2" stroke-width="1.5"/><circle cx="20" cy="12" r="2" stroke-width="1.5"/></svg>
+                </div>
+                <span class="route-deliverable-label">Smart routes</span>
+            </div>
+            <div class="route-deliverable" role="listitem">
+                <div class="route-ig-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6l5-2 5 3 6-2v14l-6 2-5-3-5 2V6z" stroke-width="1.5" stroke-linejoin="round"/><path d="M9 4v14M14 7v12" stroke-width="1.5"/></svg>
+                </div>
+                <span class="route-deliverable-label">Park map &amp; context</span>
+            </div>
+            <div class="route-deliverable" role="listitem">
+                <div class="route-ig-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a5 5 0 00-5 5v4l-2 3h14l-2-3V8a5 5 0 00-5-5z" stroke-width="1.5" stroke-linejoin="round"/><path d="M10 20h4" stroke-width="1.5" stroke-linecap="round"/></svg>
+                </div>
+                <span class="route-deliverable-label">Timely nudges</span>
             </div>
         </div>
 
-        <h4 style="margin-top: 2%;">Guiding Principles & Framework</h4>
-        <div class="subtext" style="margin-top: 1%;">
-                <span style="font-family: 'IBM Plex Sans';">1. Reduce Wait Times for a Better Visitor Experience: </span>
-                <br>
-                Minimize wait times using real-time data and personalized routes, allowing visitors to enjoy more attractions and less time in queues, leading to a smoother, more efficient park experience.
-                <br>
-                <span style="font-family: 'IBM Plex Sans';">2. Enhance Customer Satisfaction Through Innovation: </span>
-                <br>
-                Improve satisfaction by offering personalized recommendations, notifications, and continuous updates. Regularly incorporating user feedback ensures the app meets evolving needs and increases visitor loyalty.
-                <br>
-                <span style="font-family: 'IBM Plex Sans';">3. Leverage Technology and Data for Operational Efficiency: </span>
-                <br>
-                Utilize data to optimize park operations and enhance communication with visitors. Real-time updates, predictive analytics, and heatmaps improve resource management, crowd control, and keep guests informed throughout their visit.
-                <br>
+        <video src="./assets/route+/route_mobile.mp4" loop muted autoplay playsinline style="margin-left: calc(-1*(var(--bodyMargin))); width: 100vw; margin-top: 2%;"></video>
+
+        <div class="infographic-container">
+            <div class="infographic-section">
+                <div class="route-section-kicker">At a glance</div>
+                <h4 class="infographic-title">Role</h4>
+                <div class="role-grid">
+                    <div class="role-card">
+                        <div class="role-card-inner">
+                            <div class="route-ig-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" stroke-width="1.5"/><path d="M8 8h8v8H8z" stroke-width="1.5"/><path d="M12 8v8M8 12h8" stroke-width="1.5" stroke-linecap="round"/></svg>
+                            </div>
+                            <div>
+                                <h5 class="role-heading">Product &amp; UX design</h5>
+                                <p class="role-description">End-to-end app design, prototyping, and iterative research—from wireframes through high-fidelity flows in Figma.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="role-card">
+                        <div class="role-card-inner">
+                            <div class="route-ig-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2" stroke-width="1.5"/><path d="M9 5a2 2 0 012-2h2a2 2 0 012 2v2H9V5z" stroke-width="1.5"/><path d="M9 12h6M9 16h4" stroke-width="1.5" stroke-linecap="round"/></svg>
+                            </div>
+                            <div>
+                                <h5 class="role-heading">Research &amp; testing</h5>
+                                <p class="role-description">Planned and ran usability sessions using think-aloud protocols, with synthesis in Miro, Docs, and Forms to validate assumptions and refine the experience.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="infographic-section">
+                <h4 class="infographic-title">The problem</h4>
+                <div class="problem-card">
+                    <div class="subtext">
+                        Peak days mean multi-hour queues. Guests feel stuck, hot, and unsure where to go next—while the park struggles to balance crowd flow and satisfaction. We asked: how might real-time information and smarter routing reduce friction without adding operational burden?
+                    </div>
+                    <div class="problem-flow" aria-hidden="true">
+                        <div class="problem-flow-node">
+                            <div class="flow-emoji" aria-hidden="true">⏱️</div>
+                            <div class="flow-title">Friction</div>
+                            <div class="flow-caption">Long lines &amp; guesswork</div>
+                        </div>
+                        <div class="problem-flow-arrow" aria-hidden="true">→</div>
+                        <div class="problem-flow-node highlight">
+                            <div class="flow-emoji" aria-hidden="true">📱</div>
+                            <div class="flow-title">Route+</div>
+                            <div class="flow-caption">Live data &amp; routing</div>
+                        </div>
+                        <div class="problem-flow-arrow" aria-hidden="true">→</div>
+                        <div class="problem-flow-node">
+                            <div class="flow-emoji" aria-hidden="true">✨</div>
+                            <div class="flow-title">Outcome</div>
+                            <div class="flow-caption">Smoother park days</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="infographic-section">
+                <h4 class="infographic-title">How we got there</h4>
+                <p class="subtext" style="margin-top: 0.5%;">A phased process from insight to handoff—aligned with stakeholders and shaped by continuous testing.</p>
+                <div class="timeline-wrapper">
+                    <div class="timeline-track-line" aria-hidden="true"></div>
+                    <div class="timeline-container">
+                        <div class="timeline-card">
+                            <span class="timeline-step-badge">1</span>
+                            <div class="phase-label">Discover</div>
+                            <div class="phase-body">Framed the core tension: long waits and opaque park navigation. Interviewed and surveyed visitors to map pain points—heat, uncertainty, and “where should we go now?”</div>
+                        </div>
+                        <div class="timeline-card">
+                            <span class="timeline-step-badge">2</span>
+                            <div class="phase-label">Strategy</div>
+                            <div class="phase-body">Aligned on reducing perceived wait and improving flow through data-driven routing. Partnered with operations and product partners to prioritize features that were feasible and high-impact.</div>
+                        </div>
+                        <div class="timeline-card">
+                            <span class="timeline-step-badge">3</span>
+                            <div class="phase-label">Design</div>
+                            <div class="phase-body">Shipped flows for wait times, maps, wristband-aware routes, and notifications—then redesigned for clarity as feedback came in.</div>
+                        </div>
+                        <div class="timeline-card">
+                            <span class="timeline-step-badge">4</span>
+                            <div class="phase-label">Validate</div>
+                            <div class="phase-body">Twenty tests across ages 18–40 tightened map legibility, type scale, and notification copy. Documented specs in Figma for a staged build.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="infographic-section">
+                <h4 class="infographic-title">Impact</h4>
+                <div class="impact-grid">
+                    <div class="impact-card">
+                        <div class="impact-card-head">
+                            <div class="route-ig-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 14v6M8 10v10M12 6v14M16 12v8M20 8v12" stroke-width="1.5" stroke-linecap="round"/></svg>
+                            </div>
+                            <div class="impact-stat">~30% ↓ avg. wait perception</div>
+                        </div>
+                        <p class="impact-copy">Fewer complaints tied to queueing when guests can plan and reroute in the moment.</p>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-card-head">
+                            <div class="route-ig-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3" stroke-width="1.5"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke-width="1.5" stroke-linecap="round"/></svg>
+                            </div>
+                            <div class="impact-stat">Stronger operations</div>
+                        </div>
+                        <p class="impact-copy">Better crowd distribution and ride throughput when staff and guests share the same live picture of the park.</p>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-card-head">
+                            <div class="route-ig-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke-width="1.5"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01" stroke-width="1.5" stroke-linecap="round"/></svg>
+                            </div>
+                            <div class="impact-stat">Happier guests</div>
+                        </div>
+                        <p class="impact-copy">Higher satisfaction and repeat intent when the day feels under control—not left to chance.</p>
+                    </div>
+                </div>
+            </div>
+
+            <img src="./assets/route+/1.png" alt="Route+ app screens and flows" loading="lazy" style="margin-left: calc(-1*(var(--bodyMargin))); max-width: none; width: 100vw; margin-top: 2%;">
+
+            <div class="route-stats-bar" role="group" aria-label="Project facts">
+                <div class="route-stat-item">
+                    <strong>20</strong>
+                    <span>Usability sessions<br>(ages 18–40)</span>
+                </div>
+                <div class="route-stat-item">
+                    <strong>4</strong>
+                    <span>Process phases<br>discover → ship</span>
+                </div>
+                <div class="route-stat-item">
+                    <strong>Live</strong>
+                    <span>Wait + map +<br>notifications</span>
+                </div>
+            </div>
+
+            <div class="infographic-section">
+                <div class="route-section-kicker">Research snapshot</div>
+                <h4 class="infographic-title">What testing taught us</h4>
+                <p class="subtext" style="margin-top: 0.5%;">Usability runs focused on navigation, trust in wait data, and scan-to-route clarity. Here’s what rose to the top.</p>
+                <div class="research-grid">
+                    <div class="research-card">
+                        <div class="research-card-head">
+                            <div class="route-ig-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16M12 4v16" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="12" r="3" stroke-width="1.5"/></svg>
+                            </div>
+                            <h5 class="research-heading">Routes &amp; wristbands</h5>
+                        </div>
+                        <div class="research-description">
+                            People liked personalized routes but needed clearer steps to scan and confirm wristbands. We simplified hierarchy and added instructional moments.
+                        </div>
+                    </div>
+                    <div class="research-card alt">
+                        <div class="research-card-head">
+                            <div class="route-ig-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke-width="1.5"/><path d="M21 21l-4-4" stroke-width="1.5" stroke-linecap="round"/></svg>
+                            </div>
+                            <h5 class="research-heading">Wait times &amp; discovery</h5>
+                        </div>
+                        <div class="research-description">
+                            Wait data was findable, yet search and filters confused some users. They asked for ride types, areas, and short descriptions—not just minutes.
+                        </div>
+                    </div>
+                    <div class="research-card">
+                        <div class="research-card-head">
+                            <div class="route-ig-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10l4-4 4 4 8-8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="4" cy="18" r="2" stroke-width="1.5"/><circle cx="12" cy="14" r="2" stroke-width="1.5"/><circle cx="20" cy="6" r="2" stroke-width="1.5"/></svg>
+                            </div>
+                            <h5 class="research-heading">Map &amp; wayfinding</h5>
+                        </div>
+                        <div class="research-description">
+                            The map needed richer affordances: icons for rides and amenities, optional heat-style cues, and step-by-step directions guests could trust.
+                        </div>
+                    </div>
+                    <div class="research-card alt">
+                        <div class="research-card-head">
+                            <div class="route-ig-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h14" stroke-width="1.5" stroke-linecap="round"/></svg>
+                            </div>
+                            <h5 class="research-heading">Interface &amp; legibility</h5>
+                        </div>
+                        <div class="research-description">
+                            Type and contrast didn’t always pass the “sunlight and walking” test. We bumped sizes, clarified labels, and explored palettes that separate states at a glance.
+                        </div>
+                    </div>
+                    <div class="research-card">
+                        <div class="research-card-head">
+                            <div class="route-ig-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v4M8 21h8M5 10h14v11H5z" stroke-width="1.5" stroke-linejoin="round"/><path d="M9 14h6" stroke-width="1.5" stroke-linecap="round"/></svg>
+                            </div>
+                            <h5 class="research-heading">Onboarding &amp; flows</h5>
+                        </div>
+                        <div class="research-description">
+                            Adding rides, reading notifications, and using filters needed a lighter first-run experience—less density up front, more guidance where it matters.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="infographic-section">
+                <div style="position: relative; width: 100vw; left: calc(-1 * var(--bodyMargin)); overflow: hidden;">
+                    <div class="main-carousel">
+                        <img src="./assets/route+/c1.png" alt="Route+ interface carousel 1" class="carousel-cell" loading="eager">
+                        <img data-src="./assets/route+/c2.png" alt="Route+ interface carousel 2" class="carousel-cell" loading="lazy">
+                        <img data-src="./assets/route+/c3.png" alt="Route+ interface carousel 3" class="carousel-cell" loading="lazy">
+                    </div>
+                </div>
+            </div>
+
+            <div class="infographic-section">
+                <div class="route-section-kicker">Design north stars</div>
+                <h4 class="infographic-title">Guiding principles</h4>
+                <div class="philosophy-grid">
+                    <div class="philosophy-card">
+                        <div style="display: flex; align-items: flex-start;">
+                            <span class="philosophy-number">1</span>
+                            <div>
+                                <h5 class="role-heading">Cut wait, lift the day</h5>
+                                <p class="philosophy-text">Use live data and smart routing so families and thrill-seekers alike get more rides per visit.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="philosophy-card">
+                        <div style="display: flex; align-items: flex-start;">
+                            <span class="philosophy-number">2</span>
+                            <div>
+                                <h5 class="role-heading">Delight through clarity</h5>
+                                <p class="philosophy-text">Personal tips and notifications only work if they’re timely, scannable, and easy to act on in motion.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="philosophy-card">
+                        <div style="display: flex; align-items: flex-start;">
+                            <span class="philosophy-number">3</span>
+                            <div>
+                                <h5 class="role-heading">Operations + guest, together</h5>
+                                <p class="philosophy-text">Pair visitor-facing tools with signals ops can use—so the park runs smoother while guests feel seen.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="infographic-section" style="margin-bottom: 2.5%;">
+                <h4 class="infographic-title">The solution</h4>
+                <div class="solution-grid">
+                    <div class="solution-card">
+                        <div class="solution-card-inner">
+                            <div class="route-ig-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="12" r="4" stroke-width="1.5"/></svg>
+                            </div>
+                            <div>
+                                <h5 class="role-heading">Adaptive, personal app</h5>
+                                <p class="solution-text">Behavior and preferences shape what you see—without burying the basics.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="solution-card">
+                        <div class="solution-card-inner">
+                            <div class="route-ig-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5v-15A2.5 2.5 0 016.5 2H20v20H6.5a2.5 2.5 0 010-5H20" stroke-width="1.5" stroke-linejoin="round"/><path d="M8 7h8M8 11h6" stroke-width="1.5" stroke-linecap="round"/></svg>
+                            </div>
+                            <div>
+                                <h5 class="role-heading">Plain-language guidance</h5>
+                                <p class="solution-text">Short instructions and visual cues so scanning, routing, and notifications never feel like a puzzle.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="solution-card">
+                        <div class="solution-card-inner">
+                            <div class="route-ig-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.4 7.4h7.6l-6 4.6 2.3 7-6-4.6-6 4.6 2.3-7-6-4.6h7.6L12 2z" stroke-width="1.5" stroke-linejoin="round"/></svg>
+                            </div>
+                            <div>
+                                <h5 class="role-heading">Moments worth returning</h5>
+                                <p class="solution-text">Targeted perks and timely prompts keep engagement high across the full park day.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <br>
-        <h4>The Solution</h4>
-        <div class="subtext" style="margin-top: 1%;">
-            <span style="font-family: 'IBM Plex Sans';">1. An interactive application that adapts to its user: </span>
-            Create a personalized app experience that evolves based on user behavior and preferences to enhance engagement.
-            <br>
-            <span style="font-family: 'IBM Plex Sans';">2. Easy-to-read instructions: </span>
-            Provide clear, concise, and visually guided instructions to ensure users can navigate the app effortlessly. 
-            <br>
-            <span style="font-family: 'IBM Plex Sans';">3. Exclusive offers to encourage engagement: </span>
-            Use targeted incentives like special deals or early access to motivate users to stay active and loyal. 
-            <br>
-            <br>
+
+        <h4 class="infographic-title" style="display: inline-block; margin-top: 2%;">Closing thoughts</h4>
+        <div class="conclusion-box">
+            <p class="conclusion-text">
+                Route+ was an exercise in balancing ambition with legibility—theme parks are loud, bright, and fast-moving, and the UI had to keep up. The strongest takeaway: when wait times and maps are the product, trust and typography matter as much as the feature list. Testing didn’t just polish screens; it reordered what we surfaced first. I’d carry that discipline—prove the critical path in the messiest real-world conditions—into any high-traffic consumer product.
+            </p>
         </div>
-        <br><br>
 
     <!-- Footer -->
     <footer class="portfolio-footer">
@@ -288,4 +887,3 @@
     <script type="module" src="./assets/js/page_balls.js"></script>
 </body>
 </html>
-
