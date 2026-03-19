@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sun Life - UX/UI Projects</title> 
+    <title>Sun Life: Design system &amp; CMS | UX/UI Projects</title>
     <link rel="stylesheet" href="./assets/css/styles.css">
     <link rel="stylesheet" href="./assets/css/flickity.css" media="screen">
     <link rel="stylesheet" href="./assets/css/case_study.css">
-    <link href="/fonts/IBM_Plex_Sans/IBMPlexSans-Regular.ttf">
+    <link href="./fonts/IBM_Plex_Sans/IBMPlexSans-Regular.ttf">
     <link rel="icon" type="image/x-icon" href="./assets/images/favicon.jpg">
     <style>
         /* Infographic Styles */
@@ -15,7 +15,7 @@
             margin: 4% 0;
         }
         .infographic-section {
-            margin-bottom: 5%;
+            margin-bottom: clamp(2.5%, 4vw, 3.5%);
         }
         .infographic-title {
             font: normal 700 clamp(1rem, 1.8vw, 3rem) "IBM Plex Sans";
@@ -43,8 +43,8 @@
             overflow: hidden;
         }
         .timeline-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 32px rgba(14, 56, 70, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 28px rgba(14, 56, 70, 0.35);
         }
         .timeline-card::before {
             content: '';
@@ -87,8 +87,7 @@
         }
         .challenge-card:hover {
             background: #F0F0F0;
-            transform: translateX(5px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
         }
         .challenge-number {
             display: inline-flex;
@@ -156,6 +155,24 @@
             font: normal 300 clamp(1rem, 1.4vw, 2rem) "ibmPlexSansLight";
             line-height: clamp(1.3rem, 2vw, 2rem);
         }
+        .approach-intro {
+            font: normal 300 clamp(0.95rem, 1.25vw, 1.1rem) "ibmPlexSansLight";
+            line-height: 1.65;
+            color: #444;
+            max-width: 48rem;
+            margin-top: 0.75rem;
+            margin-bottom: 0.25rem;
+        }
+        .approach-weave {
+            display: block;
+            margin-top: 0.65rem;
+            padding-top: 0.65rem;
+            border-top: 1px solid rgba(14, 56, 70, 0.1);
+            font: normal 300 clamp(0.9rem, 1.15vw, 1.05rem) "ibmPlexSansLight";
+            color: #0E3846;
+            line-height: 1.55;
+            opacity: 0.92;
+        }
         /* Pages Published Grid */
         .pages-grid {
             display: grid;
@@ -166,22 +183,22 @@
         .page-tag {
             background: linear-gradient(135deg, #ECAB23 0%, #f5c04d 100%);
             color: #0E3846 !important;
-            padding: 1rem;
+            padding: 0.85rem 0.75rem;
             border-radius: 8px;
             text-align: center;
-            font: normal 600 clamp(1rem, 1.4vw, 1.1rem) "IBM Plex Sans";
-            box-shadow: 0 2px 8px rgba(236, 171, 35, 0.2);
-            transition: all 0.3s ease;
+            font: normal 600 clamp(0.95rem, 1.25vw, 1.05rem) "IBM Plex Sans";
+            box-shadow: 0 1px 6px rgba(236, 171, 35, 0.18);
+            transition: box-shadow 0.2s ease, transform 0.2s ease;
             text-decoration: none !important;
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 60px;
+            min-height: 52px;
             width: 100%;
         }
         .page-tag:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 12px rgba(236, 171, 35, 0.3);
+            transform: translateY(-1px);
+            box-shadow: 0 3px 10px rgba(236, 171, 35, 0.28);
             text-decoration: none !important;
             color: #0E3846 !important;
         }
@@ -219,9 +236,9 @@
         .guidelines-card {
             background: #F8F8F8;
             border: 2px solid #ECAB23;
-            padding: 2rem;
+            padding: 1.35rem 1.5rem;
             border-radius: 8px;
-            margin-top: 3%;
+            margin-top: 2.5%;
         }
         .guidelines-text {
             color: #2F2E2E;
@@ -231,8 +248,8 @@
         /* Conclusion Section */
         .conclusion-box {
             border: 2px solid #ECAB23;
-            padding: 2rem;
-            margin-top: 3%;
+            padding: 1.35rem 1.5rem;
+            margin-top: 2%;
             background: transparent;
         }
         .conclusion-text {
@@ -284,133 +301,122 @@
     
     <div class="body-wrapper">
         <h1>Sun Life</h1>
+        <p class="subtext" style="margin-top: 0.35rem; font-family: 'IBM Plex Sans', sans-serif; font-size: clamp(0.9rem, 1.2vw, 1rem); color: #0E3846; opacity: 0.9;">Design system enhancement · CMS execution</p>
         <div class="subtext" style="margin-top: 1%;">
-            <span style="font-family: 'IBM Plex Sans';">In with the new. Out with the old. Global refresh of Sun Life Design Language.</span>
+            <span style="font-family: 'IBM Plex Sans', sans-serif;">The mandate wasn't to design screens; it was to accelerate time to market at a global scale.</span>
             <br><br>
-            Sun Life undertook a large-scale overhaul of its websites across global markets (Canada, the U.S., Asia, etc.).The initiative aimed to unify the digital experience under a scalable design system. The company is moving away from analog options to fully digital across the globe. 
+            I put Sun Life’s global design system into the CMS: one language for typography, colour, spacing, and components across regions, without local needs becoming one-off UI.
 
- <img src="./assets/images/Sunlife.png" alt="" loading="lazy" style="margin-left: calc(-1*(var(--bodyMargin))); max-width: none; width: 100vw; margin-top: 2%;">
+ <img src="./assets/images/Sunlife.png" alt="Sun Life" loading="lazy" style="margin-left: calc(-1*(var(--bodyMargin))); max-width: none; width: 100vw; margin-top: 2%;">
 
         <div class="infographic-container">
-            <!-- Timeline Section -->
             <div class="infographic-section">
-                <h4 class="infographic-title">Timeline</h4>
+                <h4 class="infographic-title">Rollout</h4>
                 <div class="timeline-container">
                     <div class="timeline-card">
                         <div class="phase-label">Phase 1</div>
-                        <div class="phase-date">April - December 2024</div>
-                        <div class="phase-duration">Canada and USA pages</div>
+                        <div class="phase-date">Apr - Dec 2024</div>
+                        <div class="phase-duration">Canada &amp; U.S.: system-aligned templates and high-volume publishing.</div>
                     </div>
                     <div class="timeline-card">
                         <div class="phase-label">Phase 2</div>
-                        <div class="phase-date">January - April 2025</div>
-                        <div class="phase-duration">Asia pages</div>
+                        <div class="phase-date">Jan - Apr 2025</div>
+                        <div class="phase-duration">Asia: same language in the CMS for additional markets.</div>
                     </div>
                 </div>
             </div>
 
-            <!-- Challenge Section -->
             <div class="infographic-section">
-                <h4 class="infographic-title">Challenge</h4>
+                <h4 class="infographic-title">Constraints</h4>
                 <div class="challenge-grid">
                     <div class="challenge-card">
                         <div style="display: flex; align-items: flex-start;">
                             <span class="challenge-number">1</span>
-                            <p class="challenge-text">Coordinating with stakeholders across regions and languages.</p>
+                            <p class="challenge-text">One global system, many regions: align stakeholders without diluting the library.</p>
                         </div>
                     </div>
                     <div class="challenge-card">
                         <div style="display: flex; align-items: flex-start;">
                             <span class="challenge-number">2</span>
-                            <p class="challenge-text">Ensuring consistent implementation while balancing global brand standards with localized needs.</p>
+                            <p class="challenge-text">Keep CMS throughput high while patterns, not exceptions, stayed the default.</p>
                         </div>
                     </div>
                     <div class="challenge-card">
                         <div style="display: flex; align-items: flex-start;">
                             <span class="challenge-number">3</span>
-                            <p class="challenge-text">Maintaining speed to market through efficient CMS publishing and cross-team alignment.</p>
-                        </div>
-                    </div>
-                    <div class="challenge-card">
-                        <div style="display: flex; align-items: flex-start;">
-                            <span class="challenge-number">4</span>
-                            <p class="challenge-text">Ensuring content and layouts remained accessible and compliant with WCAG standards.</p>
+                            <p class="challenge-text">WCAG and multilingual layouts had to hold in production, not only in review.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Approach Section -->
             <div class="infographic-section">
                 <h4 class="infographic-title">Approach</h4>
+                <p class="approach-intro">Four moves framed the work: put the global system into the CMS (not beside it); treat regional UX specs as the contract for what “correct” looked like; keep publishing and staging verification tight; hold accessibility across locales. The six areas below spell out how that showed up in practice.</p>
                 <div class="approach-grid">
                     <div class="approach-card">
                         <div class="approach-icon">📐</div>
                         <h5 class="approach-heading">Design System Implementation</h5>
-                        <p class="approach-description">Applied the global Sun Life design system within the CMS, ensuring consistency in typography, color, spacing, and component usage.</p>
+                        <p class="approach-description">Applied the global Sun Life design system within the CMS, ensuring consistency in typography, color, spacing, and component usage.<span class="approach-weave">Tokens and components in the CMS so authors build inside the system, not around it.</span></p>
                     </div>
                     <div class="approach-card alt">
                         <div class="approach-icon">🤝</div>
                         <h5 class="approach-heading">Stakeholder Collaboration</h5>
-                        <p class="approach-description">Partnered with UX designers, product owners, and business analysts.</p>
+                        <p class="approach-description">Partnered with UX designers, product owners, and business analysts.<span class="approach-weave">Cross-functional alignment so drift and edge cases surface before they multiply in the CMS.</span></p>
                     </div>
                     <div class="approach-card">
                         <div class="approach-icon">⚡</div>
                         <h5 class="approach-heading">Content Publishing Workflow</h5>
-                        <p class="approach-description">Managed end-to-end publishing for a wide range of page types .</p>
+                        <p class="approach-description">Managed end-to-end publishing for a wide range of page types.<span class="approach-weave">End-to-end throughput with patterns, not one-offs, as the default path.</span></p>
                     </div>
                     <div class="approach-card alt">
                         <div class="approach-icon">✓</div>
                         <h5 class="approach-heading">UX Alignment</h5>
-                        <p class="approach-description">Ensured adherence to UX guidelines provided by regional UX teams.</p>
+                        <p class="approach-description">Ensured adherence to UX guidelines provided by regional UX teams.<span class="approach-weave">Regional rules on spacing, colour, and assets were the spec; when something was ambiguous, we escalated to UX instead of improvising.</span></p>
                     </div>
                     <div class="approach-card">
                         <div class="approach-icon">🌍</div>
-                        <h5 class="approach-heading">Accessibility & Localization</h5>
-                        <p class="approach-description">Conducted checks for accessibility standards (WCAG) and adapted layouts for multilingual audiences across different regions.</p>
+                        <h5 class="approach-heading">Accessibility &amp; Localization</h5>
+                        <p class="approach-description">Conducted checks for accessibility standards (WCAG) and adapted layouts for multilingual audiences across different regions.<span class="approach-weave">WCAG and layout checks so translation and regional variants don’t break hierarchy or usability.</span></p>
                     </div>
                     <div class="approach-card alt">
                         <div class="approach-icon">🔄</div>
-                        <h5 class="approach-heading">Feedback & Iteration</h5>
-                        <p class="approach-description">Collaborated with QA and UX teams to test pages pre-launch, addressing issues before going live.</p>
+                        <h5 class="approach-heading">Feedback &amp; Iteration</h5>
+                        <p class="approach-description">Collaborated with QA and UX teams to test pages pre-launch, addressing issues before going live.<span class="approach-weave">Publish, test, fix, re-verify in staging so production isn’t the first real test.</span></p>
                     </div>
                 </div>
             </div>
 
-            <!-- Pages Published Section -->
             <div class="infographic-section">
-                <h4 class="infographic-title">Pages Published</h4>
+                <h4 class="infographic-title">Live scope</h4>
                 <div class="pages-grid">
                     <a href="https://www.sunlife.ca/" target="_blank" rel="noopener noreferrer" class="page-tag">Regional Websites</a>
                     <a href="https://www.sunlife.ca/en/investments/" target="_blank" rel="noopener noreferrer" class="page-tag">Product Pages</a>
                     <a href="https://www.sunlife.ca/en/find-an-advisor/" target="_blank" rel="noopener noreferrer" class="page-tag">Client Services</a>
-                    <a href="https://www.sunlife.ca/en/tools-and-resources/" target="_blank" rel="noopener noreferrer" class="page-tag">Blog & News</a>
+                    <a href="https://www.sunlife.ca/en/tools-and-resources/" target="_blank" rel="noopener noreferrer" class="page-tag">Blog &amp; News</a>
                     <a href="https://www.sunlife.ca/en/support/check-your-coverage/" target="_blank" rel="noopener noreferrer" class="page-tag">Policy Details</a>
                     <a href="https://www.sunlife.ca/en/tools-and-resources/" target="_blank" rel="noopener noreferrer" class="page-tag">Educational Resources</a>
                     <a href="https://sunnet.sunlife.com/bcheck.html?redir=/signin/mysunlife/home.wca" target="_blank" rel="noopener noreferrer" class="page-tag">Customer Portals</a>
-                    <a href="https://www.sunlife.com/sl/pslf-canada/en/legal/" target="_blank" rel="noopener noreferrer" class="page-tag">Legal & Privacy</a>
+                    <a href="https://www.sunlife.com/sl/pslf-canada/en/legal/" target="_blank" rel="noopener noreferrer" class="page-tag">Legal &amp; Privacy</a>
                 </div>
-                <p class="subtext" style="margin-top: 2%;">All publishing includes the subpages linked to the main page</p>
+                <p class="subtext" style="margin-top: 1.25%;">Includes linked subpages. This is where template discipline either holds or quietly erodes.</p>
             </div>
 
-            <!-- UX Guidelines Section -->
             <div class="infographic-section">
-                <h4 class="infographic-title">UX Guidelines</h4>
+                <h4 class="infographic-title">Documentation</h4>
                 <div class="guidelines-card">
-                    <p class="guidelines-text">Each website had their own guidelines in terms of spacing, colours, and assets used. The publishers adhered to these guidelines, provided by the UX team.</p>
+                    <p class="guidelines-text">Per-site UX guidelines were the practical layer on top of the global system: when they were clear, publishing was fast; when they weren’t, we escalated to UX instead of improvising in the CMS.</p>
                 </div>
             </div>
 
-            <!-- Impact Section -->
             <div class="infographic-section">
                 <h4 class="infographic-title">Impact</h4>
                 <div class="impact-grid">
                     <div class="impact-card">
                         <ul>
-                            <li>Published hundreds of pages across multiple markets, boosting customer satisfaction.</li>
-                            <li>Strengthened brand cohesion while enabling regional flexibility for localized user journeys.</li>
-                            <li>Helped Sun Life maintain accessibility compliance across markets, supporting usability for diverse audiences.</li>
-                            <li>Streamlined publishing workflows by proactively communicating with stakeholders, reducing turnaround time on approvals and launches.</li>
+                            <li>Stronger cohesion across markets: fewer rogue layouts, more intentional reuse of system patterns.</li>
+                            <li>Faster iteration once templates and rules were stable in the CMS; clearer reviews for stakeholders.</li>
+                            <li>Accessibility and consistency treated as part of shipping, not a late gate.</li>
                         </ul>
                     </div>
                 </div>
@@ -418,10 +424,10 @@
         </div>
 
         <h4 class="infographic-title" style="margin-top: 2%;">Conclusion</h4>
-        
+
         <div class="conclusion-box">
             <p class="conclusion-text">
-                This project highlighted the importance of bridging UX design, content management, and stakeholder alignment at scale. By acting as the link between UX strategy and live digital execution, the publishing process ensured a consistent, accessible, and user-friendly experience across Sun Life's global presence. Adhering to detailed UX guidelines allowed us to preserve design integrity while managing hundreds of region-specific pages, highlighting the scale and complexity required to ensure brand consistency and address customer needs.
+                The design system wins when the CMS and governance make the right pattern the easy one. I connected UX intent to live pages at scale: hundreds of routes, one disciplined language.
             </p>
         </div>
 
@@ -457,4 +463,3 @@
     <script type="module" src="./assets/js/page_balls.js"></script>
 </body>
 </html>
-
