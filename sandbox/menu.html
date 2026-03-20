@@ -40,7 +40,7 @@
                 <a href="about.html">About</a>
                 <div class="dropdown">
                     <a href="gallery.html">Gallery</a>
-                    <div class="content">
+                    <div class="content" id="gallery-dropdown-content">
                         <a href="photography.html">Photography</a>
                         <a href="digital_art.html">Digital Art</a>
                         <a href="video.html">Videography & 3D Design</a>
@@ -58,24 +58,66 @@
 
     <script>
 
+        function ensureFullyVisible(el, padding = 24) {
+            const rect = el.getBoundingClientRect();
+            const vh = window.innerHeight;
+            if (rect.height > vh - 2 * padding) {
+                el.scrollIntoView({ block: 'start', behavior: 'smooth' });
+                return;
+            }
+            let dy = 0;
+            if (rect.top < padding) dy = rect.top - padding;
+            else if (rect.bottom > vh - padding) dy = rect.bottom - vh + padding;
+            if (dy) window.scrollBy({ top: dy, behavior: 'smooth' });
+        }
+
+        let galleryScrollFallbackTimer = null;
+
+        function scheduleGalleryScrollIntoView(c) {
+            if (c.id !== 'gallery-dropdown-content') return;
+            if (galleryScrollFallbackTimer) clearTimeout(galleryScrollFallbackTimer);
+            galleryScrollFallbackTimer = setTimeout(() => {
+                galleryScrollFallbackTimer = null;
+                if (parseFloat(c.style.maxHeight) <= 0) return;
+                ensureFullyVisible(c);
+            }, 400);
+        }
+
         function dropdownMenu(d, c) {
             if (!d || !c) return;
 
             d.addEventListener('mouseover', () => {
-                const contentHeight = c.scrollHeight; // Get content's full height
-                console.log(contentHeight);
-                c.style.maxHeight = contentHeight + 'px'; // Set the dynamic max-height
-                c.style.opacity = 1; // Make it visible
+                const contentHeight = c.scrollHeight;
+                c.style.maxHeight = contentHeight + 'px';
+                c.style.opacity = 1;
+                scheduleGalleryScrollIntoView(c);
             });
         
             d.addEventListener('mouseleave', () => {
-                c.style.maxHeight = '0'; // Collapse the content when not hovering
-                c.style.opacity = 0; // Hide the content
+                if (c.id === 'gallery-dropdown-content' && galleryScrollFallbackTimer) {
+                    clearTimeout(galleryScrollFallbackTimer);
+                    galleryScrollFallbackTimer = null;
+                }
+                c.style.maxHeight = '0';
+                c.style.opacity = 0;
             });
         }
 
         const dropdown = document.querySelectorAll('.dropdown');
         const content = document.querySelectorAll('.content');
+
+        const galleryDropdownContent = document.getElementById('gallery-dropdown-content');
+        if (galleryDropdownContent) {
+            galleryDropdownContent.addEventListener('transitionend', (e) => {
+                if (e.propertyName !== 'max-height' || e.target !== galleryDropdownContent) return;
+                if (parseFloat(galleryDropdownContent.style.maxHeight) <= 0) return;
+                if (galleryScrollFallbackTimer) {
+                    clearTimeout(galleryScrollFallbackTimer);
+                    galleryScrollFallbackTimer = null;
+                }
+                ensureFullyVisible(galleryDropdownContent);
+            });
+        }
 
         dropdownMenu(dropdown[0].children[0], content[0]);
         dropdownMenu(content[0], content[0]);
